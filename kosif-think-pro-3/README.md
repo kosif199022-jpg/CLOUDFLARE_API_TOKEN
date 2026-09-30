@@ -1,22 +1,33 @@
-# KOSIF Think Pro 3 — v3.0.0
+# KOSIF Think Pro 3 — v3.1.0
 
 إضافة ChatGPT (وCodex) تجمع **عقل KOSIF Think Pro** (التفكير أولاً والتحقق والإيصالات) مع **استوديو خبراء بالقياس الحقيقي**: تحليل الصور، والرسم والتوليد، والإضاءة، والصوت، والبرمجة، والفيديو.
 
 ## التثبيت
 1. ChatGPT ← **المكونات الإضافية** ← **إضافة** ← «انقر لتحميله».
-2. ارفع `dist/kosif-think-pro-3.0.0.zip`.
+2. ارفع `dist/kosif-think-pro-3.1.0.zip`.
 3. ثبّت الإضافة، ثم فعّل في المحادثة: Code Interpreter (لتشغيل أدوات القياس) وتوليد الصور والبحث.
 
 ## المهارات والأوامر
 | المهارة | ماذا تفعل | الأوامر | أداة القياس |
 |---|---|---|---|
-| 🧠 kosif-think-pro | تفكير أولاً، 28 وحدة، مجلس 14 شخصية، بوابة تناقض الأدلة، إيصالات جاهزة للإكمال | `/help` `/pro` `/deep` `/verify` `/selftest` `/versions` | `evidence_consistency_check.py` `pro_receipt_verify.py` `artifact_normalize.py` `version_check.py` |
+| 🧠 kosif-think-pro | تفكير أولاً، 28 وحدة، مجلس 14 شخصية، بوابة تناقض الأدلة، جدار التحيزات، أفكار جانبية، قرار بحساسية | `/help` `/pro` `/deep` `/verify` `/selftest` `/versions` `/ideate` `/decide` `/bias` `/library` | `evidence_consistency_check.py` `pro_receipt_verify.py` `artifact_normalize.py` `version_check.py` |
 | 🔍 kosif-vision | تحليل الصور بالأرقام: التعريض، الاحتراق، الحرارة اللونية، اللوحة HEX، الحدة، الضجيج، اتجاه الضوء، التكوين، EXIF | `/analyze` `/compare` `/ocr` `/critique` `/reverse` `/score` | `image_analyze.py` |
 | 🎨 kosif-image-studio | توليد وتعديل الصور بعقد تنفيذ + فحص البرومبت + قفل الشخصية والأسلوب | `/img` `/imgpro` `/edit` `/prompt` `/style` `/lock` `/batch` | `prompt_lint.py` |
 | 💡 kosif-lighting | خطط إضاءة بمخطط وجداول، وحسابات التعريض والمسافة والجل | `/lightplan` `/light` `/relight` `/exposure` `/gel` | `light_calc.py` |
 | 🎧 kosif-audio | قياس LUFS (BS.1770) والقمة الحقيقية وBPM والطيف، ماسترينغ، أغاني Suno بالمقامات، تعليق صوتي | `/audio` `/master` `/mix` `/song` `/voice` `/sfx` `/podcast` | `audio_analyze.py` |
 | 💻 kosif-code-master | كود كامل يُختبر فعلاً، ماسح أمني، تدقيق مشاريع zip كاملة، معمارية، نشر | `/code` `/debug` `/review` `/audit` `/explain` `/arch` `/optimize` `/test` `/convert` `/sql` `/deploy` | `code_scan.py` |
-| 🎬 kosif-video | قوائم لقطات، ستوري بورد، برومبتات Sora/Veo/Runway/Kling، ريلز وإعلانات | `/video` `/shots` `/storyboard` `/reel` `/ad` | `prompt_lint.py` (video) |
+| 🎬 kosif-video | قصص مبنية على الصراع (GMC+S)، قوائم لقطات، ستوري بورد، برومبتات Sora/Veo/Runway/Kling | `/story` `/video` `/shots` `/storyboard` `/reel` `/ad` | `story_lint.py` `prompt_lint.py` |
+| 📒 kosif-audit-ifrs | قيود يومية، ضريبة القيمة المضافة، مطابقة بنكية، معايير IFRS، أمور مراجعة رئيسية، مصطلحات عربية | `/journal` `/reconcile` `/vat` `/ifrs` `/cam` `/audit-plan` `/evidence` `/terms` `/practice` | `ledger_check.py` |
+
+## ما الجديد في 3.1.0 (من قراءة مكتبة «كتب»)
+- قراءة وتحليل كل ملفات المجلد مع سجل صادق لكل كتاب: ما قُرئ، ونسبة التغطية، والحالة، وأين طُبّق (`skills/kosif-think-pro/references/books/`).
+- **مهارة جديدة kosif-audit-ifrs** + `ledger_check.py` (توازن القيد بالهللة، الضريبة، الفترة، منع التكرار، مطابقة الفاتورة بالبنك، «حركة البنك ليست إيراداً»).
+- **محرك صراع للقصص** (`story_lint.py`) من The Conflict Thesaurus.
+- **Personality Lock** للشخصيات (30 سمة فرعية + سلوك «إذا… إذن…») من Cambridge Handbook، ومجلس الشخصيات صار مبنياً على السمات.
+- **70 مبدأ + قوائم فحص** من The Pragmatic Programmer داخل مهارة البرمجة، و`/design-review` و`/ml`.
+- **`/ideate`** بعشوائية حقيقية (REST) من Lateral Thinking Course، و**`/decide`** بحساسية الأوزان من Convex Optimization، و**`/bias`** مع فاحص الاحتمالات (مغالطة الاقتران وإهمال المعدل الأساسي) من Smart Thinking.
+- تصحيح تصنيف كتب ملوّثة: Judgment in Managerial Decision Making (فهرس فقط)، Designing Bots، Convex Optimization (الفصل الأول فقط سليم).
+- الاختبارات: 84 حالة (كانت 65).
 
 ## ما الجديد في 3.0.0 مقارنة بـ 2.7.3
 - **بوابة أدلة مُنمّطة**: حساب آمن للتعابير (`15%` = 0.15) + تحقق من المجموع والنسبة المئوية والنسبة والنطاق وترتيب التواريخ والوحدات. تُعزل الإجابات المخالفة لنتيجة متكررة من مصدرين مستقلين (حالة 92 محفوظة)، ويُصعَّد التعارض بين قيمتين متقاربتين.
@@ -34,6 +45,6 @@
 
 ## للمطوّر
 ```bash
-python3 skills/kosif-think-pro/scripts/regression_self_test.py   # 65 اختباراً
+python3 skills/kosif-think-pro/scripts/regression_self_test.py   # 84 اختباراً
 python3 tools/build_zip.py                                       # يتحقق ثم يبني dist/*.zip
 ```

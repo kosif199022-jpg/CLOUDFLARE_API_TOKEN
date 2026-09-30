@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""KOSIF Think Pro 3 regression suite (v3.0.0).
+"""KOSIF Think Pro 3 regression suite (v3.1.0).
 
 Covers the 2.7.3 invariants (receipts, spoofing, dissent, taint, budgets,
 self-improvement, manifest/skill binding) plus the 3.0 layer: typed evidence
@@ -28,8 +28,12 @@ from pro_receipt_verify import validate as receipt_validate  # noqa: E402
 from self_improvement_eval import evaluate as improve_eval  # noqa: E402
 from source_taint_check import validate as taint_validate  # noqa: E402
 from version_check import negotiate  # noqa: E402
+from decision_sensitivity import analyse as decide  # noqa: E402
+from ideate import run as ideate  # noqa: E402
+from probability_coherence import check as coherence  # noqa: E402
 
-EXPERTS = ["kosif-vision", "kosif-image-studio", "kosif-lighting", "kosif-audio", "kosif-code-master", "kosif-video"]
+EXPERTS = ["kosif-vision", "kosif-image-studio", "kosif-lighting", "kosif-audio", "kosif-code-master", "kosif-video",
+           "kosif-audit-ifrs"]
 
 
 def load(rel, name):
@@ -248,15 +252,86 @@ def run():
             cmp = ia.compare(str(p), str(Path(td) / "b.png"))
             check("vision-compare-sharper-original", cmp["sharper"] == "A")
 
+    # ---- 3.1 book-derived helpers ------------------------------------------
+    i1, i2 = ideate({"problem": "p", "n": 5, "seed": 11}), ideate({"problem": "p", "n": 5, "seed": 11})
+    check("ideate-seed-reproducible", [w["word"] for w in i1["random_stimuli"]] == [w["word"] for w in i2["random_stimuli"]])
+    check("ideate-three-association-laws", set(i1["random_stimuli"][0]["prompts"]) == {"contiguity", "similarity", "contrast"})
+    check("ideate-distinct-seeds-differ", [w["word"] for w in ideate({"n": 5, "seed": 12})["random_stimuli"]]
+          != [w["word"] for w in i1["random_stimuli"]])
+    dec = decide({"criteria": {"cost": {"direction": "min", "weight": 0.5}, "quality": {"direction": "max", "weight": 0.5}},
+                  "constraints": {"quality": {"min": 6}},
+                  "options": [{"id": "A", "scores": {"cost": 10, "quality": 7}}, {"id": "B", "scores": {"cost": 8, "quality": 9}},
+                              {"id": "C", "scores": {"cost": 5, "quality": 4}}, {"id": "D", "scores": {"cost": 12, "quality": 6}},
+                              {"id": "E", "scores": {"cost": 6}}]})
+    check("decide-firm-constraint-rejects", [r["id"] for r in dec["rejected"]] == ["C"])
+    check("decide-missing-score-pending", [r["id"] for r in dec["pending"]] == ["E"])
+    check("decide-dominance-found", dec["dominated"].get("A") == "B" and dec["dominated"].get("D") in ("A", "B"))
+    check("decide-winner-dominant-option", dec["winner"] == "B")
+    coh = coherence({"events": {"A": "0.3", "A&B": "0.4"}, "bayes": [{"name": "t", "prior": "0.01", "sensitivity": "0.9",
+                                                                        "false_positive_rate": "0.09", "stated_posterior": "0.9"}]})
+    check("coherence-conjunction-fallacy", any("conjunction fallacy" in x for x in coh["issues"]))
+    check("coherence-base-rate-neglect", any("base-rate neglect" in x for x in coh["issues"]) and coh["bayes"][0]["posterior"].startswith("0.0917"))
+    check("coherence-clean-passes", coherence({"events": {"A": "0.3", "not A": "0.7", "B": "0.5", "A&B": "0.1", "A|B": "0.7"}})["ok"])
+
+    story = load("kosif-video/scripts/story_lint.py", "story_lint").lint
+    good_story = {"central_conflict": "character vs character", "protagonist": "Laila",
+                  "beats": [{"goal": "open bakery", "motivation": "honour father", "conflict": "rival chain", "stakes": "savings",
+                             "stakes_level": 1, "choice": "Laila signs the lease", "level": "scene"},
+                            {"goal": "win festival", "motivation": "prove herself", "conflict": "oven sabotaged",
+                             "stakes": "reputation", "stakes_level": 2, "choice": "Laila bakes by hand all night", "level": "inner"},
+                            {"goal": "keep the shop", "motivation": "family", "conflict": "rival buys the building",
+                             "stakes": "home and legacy", "stakes_level": 3, "choice": "Laila exposes the rival's fraud",
+                             "level": "story"}],
+                  "climax": {"outer": "festival final vs rival", "inner": "she stops seeking her father's approval"}}
+    check("story-good-passes", story(good_story)["ok"])
+    bad_story = json.loads(json.dumps(good_story)); bad_story["beats"][2].pop("choice"); bad_story["climax"].pop("inner")
+    bad_story["central_conflict"] = "hero vs everything"
+    bi = story(bad_story)["issues"]
+    check("story-agency-climax-central-flagged", any("agency" in x for x in bi) and any("climax" in x for x in bi)
+          and any("central_conflict" in x for x in bi))
+
+    ledger = load("kosif-audit-ifrs/scripts/ledger_check.py", "ledger_check").check
+    books = {"currency_minor_units": 2, "vat_rate": "0.15", "chart": ["1101", "1201", "2201", "4101"],
+             "revenue_accounts": ["4101"], "bank_accounts": ["1101"],
+             "period": {"start": "2026-09-01", "end": "2026-09-30", "status": "open"},
+             "entries": [{"id": "JE1", "date": "2026-09-03", "event_key": "INV-104",
+                          "lines": [{"account": "1201", "debit": "1150.00"}, {"account": "4101", "credit": "1000.00"},
+                                    {"account": "2201", "credit": "150.00"}], "tax": {"base": "1000.00", "amount": "150.00"}}],
+             "invoices": [{"id": "INV-104", "party": "NOUR", "total": "1150.00"}],
+             "bank": [{"id": "B1", "party": "NOUR", "amount": "1150.00", "ref": "INV-104"}]}
+    lr = ledger(books)
+    check("ledger-worked-example-clean", lr["ok"] and lr["matches"][0]["status"] == "full")
+    dup = json.loads(json.dumps(books))
+    dup["entries"].append({"id": "JE2", "date": "2026-09-05", "event_key": "INV-104",
+                           "lines": [{"account": "1101", "debit": "1150.00"}, {"account": "4101", "credit": "1150.00"}]})
+    di = ledger(dup)["issues"]
+    check("ledger-duplicate-event-and-bank-revenue-flagged", any("already booked" in x for x in di)
+          and any("credited directly to revenue" in x for x in di))
+    bad = json.loads(json.dumps(books)); bad["entries"][0]["lines"][1]["credit"] = "999.99"
+    bad["entries"][0]["tax"]["amount"] = "149.00"; bad["entries"][0]["date"] = "2026-10-01"
+    bi = ledger(bad)["issues"]
+    check("ledger-unbalanced-tax-period-flagged", any("unbalanced" in x for x in bi) and any("tax" in x for x in bi)
+          and any("period" in x for x in bi))
+    part = json.loads(json.dumps(books)); part["bank"][0]["amount"] = "1125.00"
+    check("ledger-partial-payment-kept-open", ledger(part)["matches"][0]["status"] == "partial"
+          and ledger(part)["open_invoice_balances_minor"] == {"INV-104": 2500})
+
+    lib = (SKILLS / "kosif-think-pro" / "references" / "books" / "library-index.md").read_text(encoding="utf-8")
+    check("library-ledger-covers-all-18-files", all(t in lib for t in ("Pragmatic", "Conflict Thesaurus", "Cambridge", "Lateral",
+          "Accounting Skill", "Smart Thinking", "Deep Learning", "Convex", "Research Bundle", "Dip IFRS", "IFRS in Arabic",
+          "SICP", "Judgment", "Designing Bots", "Probability Theory", "Code Complete", "Organon", "ابن سينا")))
+    ledger_md = (SKILLS / "kosif-think-pro" / "references" / "book-source-ledger.md").read_text(encoding="utf-8")
+    check("judgment-downgraded-to-toc-only", "only the table-of-contents page is genuine" in ledger_md)
+
     # ---- package binding ---------------------------------------------------
     manifest = json.loads((ROOT / "plugin.json").read_text(encoding="utf-8"))
     codex = json.loads((ROOT / ".codex-plugin" / "plugin.json").read_text(encoding="utf-8"))
     skill = (SKILLS / "kosif-think-pro" / "SKILL.md").read_text(encoding="utf-8")
     runtime = (SKILLS / "kosif-think-pro" / "references" / "runtime-consistency.md").read_text(encoding="utf-8")
-    check("manifest-3.0.0", manifest.get("version") == "3.0.0" and codex.get("version") == "3.0.0")
+    check("manifest-3.1.0", manifest.get("version") == "3.1.0" and codex.get("version") == "3.1.0")
     check("manifest-description-lengths", len(manifest["extensions"]["com.openai"]["interface"]["longDescription"]) <= 1024
           and len(manifest["extensions"]["com.openai"]["interface"]["shortDescription"]) <= 30)
-    check("skill-version-3.0.0", "# KOSIF Think Pro 3 — v3.0.0" in skill)
+    check("skill-version-3.1.0", "# KOSIF Think Pro 3 — v3.1.0" in skill)
     check("skill-binds-layers", all(x in skill for x in ("verified-self-improvement.md", "pro_receipt_verify.py",
           "source-taint-protocol.md", "runtime-consistency.md", "evidence_consistency_check.py", "expert-studio.md")))
     check("skill-routes-all-experts", all(e in skill for e in EXPERTS))
@@ -269,7 +344,7 @@ def run():
 
     failed = [n for n, ok in tests if not ok]
     out = {"ok": not failed, "passed": sum(1 for _, ok in tests if ok), "total": len(tests), "failed": failed,
-           "skipped": skipped, "version": "3.0.0"}
+           "skipped": skipped, "version": "3.1.0"}
     print(json.dumps(out, ensure_ascii=False, sort_keys=True))
     return 0 if not failed else 1
 

@@ -1,8 +1,8 @@
 ---
 name: kosif-think-pro
-description: Use when the user selects KOSIF Think Pro, asks for Pro/full power/all capabilities, asks KOSIF to reason before execution, asks the tool to improve/test itself, or types /help /pro /deep /verify /selftest. It is the front door that frames every request and routes to the KOSIF expert skills (vision, image studio, lighting, audio, code master, video).
+description: Use when the user selects KOSIF Think Pro, asks for Pro/full power/all capabilities, asks KOSIF to reason before execution, asks the tool to improve/test itself, or types /help /pro /deep /verify /selftest. It is the front door that frames every request and routes to the KOSIF expert skills (vision, image studio, lighting, audio, code master, video, audit & IFRS).
 ---
-# KOSIF Think Pro 3 — v3.0.0
+# KOSIF Think Pro 3 — v3.1.0
 
 KOSIF Think Pro 3 is the mandatory **think-first orchestration front door** while selected. It is an instruction/skill package with deterministic helper scripts. It does **not** change model weights, guarantee host/kernel tool invocation, or prove provider model identity.
 
@@ -11,7 +11,7 @@ Before any substantive answer or executor:
 1. Frame the observable user goal, success condition, stakes, reversibility, uncertainty and freshness needs.
 2. For every live KOSIF runtime call, apply `references/runtime-consistency.md`: quarantine answer fields that contradict independently repeated deterministic evidence (typed validators: arithmetic, sum, percent, ratio, range, date order, units — `scripts/evidence_consistency_check.py`), and distinguish server-side tool availability from current host exposure.
    Normalize micro-agent/Council artifacts with `scripts/artifact_normalize.py` so evidence, risks, objections and assumptions sit in the correct fields before synthesis.
-3. For non-trivial work read/apply `references/master-cognitive-architecture.md`.
+3. For non-trivial work read/apply `references/master-cognitive-architecture.md`; for material estimates/decisions run the Bias Firewall (`references/bias-firewall.md`).
 4. Route the smallest decision-changing cognitive/tool set in Standard Mode; in Pro Mode use the exhaustive coverage contract below.
 5. If supplied sources/books matter, apply `references/source-taint-protocol.md`, `references/source-quality.md` and `references/book-source-ledger.md` before deriving rules or claims.
 6. Before execution freeze an Execution Contract, run anti-drift preflight, execute, then verify the observable result.
@@ -28,11 +28,12 @@ After framing, route domain work to the matching expert skill and apply its prot
 | light, shadows, exposure, gels, lighting plans | `kosif-lighting` | `light_calc.py` |
 | audio file, mix/master, song, voice-over, SFX | `kosif-audio` | `audio_analyze.py` |
 | code, errors, reviews, architecture, zipped projects | `kosif-code-master` | `code_scan.py` |
-| video, reels, ads, shot lists, storyboards | `kosif-video` | `prompt_lint.py` (video mode) |
+| video, reels, ads, shot lists, storyboards, stories | `kosif-video` | `prompt_lint.py` (video mode), `story_lint.py` |
+| accounting, journals, VAT, reconciliation, IFRS, audit, CAMs | `kosif-audit-ifrs` | `ledger_check.py` |
 Measured helper output outranks impressions. When Python is unavailable, say the measurement did not run and label the answer as estimated.
 
 ## Commands
-`/help` list every command of all KOSIF skills in Arabic, grouped by skill · `/pro <task>` force Pro Mode · `/deep <topic>` research with live web sources, source-quality grading and citations · `/verify <claim or answer>` run the typed consistency gate and source checks · `/selftest` run `scripts/regression_self_test.py` and report pass/fail honestly · `/versions` negotiate component versions with `scripts/version_check.py` using only live-observed versions.
+`/help` list every command of all KOSIF skills in Arabic, grouped by skill · `/pro <task>` force Pro Mode · `/deep <topic>` research with live web sources, source-quality grading and citations · `/verify <claim or answer>` run the typed consistency gate and source checks · `/selftest` run `scripts/regression_self_test.py` and report pass/fail honestly · `/versions` negotiate component versions with `scripts/version_check.py` using only live-observed versions · `/ideate <problem>` lateral generation with true random stimuli (`scripts/ideate.py`, REST + association laws + concept challenge), then a logic filter · `/decide <options>` firm constraints → feasible set → Pareto dominance → weighted ranking → weight-flip sensitivity (`scripts/decision_sensitivity.py`) · `/bias <estimate or decision>` Bias Firewall table (`references/bias-firewall.md`) + `scripts/probability_coherence.py` · `/library` show which supplied books were read, their status and where each is applied (`references/books/library-index.md`).
 
 ## Master Cognitive Pipeline
 For non-trivial work:
@@ -148,3 +149,6 @@ Confidence is not evidence. Agreement is not independence. Correlation is not ca
 - `scripts/artifact_normalize.py`
 - `scripts/version_check.py` + `references/version-compat.json`
 - `references/expert-studio.md`
+- `references/bias-firewall.md`
+- `references/books/` (library index + one analysis per book)
+- `scripts/ideate.py`, `scripts/decision_sensitivity.py`, `scripts/probability_coherence.py`

@@ -21,7 +21,7 @@ description: Use for ANY request to create, draw, generate, edit, restyle, upsca
 - `/edit` — edit uploaded/last image; state what must stay identical (identity, composition, colors) and change only the requested part.
 - `/prompt <idea> [midjourney|flux|sdxl|dalle|ideogram]` — prompts only, adapted to the platform (see `references/prompt-library.md` for syntax).
 - `/style <image>` — extract a reusable **Style Lock** (palette HEX, lighting, lens, grade, texture, era) using kosif-vision measurements.
-- `/lock <character>` — create a **Character Lock** and reuse it verbatim in every later prompt (the linter checks it).
+- `/lock <character>` — create a **Character Lock** + **Personality Lock** (facets, visible cues, if-then signatures from `references/character-psychology.md`) and reuse them verbatim in every later prompt (the linter checks it).
 - `/batch <idea> <n>` — n consistent images (same locks, varied pose/angle), e.g. storyboards, carousels.
 
 ## Text on images
