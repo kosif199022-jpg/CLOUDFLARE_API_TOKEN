@@ -1,0 +1,19 @@
+{
+  "name": "kosif-pro",
+  "version": "1.0.0",
+  "description": "Expert coding engineer and ultra-detailed image prompt director. Commands: /code /debug /review /explain /arch /img /imgpro /prompt.",
+  "author": { "name": "Kosif" },
+  "license": "MIT",
+  "extensions": {
+    "com.openai.interface": {
+      "displayName": "Kosif Pro",
+      "shortDescription": "Pro coding + HD images",
+      "category": "Productivity",
+      "defaultPrompts": [
+        "/code تطبيق مهام بـ Next.js",
+        "/imgpro فارس عربي في الصحراء عند الغروب",
+        "/review راجع هذا الكود"
+      ]
+    }
+  }
+}
