@@ -1,0 +1,47 @@
+{
+  "interface": {
+    "displayName": "KOSIF Think Pro 3",
+    "shortDescription": "Think · verify · create",
+    "longDescription": "KOSIF Think Pro 3 v3.0.0 keeps the 28-module cognitive core, 14-profile Personality Council, source-taint, provenance, dissent and bounded-budget rules, and adds a measured Expert Studio: kosif-vision (pixel/EXIF image analysis), kosif-image-studio (contract-bound image generation with prompt linting and Character/Style Locks), kosif-lighting (lighting plans and exposure/gel math), kosif-audio (BS.1770 loudness, true peak, BPM, mastering, Arabic songs), kosif-code-master (complete code, security scanner, zipped-project audits) and kosif-video (shot lists and AI video prompts). Typed validators quarantine answers that contradict repeated evidence; receipts separate structurally valid from completion-ready. Helper scripts need Python; nothing here changes model weights or guarantees tool invocation.",
+    "developerName": "Kosif",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive"
+    ],
+    "defaultPrompt": [
+      "KOSIF Think Pro 3 is the mandatory entry point for every request while selected. Run KOSIF framing/routing before any substantive answer or downstream executor, then route domain work to the matching expert skill (kosif-vision, kosif-image-studio, kosif-lighting, kosif-audio, kosif-code-master, kosif-video).",
+      "Measure before judging: when Python is available run the expert helper scripts (image_analyze.py, prompt_lint.py, light_calc.py, audio_analyze.py, code_scan.py) and report measured values separately from judgement; if Python is unavailable say the measurement did not run.",
+      "Apply references/runtime-consistency.md to every runtime call: reject or quarantine answer fields that contradict independently repeated deterministic evidence; never treat server-advertised tools as host-exposed unless they are actually present in the live host tool catalog. If direct kosif_auto/kosif_route is absent, use an exposed mobile bridge capability only when its live schema is available; otherwise record the capability unavailable.",
+      "For non-trivial work apply references/master-cognitive-architecture.md. For Pro or self-improvement work also apply references/verified-self-improvement.md and references/capability-provenance.md.",
+      "If the user requests Pro/full power/all capabilities, cover M01-M28 and all 14 Personality Council profiles; preserve independent first-pass artifacts before cross-critique and record unavailable capabilities rather than pretending they ran.",
+      "In Pro Mode retain actual/fallback provenance for every materially applicable model/tool/app that was requested or used. A configured alias is not proof of underlying model identity.",
+      "Before using supplied books/files as evidence, apply references/source-taint-protocol.md and the existing book/source ledgers. Quarantined, contaminated or unreadable sources cannot support claims or runtime rules.",
+      "Preserve a dissent ledger so minority objections and unresolved assumptions cannot disappear during synthesis.",
+      "Use bounded model/tool/retry/no-change budgets. Stop or escalate repeated no-change instead of looping.",
+      "For self-improvement, compare candidate behavior against a baseline on held-out/adversarial cases. More agents, more tokens or higher confidence is not itself improvement.",
+      "Before any executor, freeze an Execution Contract, run anti-drift preflight, then verify the observable postcondition. Tool success alone is not user-goal success.",
+      "When Python is available, scripts/pro_receipt_verify.py is the completion-grade Pro receipt validator: completion requires completion_ready=true, not merely structurally_valid. scripts/evidence_consistency_check.py runs the typed answer/evidence gate; scripts/pro_coverage_check.py is legacy structural coverage only.",
+      "Never claim that plugin instructions or helper scripts provide kernel enforcement, guaranteed tool invocation, cryptographic provenance, or model-weight changes."
+    ]
+  },
+  "name": "kosif-think-pro",
+  "version": "3.0.0",
+  "description": "KOSIF Think Pro 3 — think-first orchestration plus measured expert studio: image analysis, image generation, lighting, audio, elite coding and video, with typed evidence consistency, completion-ready receipts, source-taint controls, capability provenance and proof-based execution.",
+  "author": {
+    "name": "Kosif"
+  },
+  "keywords": [
+    "reasoning",
+    "verification",
+    "image-analysis",
+    "image-generation",
+    "lighting",
+    "audio",
+    "mastering",
+    "coding",
+    "security",
+    "video",
+    "arabic"
+  ],
+  "skills": "./skills"
+}

@@ -1,0 +1,11 @@
+{
+  "matrix_version": "3.0.0",
+  "pro_package": "3.0.0",
+  "components": {
+    "runtime":        {"min": "0.8.3", "recommended": "0.8.3", "reason": "answer/evidence quarantine gate and host-exposure truthfulness"},
+    "mobile_bridge":  {"min": "1.4.0", "recommended": "1.4.0", "reason": "kosif_mobile_call bridge to kosif_auto/kosif_route"},
+    "chatgpt_plugin": {"min": "1.5.3", "recommended": "1.5.3", "reason": "refreshed live MCP discovery"},
+    "trace":          {"min": "2.7",   "recommended": "3.0",   "reason": "3.0 adds consistency + completion_ready fields"}
+  },
+  "degraded_if_missing": ["runtime", "mobile_bridge", "chatgpt_plugin"]
+}
