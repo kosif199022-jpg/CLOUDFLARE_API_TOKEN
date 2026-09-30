@@ -22,7 +22,7 @@ from datetime import date
 from enum import Enum
 from typing import Any, Callable, Iterable, Mapping
 
-KCL_VERSION = "3.3.0"
+KCL_VERSION = "3.4.0"
 
 
 # ───────────────────────────── the typed language ─────────────────────────────

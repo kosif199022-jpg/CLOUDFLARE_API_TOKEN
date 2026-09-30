@@ -36,6 +36,33 @@ def _core(sp):
     return locks, who, where, cam
 
 
+VAGUE = re.compile(r"\b(4k|8k|masterpiece|best quality|ultra[- ]?detailed|hyper[- ]?realistic|award[- ]winning|trending on artstation)\b", re.I)
+QUALITY_RUBRIC = {"subject_clarity": 20, "camera_and_lens": 20, "lighting_physics": 20,
+                  "materials_and_texture": 20, "platform_fit": 20}
+
+
+def iron_rules(sp):
+    """Iron rules distilled from the user's Drive books (Blue Diamond FINAL, PromptCraft Elite v3, Black Camel)."""
+    w = []
+    blob = " ".join(_clean(sp.get(k)) for k in FIELDS + ["quality"] if k != "quality") + " " + " ".join(sp.get("quality") or [])
+    if re.match(r"\s*(a|an)\s+(photo|picture|image)\s+of\b", _clean(sp.get("subject")), re.I):
+        w.append("iron rule: do not open with 'a photo of' — start with the subject itself")
+    for m in sorted({m.lower() for m in VAGUE.findall(blob)}):
+        w.append(f"iron rule: '{m}' is a vague booster — replace it with concrete lens, light and texture terms")
+    light = _clean(sp.get("lighting"))
+    if light and not re.search(r"\d{4}\s*k\b|key|rim|fill|window|from (camera )?(left|right|above|behind)|golden hour|overcast", light, re.I):
+        w.append("iron rule: lighting should state physics — source, direction and colour temperature (e.g. 'window key from left, 4300K')")
+    return w
+
+
+def variations(sp):
+    """Three variations per deliverable: Subtle, Dramatic, Technical (PromptCraft Elite v3)."""
+    light = _clean(sp.get("lighting")) or "soft natural light"
+    return {"subtle": f"same scene, gentler contrast, {light}, muted palette",
+            "dramatic": "same scene, low-key chiaroscuro, hard rim light, deeper shadows, tighter framing",
+            "technical": f"same scene, {_clean(sp.get('lens')) or '50mm f/2.8'}, exact exposure notes, named materials and textures"}
+
+
 def forge(sp):
     mode = sp.get("mode", "image")
     if mode not in {"image", "video"}:
@@ -89,7 +116,7 @@ def forge(sp):
             if text:
                 body += f', the text "{text}"'
             params = f" --ar {aspect} --style raw --v 7" + (f" --no {', '.join(neg)}" if neg else "")
-            out[p] = {"prompt": body + params, "notes": "add --cref URL --cw 80 for character reference; --sref URL for style"}
+            out[p] = {"prompt": body + params, "notes": "V7: --oref URL --ow 100 for character/object reference (--cref is V6 only); --sref URL for style; --stylize 50-250; --seed N for series coherence"}
         elif p == "flux":
             body = f"{style.capitalize() + ' image' if style else 'An image'} of {who}"
             body += f", {where}" if where else ""
@@ -120,12 +147,29 @@ def forge(sp):
                 cam and f"Camera: {cam}" + (f", {move}" if move else ""), light and f"Lighting: {light}",
                 pal and f"Palette: {pal}", style and f"Style: {style}", quality] if x)
             body += f". Duration {dur or '5 seconds'}, {fps or '24fps'}, aspect ratio {aspect}."
+            dialogue, audio = _clean(sp.get("dialogue")), _clean(sp.get("audio"))
+            if p == "veo" and (dialogue or audio):
+                bits = []
+                if dialogue:
+                    bits.append(f'{_clean(sp.get("speaker")) or "The character"} says: "{dialogue}" (no subtitles)')
+                if audio:
+                    bits.append(audio)
+                body += " Audio: " + ". ".join(bits) + "."
+            if p == "runway":
+                # Runway Gen-4: one clear sequential description, positive phrasing only, short
+                body = re.sub(r"\b(no|without|avoid)\s+[^.,]+[.,]?\s*", "", body)
+                if len(body.split()) > 300:
+                    warnings.append("runway: prompt is long; keep it under ~300 words / 400 tokens")
             notes = {"sora": "describe one continuous shot; keep physics plausible",
                      "veo": "Veo can add native audio: append 'Audio: …' with ambience and SFX",
-                     "runway": "start from an approved keyframe (image-to-video) for identity consistency",
-                     "kling": "use the motion brush for subject paths; keep 5–10 s per shot"}[p]
-            out[p] = {"prompt": body, "negative_prompt": ", ".join(neg) if neg and p in {"kling", "runway"} else None, "notes": notes}
-    return {"mode": mode, "prompts": out, "warnings": warnings,
+                     "runway": "start from an approved keyframe; describe actions in sequence; no negative phrasing (Runway ignores/inverts it)",
+                     "kling": "use Start/End frames and the motion brush; keep 5–10 s per shot"}[p]
+            if p == "veo":
+                notes += "; durations 4/6/8 s; for continuity feed the previous clip's last frame as the next first frame"
+            out[p] = {"prompt": body, "negative_prompt": ", ".join(neg) if neg and p == "kling" else None, "notes": notes}
+    warnings += iron_rules(sp)
+    return {"mode": mode, "prompts": out, "warnings": warnings, "variations": variations(sp),
+            "quality_rubric": QUALITY_RUBRIC,
             "next": "lint each prompt: python3 prompt_lint.py (kosif-image-studio) with mode image/video and the contract + locks"}
 
 

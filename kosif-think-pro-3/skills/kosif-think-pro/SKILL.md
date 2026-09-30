@@ -2,7 +2,7 @@
 name: kosif-think-pro
 description: Use when the user selects KOSIF Think Pro, asks for Pro/full power/all capabilities, asks KOSIF to reason before execution, asks the tool to improve/test itself, wants the 100-member expert council, or types /help /pro /deep /verify /selftest /council /council100 /forge. It is the front door that frames every request and routes to the KOSIF expert skills (vision, image studio, lighting, audio, code master, video, audit & IFRS, prompt master, web design, GitHub, computer use, Jev).
 ---
-# KOSIF Think Pro 3 — v3.3.0
+# KOSIF Think Pro 3 — v3.4.0
 
 KOSIF Think Pro 3 is the mandatory **think-first orchestration front door** while selected. It is an instruction/skill package with deterministic helper scripts. It does **not** change model weights, guarantee host/kernel tool invocation, or prove provider model identity.
 

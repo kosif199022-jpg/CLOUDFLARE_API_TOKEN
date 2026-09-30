@@ -1,5 +1,12 @@
 # Changelog
 
+## 3.4.0 — 2026-09-30 (Drive books «كتب هامة»)
+### Added
+- `kosif-prompt-master/references/books-drive-ledger.md`: a note for each file read, a list of the files not yet read, what was adopted and what was rejected.
+- prompt_forge: iron-rule warnings, Veo `Audio:` plus dialogue "(no subtitles)" plus last-frame continuity, Runway positive-only, MJ V7 --oref/--sref, Kling Start/End, 3 variations, 5×20% quality rubric.
+- Council phase-1 thinker lenses in personality-council.md.
+- 5 regression tests, including `forge-no-euphemism-substitution` (the euphemism dictionary in the source app is safety-filter evasion and was rejected).
+
 ## 3.3.0 — 2026-09-30 (Council-100, council language, project forge, five new experts)
 ### Added
 - **Council-100**: 100 distinct members in 10 chambers (14 core profiles + 86 specialists), each with a unique specialty,

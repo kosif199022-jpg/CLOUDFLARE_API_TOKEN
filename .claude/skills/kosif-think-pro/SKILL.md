@@ -2,7 +2,7 @@
 name: kosif-think-pro
 description: "KOSIF Think Pro for Claude: think-first reasoning, a 100-member expert council and a measured expert studio. Use it for careful reasoning, verification, decisions and research, and for: image analysis and image/video prompts, prompt engineering for LLMs and agents, website and UI design with accessibility audits, GitHub work (commits, pull requests, CI), operating a browser or computer safely, Jev yes/no, choice and score judgements, lighting, audio and Arabic songs for Suno, programming and code review, stories and ads, accounting, VAT, IFRS and audit. Also for the commands /pro /verify /decide /bias /ideate /council /council100 /forge /prompt /site /webaudit /gh /pr /computer /jev /img /code /review /story /journal, and Arabic requests such as تحليل صورة، برومبت، تصميم موقع، جيت هاب، تحكم في الكمبيوتر، مجلس الخبراء، برمجة، قيد محاسبي. It measures with bundled Python helpers and never claims a tool ran when it did not."
 ---
-# KOSIF Think Pro 3 — v3.3.0
+# KOSIF Think Pro 3 — v3.4.0
 
 KOSIF Think Pro 3 is the mandatory **think-first orchestration front door** while selected. It is an instruction/skill package with deterministic helper scripts. It does **not** change model weights, guarantee host/kernel tool invocation, or prove provider model identity.
 

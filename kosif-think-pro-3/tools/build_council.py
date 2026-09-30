@@ -18,7 +18,7 @@ ROOT = Path(__file__).resolve().parents[1]
 CORE = ROOT / "skills" / "kosif-think-pro"
 OUT = CORE / "references" / "council-100.json"
 DATA = Path(__file__).resolve().parent / "council_data"
-VERSION = "3.3.0"
+VERSION = "3.4.0"
 
 # (en, ar, core, facets, triggers, if_then, question, veto)
 CH = {

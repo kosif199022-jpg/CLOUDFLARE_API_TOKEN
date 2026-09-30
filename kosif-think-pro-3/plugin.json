@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "kosif-think-pro",
-  "version": "3.3.0",
+  "version": "3.4.0",
   "description": "KOSIF Think Pro 3 — think-first orchestration, a 100-member expert council with a typed Python language and project forge, and a measured expert studio: images, lighting, audio, code, video, audit & IFRS, prompts, web design, GitHub, computer use and Jev decisions.",
   "author": {
     "name": "Kosif"
@@ -11,7 +11,7 @@
       "interface": {
         "displayName": "KOSIF Think Pro 3",
         "shortDescription": "Think · verify · create",
-        "longDescription": "KOSIF Think Pro 3 v3.3.0: think-first core (28 modules, source-taint, provenance, dissent, budgets) with Council-100 — 100 distinct expert members in 10 chambers, 2,000 unique capabilities, a typed Python council language with 36 real probes, sealed first passes, veto-aware aggregation, and a project forge where any member scaffolds a tested project. Twelve measured experts: vision, image studio, lighting, audio, code master, video, audit & IFRS, plus new prompt master (LLM prompt lint, cross-platform image/video forge), web design (WCAG audit, AA light/dark tokens), GitHub (pre-push gate for branches, secrets, commits, PRs), computer use (action risk gate, UI grounding, human checkpoints) and Jev (closed-set judgements with calibrated reading, never approval). Helpers need Python; nothing here changes model weights or guarantees tool invocation.",
+        "longDescription": "KOSIF Think Pro 3 v3.4.0: think-first core (28 modules, source-taint, provenance, dissent, budgets) with Council-100 — 100 distinct expert members in 10 chambers, 2,000 unique capabilities, a typed Python council language with 36 real probes, sealed first passes, veto-aware aggregation, and a project forge where any member scaffolds a tested project. Twelve measured experts: vision, image studio, lighting, audio, code master, video, audit & IFRS, plus new prompt master (LLM prompt lint, cross-platform image/video forge), web design (WCAG audit, AA light/dark tokens), GitHub (pre-push gate for branches, secrets, commits, PRs), computer use (action risk gate, UI grounding, human checkpoints) and Jev (closed-set judgements with calibrated reading, never approval). Helpers need Python; nothing here changes model weights or guarantees tool invocation.",
         "developerName": "Kosif",
         "category": "Productivity",
         "capabilities": [

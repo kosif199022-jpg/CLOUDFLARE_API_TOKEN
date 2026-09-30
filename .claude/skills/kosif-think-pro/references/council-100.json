@@ -1,5 +1,5 @@
 {
- "version": "3.3.0",
+ "version": "3.4.0",
  "size": 100,
  "capabilities_total": 2000,
  "note": "Internal expert lenses, not real people or diagnoses. The 14 core profiles are the receipt-required Pro set; the other 86 are context-activated specialists. Capabilities are competence checklists the model applies and, for probes, deterministic Python measurements (council_lang.py). One model voicing many members is ONE independent source.",

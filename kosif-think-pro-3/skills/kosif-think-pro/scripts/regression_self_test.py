@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""KOSIF Think Pro 3 regression suite (v3.3.0).
+"""KOSIF Think Pro 3 regression suite (v3.4.0).
 
 Layout-agnostic: runs inside the ChatGPT/Codex plugin (skills/<name>/...) and inside
 the single-folder Claude skill (kosif-think-pro/{scripts,references}/...).
@@ -520,10 +520,22 @@ def run():
     js = jp.stability({"responses": [{"answers": {"decision": {"type": "noul", "noul": 0.9}}}, {"answers": {"decision": {"type": "noul", "noul": 0.2}}}]})
     check("jev-instability-detected", not js["stable"])
 
+    # ---- v3.4 Drive-book rules ----------------------------------------------
+    fb = pf({"subject": "a photo of a boy", "lighting": "nice", "style": "8K masterpiece", "platforms": ["flux"]})
+    check("forge-iron-rules", sum("iron rule" in w for w in fb["warnings"]) >= 3 and set(fb["variations"]) == {"subtle", "dramatic", "technical"}
+          and sum(fb["quality_rubric"].values()) == 100)
+    fa = pf({"mode": "video", "subject": "a fisherman", "camera_move": "slow dolly", "duration": "8 seconds", "dialogue": "hello",
+             "audio": "waves", "negative": ["blur"], "platforms": ["veo", "runway"]})
+    check("forge-veo-audio-no-subtitles", 'says: "hello" (no subtitles)' in fa["prompts"]["veo"]["prompt"] and "Audio:" in fa["prompts"]["veo"]["prompt"])
+    check("forge-runway-no-negatives", fa["prompts"]["runway"]["negative_prompt"] is None)
+    fs = pf({"subject": "a soldier wounded in battle, blood on the ground", "platforms": ["chatgpt"]})
+    check("forge-no-euphemism-substitution", "wounded" in fs["prompts"]["chatgpt"]["prompt"] and "blood" in fs["prompts"]["chatgpt"]["prompt"])
+    check("books-ledger-present", (find("books-drive-ledger.md") is not None) and "Not yet read" in find("books-drive-ledger.md").read_text(encoding="utf-8"))
+
     # ---- package binding ---------------------------------------------------
     skill = (SKILL_ROOT / "SKILL.md").read_text(encoding="utf-8")
     runtime = find("runtime-consistency.md").read_text(encoding="utf-8")
-    check("skill-version-3.3.0", "v3.3.0" in skill[:3000])
+    check("skill-version-3.4.0", "v3.4.0" in skill[:3000])
     check("skill-binds-layers", all(x in skill for x in ("verified-self-improvement.md", "pro_receipt_verify.py",
           "source-taint-protocol.md", "runtime-consistency.md", "evidence_consistency_check.py")))
     check("skill-routes-all-experts", all(e in skill for e in EXPERTS))
@@ -533,7 +545,7 @@ def run():
     if LAYOUT == "plugin":
         manifest = json.loads((PLUGIN_ROOT / "plugin.json").read_text(encoding="utf-8"))
         codex = json.loads((PLUGIN_ROOT / ".codex-plugin" / "plugin.json").read_text(encoding="utf-8"))
-        check("manifest-3.3.0", manifest.get("version") == "3.3.0" and codex.get("version") == "3.3.0")
+        check("manifest-3.4.0", manifest.get("version") == "3.4.0" and codex.get("version") == "3.4.0")
         check("manifest-description-lengths", len(manifest["extensions"]["com.openai"]["interface"]["longDescription"]) <= 1024
               and len(manifest["extensions"]["com.openai"]["interface"]["shortDescription"]) <= 30)
         for e in EXPERTS:
@@ -551,7 +563,7 @@ def run():
 
     failed = [n for n, ok in tests if not ok]
     out = {"ok": not failed, "passed": sum(1 for _, ok in tests if ok), "total": len(tests), "failed": failed,
-           "skipped": skipped, "version": "3.3.0", "layout": LAYOUT}
+           "skipped": skipped, "version": "3.4.0", "layout": LAYOUT}
     print(json.dumps(out, ensure_ascii=False, sort_keys=True))
     return 0 if not failed else 1
 

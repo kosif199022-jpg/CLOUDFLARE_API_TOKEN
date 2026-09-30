@@ -77,3 +77,6 @@ One line per member, grouped by chamber: `name_ar — stance — strongest point
 
 ### Build alone (`scripts/project_forge.py`)
 Any member can scaffold a complete project in its archetype, with its probes vendored and wired in, tests that pass on generation (the forge runs them and reports the real result), CI, architecture doc, ADR, SECURITY.md and a milestone roadmap built from its 8 programming capabilities. The project then grows milestone by milestone, test-first. All 100 members' default projects were generated and tested at release time.
+
+## Phase-1 thinker lenses (v3.4, from the user's «مجلس» app)
+Before members measure, ask up to six lens questions and keep only the ones that change the plan: higher dimensions (what view is missing?), forces (what pushes and resists?), contradictions (which two requirements conflict?), unconscious patterns (what habit or bias shapes the request?), algorithm (what repeatable procedure solves it?), timescales (what happens in the first second vs the first year?). Then activate chambers by request type, and close each active chamber with a QA check and an archivist note. Claimed counts are not evidence: that app claimed 500+ experts while its data held 138.

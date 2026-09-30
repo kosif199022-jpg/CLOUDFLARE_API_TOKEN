@@ -35,6 +35,8 @@ Rules: specific nouns over adjectives ("3 bullet points ≤ 15 words" not "short
 ## Image / video prompts
 Formula and vocabulary: `references/domains/kosif-image-studio.md` + `references/kosif-image-studio/prompt-library.md` (image) and `references/domains/kosif-video.md` (video). Use `scripts/prompt_forge.py` to translate one spec into each platform's syntax (Midjourney parameters, SDXL weights + negative prompt, Flux natural language, DALL·E/ChatGPT constraint-first sentences, Ideogram quoted text, video camera/duration/motion). Locks (Character/Style/Location) are copied verbatim.
 
+v3.4 (from the user's Drive books, ledger in `references/kosif-prompt-master/books-drive-ledger.md`): the forge now warns on iron-rule breaks (a "a photo of" opener; vague boosters such as 4K/8K/masterpiece; lighting without source, direction and Kelvin), writes Veo dialogue as `Audio: X says: "…" (no subtitles)` with 4/6/8 s clips and last-frame → first-frame continuity, keeps Runway positive-only and sequential, uses Midjourney V7 `--oref/--sref/--stylize/--seed`, Kling Start/End frames, and returns 3 variations (Subtle/Dramatic/Technical) plus a 5×20% quality rubric. Character sheets: one detailed base portrait, then "Using this image as a reference, show the same person from the back/left/right, keep …". Never rewrite sensitive words into euphemisms to pass a generator's safety filter — refuse or reframe honestly instead.
+
 ## Commands
 - `/prompt <goal> [model|platform]` — full pipeline, one final prompt.
 - `/sysprompt <product/bot>` — system prompt with role, policies, tone, refusal style, tools, output format and 3 test cases.
