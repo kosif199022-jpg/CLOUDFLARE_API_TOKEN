@@ -31,5 +31,8 @@ If Python is unavailable, say so and give a visual-only analysis labelled "estim
 - `/reverse` — only the recreation prompt + Style Lock + negative list.
 - `/score` — only the scores table + 3 fixes.
 
+## Calibrated interpretation
+Describe what is shown, then the impression, then the hedge level (see `../kosif-think-pro/references/inference-and-comprehension.md`): observation → effect ("back to the viewer, which creates mystery"); use art vocabulary — bold, subtle/delicate, atmospheric, ambiguous, intimate, conventional, abstract, dramatic. Lint emotional/identity claims with `../kosif-think-pro/scripts/calibration_check.py`.
+
 ## Rules
 Measured numbers beat impressions; if they disagree with what you see, say so and explain (e.g. intentional low-key). Heuristic labels (light direction, placement) must be called estimates. Privacy: no face identification, no guessing age/ethnicity/health of real people beyond what is needed for the user's legitimate task.

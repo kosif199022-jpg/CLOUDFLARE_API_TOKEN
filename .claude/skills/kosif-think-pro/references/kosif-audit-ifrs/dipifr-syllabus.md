@@ -1,0 +1,7 @@
+# DipIFR practice map (ACCA Diploma in IFR exam kit, exams Dec 2024 / Jun 2025 — OCR-noisy copy)
+
+The kit's past-exam analysis grid (readable despite OCR noise) covers these syllabus areas; use them to generate practice scenarios with /practice. Exam material is training content, not authority.
+
+1 regulatory framework & ethics · 2 Conceptual Framework / elements · 3 revenue (IFRS 15) · 4–5 non-current assets, impairment (IAS 16/36/38/40, IFRS 5) · 6 leases (IFRS 16) · 7 intangibles & goodwill · 8 provisions & contingencies (IAS 37) · 9 employee benefits (IAS 19) · 10 financial instruments (IFRS 9/32/7) · 11 taxation (IAS 12 — the most frequent topic in the extract) · 12 foreign currency (IAS 21) · 13 other assets & inventories, agriculture (IAS 2/41), mineral resources (IFRS 6) · 14 share-based payment (IFRS 2) · 15 presentation of financial statements & disclosures · 16 reporting financial performance (IAS 8, IAS 33 EPS) · 18 related parties & segments · 19 reporting for small entities / interim · 20–22 group accounts (IFRS 3/10/11/12, IAS 28), consolidated statements.
+
+Scenario style in the kit: an exhibit-based case (e.g. financial controller asking how events 1–3 are reported for the year ended 31 March 20X2; financial-asset classification amortised cost vs FVTPL) → requirement: explain and show the treatment with calculations. Mirror that: facts → requirement → marked answer (standard + paragraph logic + numbers).

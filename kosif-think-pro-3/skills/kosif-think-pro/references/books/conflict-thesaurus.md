@@ -12,4 +12,4 @@ Coverage: 715 pages; craft chapters + ~150 conflict entries in 6 categories (Los
 - Entry anatomy used for generation: examples · minor complications · potentially disastrous results · resulting emotions · internal struggles · negative traits that worsen it · impact on basic needs (physiological, safety, belonging, esteem, self-actualisation) · positive outcomes.
 
 ## Where it lives
-kosif-video: `references/story-conflict.md`, `scripts/story_lint.py`, `/story`; kosif-think-pro Conflict Pre-Mortem (resource loss, power struggle, ego threat, danger, loss of control) as a planning taxonomy — not psychology.
+kosif-video: `kosif-video/references/story-conflict.md`, `kosif-video/scripts/story_lint.py`, `/story`; kosif-think-pro Conflict Pre-Mortem (resource loss, power struggle, ego threat, danger, loss of control) as a planning taxonomy — not psychology.

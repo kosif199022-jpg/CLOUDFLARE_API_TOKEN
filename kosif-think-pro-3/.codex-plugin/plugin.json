@@ -2,7 +2,7 @@
   "interface": {
     "displayName": "KOSIF Think Pro 3",
     "shortDescription": "Think · verify · create",
-    "longDescription": "KOSIF Think Pro 3 v3.1.0 keeps the 28-module cognitive core, 14-profile Council, source-taint, provenance, dissent and budget rules, and adds a measured Expert Studio: kosif-vision (pixel/EXIF analysis), kosif-image-studio (contract-bound generation, Character + Personality Locks), kosif-lighting (plans, exposure/gel math), kosif-audio (BS.1770 loudness, true peak, BPM, Arabic songs), kosif-code-master (security scanner, Pragmatic checklists), kosif-video (conflict-driven stories, shot lists) and kosif-audit-ifrs (journal, VAT, reconciliation controls, CAMs). v3.1 adds rules read from the user's book library with an honest per-book coverage ledger. Helper scripts need Python; nothing here changes model weights or guarantees tool invocation.",
+    "longDescription": "KOSIF Think Pro 3 v3.2.0 keeps the 28-module cognitive core, 14-profile Council, source-taint, provenance, dissent and budget rules, and adds a measured Expert Studio: kosif-vision (pixel/EXIF analysis), kosif-image-studio (contract-bound generation, Character + Personality Locks), kosif-lighting (plans, exposure/gel math), kosif-audio (BS.1770 loudness, true peak, BPM, Arabic songs), kosif-code-master (security scanner, Pragmatic checklists), kosif-video (conflict-driven stories, shot lists) and kosif-audit-ifrs (journal, VAT, reconciliation controls, CAMs). v3.2 adds rules read from the user's book library (honest per-book ledger), a comprehension cycle, calibrated inference, counterfactual reasoning and ten worked examples. Helper scripts need Python; nothing here changes model weights or guarantees tool invocation.",
     "developerName": "Kosif",
     "category": "Productivity",
     "capabilities": [
@@ -25,7 +25,7 @@
     ]
   },
   "name": "kosif-think-pro",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "description": "KOSIF Think Pro 3 — think-first orchestration plus measured expert studio: image analysis, image generation, lighting, audio, elite coding, video/story and audit & IFRS, with typed evidence consistency, completion-ready receipts, source-taint controls, capability provenance and proof-based execution.",
   "author": {
     "name": "Kosif"

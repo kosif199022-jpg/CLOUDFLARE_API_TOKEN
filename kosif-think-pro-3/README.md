@@ -1,10 +1,10 @@
-# KOSIF Think Pro 3 — v3.1.0
+# KOSIF Think Pro 3 — v3.2.0
 
 إضافة ChatGPT (وCodex) تجمع **عقل KOSIF Think Pro** (التفكير أولاً والتحقق والإيصالات) مع **استوديو خبراء بالقياس الحقيقي**: تحليل الصور، والرسم والتوليد، والإضاءة، والصوت، والبرمجة، والفيديو.
 
 ## التثبيت
 1. ChatGPT ← **المكونات الإضافية** ← **إضافة** ← «انقر لتحميله».
-2. ارفع `dist/kosif-think-pro-3.1.0.zip`.
+2. ارفع `dist/kosif-think-pro-3.2.0.zip`.
 3. ثبّت الإضافة، ثم فعّل في المحادثة: Code Interpreter (لتشغيل أدوات القياس) وتوليد الصور والبحث.
 
 ## المهارات والأوامر
@@ -18,6 +18,18 @@
 | 💻 kosif-code-master | كود كامل يُختبر فعلاً، ماسح أمني، تدقيق مشاريع zip كاملة، معمارية، نشر | `/code` `/debug` `/review` `/audit` `/explain` `/arch` `/optimize` `/test` `/convert` `/sql` `/deploy` | `code_scan.py` |
 | 🎬 kosif-video | قصص مبنية على الصراع (GMC+S)، قوائم لقطات، ستوري بورد، برومبتات Sora/Veo/Runway/Kling | `/story` `/video` `/shots` `/storyboard` `/reel` `/ad` | `story_lint.py` `prompt_lint.py` |
 | 📒 kosif-audit-ifrs | قيود يومية، ضريبة القيمة المضافة، مطابقة بنكية، معايير IFRS، أمور مراجعة رئيسية، مصطلحات عربية | `/journal` `/reconcile` `/vat` `/ifrs` `/cam` `/audit-plan` `/evidence` `/terms` `/practice` | `ledger_check.py` |
+
+## النسخة الخاصة بـ Claude
+- **claude.ai:** الإعدادات ← Capabilities ← Skills ← Upload skill ← ارفع `dist-claude/kosif-think-pro.zip` (أو افتح ملف `kosif-think-pro.skill` واضغط Save skill).
+- **Claude Code:** انسخ المجلد `kosif-think-pro/` إلى `~/.claude/skills/` أو `.claude/skills/` داخل المشروع (مُثبّت مسبقاً في هذا المستودع).
+- مهارة واحدة تجمع كل الخبرات: `references/domains/*.md` لكل مجال، و`scripts/` لكل أدوات القياس. البناء: `python3 tools/build_claude_skill.py`.
+
+## ما الجديد في 3.2.0 (الدفعة الثانية من الكتب)
+- **دورة الفهم** (قبل/أثناء/بعد + «كيف أعرف؟») من كتاب Impact، و**لغة استنتاج معايرة** من Outcomes، و`calibration_check.py` لكشف المبالغة أو التهوين في درجة اليقين.
+- **الاستدلال المضاد للواقع** (`/whatif`) بحالة دراسية من «هاري بوتر والطفل الملعون»: سلاسل النتائج، القيود، التحقق من هوية من يعرض المساعدة.
+- **10 أمثلة عملية** (`/examples`) تعلّم ChatGPT وClaude طريقة استخدام الأداة.
+- **حبكات بوكر السبع** في محرك القصص، ومفردات وصف الصور في التحليل البصري.
+- الاختبارات: 95 (إضافة ChatGPT) و96 (مهارة Claude).
 
 ## ما الجديد في 3.1.0 (من قراءة مكتبة «كتب»)
 - قراءة وتحليل كل ملفات المجلد مع سجل صادق لكل كتاب: ما قُرئ، ونسبة التغطية، والحالة، وأين طُبّق (`skills/kosif-think-pro/references/books/`).
@@ -45,6 +57,7 @@
 
 ## للمطوّر
 ```bash
-python3 skills/kosif-think-pro/scripts/regression_self_test.py   # 84 اختباراً
+python3 skills/kosif-think-pro/scripts/regression_self_test.py   # 95 اختباراً
+python3 tools/build_claude_skill.py                             # يبني مهارة Claude ويختبرها (96)
 python3 tools/build_zip.py                                       # يتحقق ثم يبني dist/*.zip
 ```

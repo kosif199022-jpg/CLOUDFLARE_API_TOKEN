@@ -1,5 +1,15 @@
 # Changelog
 
+## 3.2.0 — 2026-09-30 (second book batch + Claude edition)
+### Added
+- inference-and-comprehension.md (Impact 1 reading cycle, Outcomes hedging/picture vocabulary), counterfactual-reasoning.md (Cursed Child case), reasoning-examples.md (10 worked patterns), calibration_check.py.
+- Booker's seven plots + Overcoming-the-Monster stages in story_lint; calibrated interpretation in kosif-vision.
+- Commands /understand /whatif /calibrate /examples.
+- Claude edition: tools/build_claude_skill.py → dist-claude/kosif-think-pro(.skill|.zip), single SKILL.md with references/domains/*, validated with the skill-creator validator; installed at repo .claude/skills/kosif-think-pro.
+- Library ledger: second batch (Cursed Child, Impact 1, Outcomes Unit 1, ACM 10 unreadable, Cambridge duplicate).
+### Changed
+- regression_self_test.py is layout-agnostic (plugin or Claude skill); 84 → 95 (plugin) / 96 (Claude).
+
 ## 3.1.0 — 2026-09-30 (library reading pass)
 ### Added
 - references/books/: library index + per-book analysis for all 18 Drive files (coverage, contamination test, status, transfer).

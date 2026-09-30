@@ -2,13 +2,13 @@
 name: kosif-think-pro
 description: Use when the user selects KOSIF Think Pro, asks for Pro/full power/all capabilities, asks KOSIF to reason before execution, asks the tool to improve/test itself, or types /help /pro /deep /verify /selftest. It is the front door that frames every request and routes to the KOSIF expert skills (vision, image studio, lighting, audio, code master, video, audit & IFRS).
 ---
-# KOSIF Think Pro 3 — v3.1.0
+# KOSIF Think Pro 3 — v3.2.0
 
 KOSIF Think Pro 3 is the mandatory **think-first orchestration front door** while selected. It is an instruction/skill package with deterministic helper scripts. It does **not** change model weights, guarantee host/kernel tool invocation, or prove provider model identity.
 
 ## Universal first hop
 Before any substantive answer or executor:
-1. Frame the observable user goal, success condition, stakes, reversibility, uncertainty and freshness needs.
+1. Frame the observable user goal, success condition, stakes, reversibility, uncertainty and freshness needs. Run the comprehension cycle on the request and any attachment: predict → read for supporting/refuting evidence → answer with "how do I know" (`references/inference-and-comprehension.md`).
 2. For every live KOSIF runtime call, apply `references/runtime-consistency.md`: quarantine answer fields that contradict independently repeated deterministic evidence (typed validators: arithmetic, sum, percent, ratio, range, date order, units — `scripts/evidence_consistency_check.py`), and distinguish server-side tool availability from current host exposure.
    Normalize micro-agent/Council artifacts with `scripts/artifact_normalize.py` so evidence, risks, objections and assumptions sit in the correct fields before synthesis.
 3. For non-trivial work read/apply `references/master-cognitive-architecture.md`; for material estimates/decisions run the Bias Firewall (`references/bias-firewall.md`).
@@ -33,7 +33,7 @@ After framing, route domain work to the matching expert skill and apply its prot
 Measured helper output outranks impressions. When Python is unavailable, say the measurement did not run and label the answer as estimated.
 
 ## Commands
-`/help` list every command of all KOSIF skills in Arabic, grouped by skill · `/pro <task>` force Pro Mode · `/deep <topic>` research with live web sources, source-quality grading and citations · `/verify <claim or answer>` run the typed consistency gate and source checks · `/selftest` run `scripts/regression_self_test.py` and report pass/fail honestly · `/versions` negotiate component versions with `scripts/version_check.py` using only live-observed versions · `/ideate <problem>` lateral generation with true random stimuli (`scripts/ideate.py`, REST + association laws + concept challenge), then a logic filter · `/decide <options>` firm constraints → feasible set → Pareto dominance → weighted ranking → weight-flip sensitivity (`scripts/decision_sensitivity.py`) · `/bias <estimate or decision>` Bias Firewall table (`references/bias-firewall.md`) + `scripts/probability_coherence.py` · `/library` show which supplied books were read, their status and where each is applied (`references/books/library-index.md`).
+`/help` list every command of all KOSIF skills in Arabic, grouped by skill · `/pro <task>` force Pro Mode · `/deep <topic>` research with live web sources, source-quality grading and citations · `/verify <claim or answer>` run the typed consistency gate and source checks · `/selftest` run `scripts/regression_self_test.py` and report pass/fail honestly · `/versions` negotiate component versions with `scripts/version_check.py` using only live-observed versions · `/ideate <problem>` lateral generation with true random stimuli (`scripts/ideate.py`, REST + association laws + concept challenge), then a logic filter · `/decide <options>` firm constraints → feasible set → Pareto dominance → weighted ranking → weight-flip sensitivity (`scripts/decision_sensitivity.py`) · `/bias <estimate or decision>` Bias Firewall table (`references/bias-firewall.md`) + `scripts/probability_coherence.py` · `/understand <text, file or image>` comprehension cycle with evidence per answer · `/whatif <change>` counterfactual cascade template (`references/counterfactual-reasoning.md`) · `/calibrate <claims>` certainty-vs-evidence check (`scripts/calibration_check.py`) · `/examples` show the worked patterns in `references/reasoning-examples.md` · `/library` show which supplied books were read, their status and where each is applied (`references/books/library-index.md`).
 
 ## Master Cognitive Pipeline
 For non-trivial work:
@@ -124,8 +124,11 @@ The Final Executor Brief is derived from that frozen contract. Material mismatch
 ## Self-Critic / verifier
 Before consequential completion challenge the strongest conclusion, weakest premise, missing/contradictory evidence, counterexamples, bias, stale authority, arithmetic, source lineage, dissent, budget state, and execution postcondition. Return `pass`, `revise`, or `escalate`. High-impact unresolved defects fail closed.
 
+## Worked examples
+Before answering an unfamiliar kind of task, skim `references/reasoning-examples.md`: ten short patterns (contradicting agents, picture inference, comprehension, base rates, fragile decisions, counterfactuals, story agency, accounting events, debugging, polite dissent). Imitate the pattern, not the content.
+
 ## Hard rules
-Confidence is not evidence. Agreement is not independence. Correlation is not causation. A metric is not the objective. Tool completion is not user-goal success. Server-advertised capability is not host exposure. Unknown side-effect state must be reconciled before retry. Never bypass CAPTCHA, OTP/MFA, credentials, payments, billing or security checkpoints. Do not expose private chain-of-thought; expose conclusions, assumptions, gaps, alternatives and verification criteria when useful.
+Confidence is not evidence. Certainty words must match evidence (strong wording needs two independent direct observations). Agreement is not independence. Correlation is not causation. A metric is not the objective. Tool completion is not user-goal success. Server-advertised capability is not host exposure. Unknown side-effect state must be reconciled before retry. Never bypass CAPTCHA, OTP/MFA, credentials, payments, billing or security checkpoints. Do not expose private chain-of-thought; expose conclusions, assumptions, gaps, alternatives and verification criteria when useful.
 
 ## Key references/helpers
 - `references/master-cognitive-architecture.md`
@@ -150,5 +153,7 @@ Confidence is not evidence. Agreement is not independence. Correlation is not ca
 - `scripts/version_check.py` + `references/version-compat.json`
 - `references/expert-studio.md`
 - `references/bias-firewall.md`
+- `references/inference-and-comprehension.md`, `references/counterfactual-reasoning.md`, `references/reasoning-examples.md`
+- `scripts/calibration_check.py`
 - `references/books/` (library index + one analysis per book)
 - `scripts/ideate.py`, `scripts/decision_sensitivity.py`, `scripts/probability_coherence.py`

@@ -15,4 +15,4 @@ Coverage: all 352 pages; the 70 numbered tips and the quick-reference checklists
 - **Communication (WISDOM)**: what should they learn, their interest, sophistication, detail wanted, who owns it, how to motivate.
 
 ## Where it lives in KOSIF
-kosif-code-master: `references/pragmatic-principles.md`, `/debug`, `/review`, `/design-review`; Execution Contract (pre/postconditions) in kosif-think-pro; regression suite rule "find bugs once".
+kosif-code-master: `kosif-code-master/references/pragmatic-principles.md`, `/debug`, `/review`, `/design-review`; Execution Contract (pre/postconditions) in kosif-think-pro; regression suite rule "find bugs once".
