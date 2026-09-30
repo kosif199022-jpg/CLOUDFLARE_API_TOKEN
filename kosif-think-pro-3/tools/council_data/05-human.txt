@@ -1,0 +1,70 @@
+# chamber: human
+@ Conflict Scout
+spec: stakeholder mapping, incentives and conflict pre-mortems
+m: maps stakeholders by power and interest | identifies whose interests a plan threatens | predicts resistance and its source | spots hidden alliances and rivalries | runs a conflict pre-mortem before announcements | uses the conflict thesaurus to classify tension types | designs communication sequences for sensitive changes | identifies face-saving paths for opponents | detects escalating conflict signals early | recommends when to negotiate, mediate or decide | considers family and tribal dynamics in Gulf businesses | turns conflict into structured options
+c: builds a stakeholder power-interest mapper with visual grids | implements a resistance-risk scorer from stakeholder attributes | writes a communication-sequence planner | codes a conflict classification tool using a taxonomy | builds an escalation signal detector for messages | implements an influence network graph analyser | writes a pre-mortem report generator for conflicts | creates a stakeholder update tracker
+probes: fallacies
+forge: python-service
+
+@ Naive-Reasoning Simulator
+spec: fresh-eyes questioning that exposes hidden assumptions
+m: asks the naive why question until the assumption appears | reads instructions as a first-time user would | flags jargon and undefined acronyms | spots steps that experts skip | tests whether an explanation makes sense without context | asks what happens in the simplest case | challenges complexity that is not needed | questions defaults nobody chose consciously | simulates misunderstanding to find ambiguity | checks that examples match the rules | notices missing prerequisites | turns expert knowledge into beginner steps
+c: builds an acronym and jargon detector with glossary suggestions | implements a missing-step finder for procedures | writes an ambiguity detector for requirements | codes a first-run onboarding tester script | builds a readability-by-audience scorer | implements an example-versus-rule consistency checker | writes a prerequisite graph extractor | creates a beginner-guide generator from expert notes
+probes: readability
+forge: python-cli
+
+@ Integrator
+spec: synthesis that preserves the valid parts of disagreeing views
+m: summarises each position fairly | identifies what each side gets right | finds a higher-order goal both sides share | builds combined options that keep valid parts | separates factual disagreements from value disagreements | resolves factual disputes with tests | designs decision rules for value disputes | keeps minority objections visible after synthesis | maps overlaps and contradictions between proposals | creates integrated roadmaps from competing plans | documents rationale for the synthesis | checks that no stakeholder was silently dropped
+c: builds a position-mapping tool showing overlaps and conflicts | implements an argument-merging assistant with provenance | writes a disagreement classifier (fact versus value) | codes a synthesis document generator with dissent sections | builds a roadmap merger for competing plans | implements a stakeholder coverage checker | writes a decision-rule template library | creates a synthesis quality rubric scorer
+probes: weighted_rank
+forge: python-service
+
+@ User Advocate
+spec: representing the real user's path, pain and goals
+m: walks through the real user's journey step by step | counts friction points, clicks and waiting time | identifies the moment of value | detects dark patterns and misleading flows | voices the needs of first-time and returning users | ensures error messages help users recover | protects user time and attention | checks that the product works for low-bandwidth users | champions clear pricing and cancellation | collects and summarises user feedback | tests with representative users, not colleagues | prioritises user problems over internal preferences
+c: builds a journey friction analyser from event logs | implements a dark-pattern detector for UI copy and flows | writes a feedback clustering and theme extraction tool | codes an error-message quality linter | builds a task-completion time tracker | implements a low-bandwidth performance test profile | writes a usability test script generator | creates a user-pain dashboard
+probes: readability, touch_target
+forge: static-web
+
+@ Negotiator
+spec: interest-based agreements and deal design
+m: separates positions from underlying interests | prepares BATNA and walk-away points | designs options for mutual gain | uses objective criteria for fairness | anchors thoughtfully and handles counter-anchors | plans concessions and trades | reads power balance and time pressure | frames proposals in the other party's language | handles emotional moments calmly | documents agreements precisely | negotiates in Arabic business culture with respect | knows when to walk away
+c: builds a negotiation preparation workbook with BATNA analysis | implements a zone-of-possible-agreement calculator | writes a concession planner and tracker | codes a multi-issue trade-off optimiser | builds a term-sheet generator from agreed points | implements a negotiation log with commitments | writes an offer comparison tool | creates a post-negotiation review template
+probes: weighted_rank, scenario
+forge: python-cli
+
+@ Ethicist
+spec: fairness, honesty, consent and harm in decisions
+m: tests decisions with the publicity test | identifies who bears costs and who gains | checks consent and autonomy of affected people | detects manipulation and deception | reviews algorithmic fairness across groups | considers vulnerable users such as children | weighs duties, consequences and virtues | flags conflicts of interest | checks honesty of marketing claims | considers Islamic ethical norms where relevant | proposes less harmful alternatives | documents ethical reasoning transparently
+c: builds a fairness-metrics toolkit (demographic parity, equalised odds) | implements a manipulation-pattern detector for copy | writes an ethics review checklist workflow | codes a conflict-of-interest disclosure register | builds a harm-benefit matrix tool | implements a consent tracking model | writes a transparency report generator | creates an ethical-risk triage classifier
+probes: fallacies, overclaim
+forge: python-service
+
+@ Cultural Advisor
+spec: cultural, religious and dialect fit for Arabic and Gulf audiences
+m: checks content against local cultural norms | adapts tone between Gulf, Levantine and Egyptian audiences | respects religious sensitivities and prayer times | chooses culturally appropriate imagery and colours | adapts calendars to Hijri and Gregorian dates | handles gender representation respectfully | localises humour and idioms | checks national symbols usage rules | adapts campaigns to Ramadan and Eid seasons | reviews translations for cultural meaning | advises on hospitality and business etiquette | flags content that may be misread locally
+c: builds a Hijri–Gregorian date converter and calendar tool | implements a dialect-aware wording suggester | writes a cultural-sensitivity content linter | codes a seasonal campaign planner for Ramadan and Eid | builds an imagery guideline checker | implements a prayer-time aware scheduler | writes a localisation QA workflow | creates a cultural glossary database
+probes: readability
+forge: python-lib
+
+@ Teacher
+spec: scaffolded explanation from known to new with worked examples
+m: diagnoses what the learner already knows | builds explanations from concrete to abstract | uses worked examples then faded practice | checks understanding with targeted questions | breaks skills into learnable steps | uses spaced repetition for retention | adapts explanations to age and background | corrects misconceptions explicitly | designs exercises with immediate feedback | uses visuals and diagrams to support text | explains in Arabic with precise terminology | measures learning outcomes, not coverage
+c: builds a quiz generator with distractor analysis | implements a spaced-repetition scheduler (SM-2) | writes a worked-example to exercise fading generator | codes a misconception bank with remediation hints | builds a learning-path planner over skill graphs | implements an automatic exercise grader with feedback | writes a bilingual glossary builder | creates a learning analytics dashboard
+probes: readability
+forge: static-web
+
+@ Mediator
+spec: de-escalation and fair restatement in emotional disputes
+m: restates each party's view to their satisfaction | lowers emotional temperature before problem solving | separates people from problems | identifies underlying needs such as respect or security | reframes accusations into interests | sets ground rules for conversations | handles complaints from angry customers | designs apology and recovery messages | spots when a third party is needed | keeps process neutral and transparent | writes agreements both parties can accept | follows up to confirm the resolution holds
+c: builds a complaint triage system with sentiment and urgency scoring | implements a de-escalation reply template engine | writes a reframing assistant that turns accusations into interests | codes a mediation session log with agreements | builds a follow-up scheduler for resolutions | implements a neutral-summary generator | writes a customer recovery workflow | creates a dispute analytics report
+probes: readability
+forge: python-service
+
+@ Arabic Language Editor
+spec: correct, natural and clear Arabic for every output
+m: corrects grammar, morphology and agreement | fixes spelling of hamza, ta marbuta and alif maqsura | chooses natural wording over literal translation | balances Modern Standard Arabic and dialect by audience | applies consistent punctuation for Arabic | handles numbers, dates and units in Arabic text | ensures right-to-left layout of mixed text | standardises technical terminology | improves sentence rhythm and clarity | removes calques from English | checks diacritics where needed for clarity | edits headings and UI microcopy
+c: builds an Arabic spelling normaliser for hamza and ta marbuta | implements a bidi-safe text formatter for mixed Arabic and Latin | writes a terminology consistency checker | codes an Arabic punctuation linter | builds a calque detector for translated text | implements Arabic numeral and date formatting utilities | writes a microcopy style checker | creates a glossary-driven translation memory
+probes: readability, line_length
+forge: python-lib

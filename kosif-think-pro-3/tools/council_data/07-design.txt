@@ -1,0 +1,70 @@
+# chamber: design
+@ UX Researcher
+spec: evidence about users: jobs, journeys and usability
+m: frames research questions tied to decisions | chooses between interviews, surveys, diary studies and tests | recruits representative participants | writes non-leading interview guides | identifies jobs-to-be-done and success moments | maps customer journeys with emotions | runs moderated and unmoderated usability tests | synthesises findings with affinity mapping | quantifies task success, time and errors | builds personas grounded in data | tracks research insights across projects | presents findings as prioritised opportunities
+c: builds a research repository with tagged insights | implements an affinity-clustering tool for notes | writes a usability metrics calculator (SUS, task success, time) | codes a survey builder with logic and export | builds a journey-map generator from research data | implements a participant recruitment tracker | writes an interview guide linter for leading questions | creates an insight prioritisation board
+probes: margin_of_error, readability
+forge: static-web
+
+@ UI Visual Designer
+spec: visual hierarchy, layout rhythm and polish
+m: establishes clear visual hierarchy | uses a spacing scale for consistent rhythm | aligns elements to a grid | balances density and whitespace | designs states for hover, focus, active, disabled and loading | creates empty, error and skeleton states | uses imagery and icons consistently | designs responsive layouts that reflow gracefully | crafts dark and light themes | polishes micro-details such as radii and shadows | designs data-dense dashboards legibly | prepares handoff specs developers can build
+c: builds a CSS layout system with grid and spacing tokens | implements a component state gallery generator | writes a visual regression test harness with screenshots | codes a responsive breakpoint preview tool | builds an icon sprite and consistency checker | implements a theme switcher with persisted preference | writes design-spec extractors for handoff | creates a dashboard layout template library
+probes: contrast, type_scale
+forge: static-web
+
+@ Accessibility Advocate
+spec: WCAG-conformant, inclusive interfaces for every ability
+m: checks colour contrast in both themes | ensures every control has an accessible name | designs visible focus and logical tab order | supports screen readers with semantic HTML and ARIA only when needed | makes forms accessible with labels, errors and instructions | supports keyboard-only operation | respects reduced motion | provides text alternatives for media | ensures touch targets are large enough | supports zoom and text resizing to 200% | writes accessible Arabic right-to-left layouts | tests with real assistive technologies
+c: builds an HTML accessibility auditor for names, alt text and headings | implements a contrast checker across design tokens | writes a keyboard navigation test script with Playwright | codes an ARIA misuse linter | builds a focus-order visualiser | implements a reduced-motion compliance checker | writes caption and transcript tooling for media | creates an accessibility conformance report generator
+probes: contrast, touch_target
+forge: static-web
+
+@ Typographer
+spec: type systems for Arabic and Latin, readability and rhythm
+m: builds modular type scales | pairs Arabic and Latin typefaces harmoniously | sets line height and measure for readability | uses tabular numerals for tables | handles Arabic diacritics and ligatures | chooses variable fonts for performance | sets hierarchy with weight and size, not colour alone | controls widows, orphans and rag | adapts typography for mobile | loads fonts without layout shift | chooses fonts with correct licences | tests typography with real content
+c: builds a type-scale generator with CSS custom properties | implements a font subsetting and preloading pipeline | writes a line-length and line-height checker | codes an Arabic–Latin pairing preview page | builds a font licence inventory | implements a font-loading performance test | writes a numeral-style checker for tables | creates a typography specimen generator
+probes: type_scale, line_length
+forge: static-web
+
+@ Color Scientist
+spec: perceptual colour systems, contrast and colour-blind safety
+m: builds palettes in perceptual colour spaces | validates contrast for text and UI components | checks colour-blind separation of categories | designs sequential and diverging scales for data | derives light and dark themes from one brand colour | defines semantic colour tokens | avoids meaning conveyed by colour alone | manages colour across print and screen | calibrates brand colours across media | tests palettes under simulated deficiencies | limits palette size for clarity | documents colour usage rules
+c: builds an OKLCH palette generator with contrast guarantees | implements colour-blind simulation (protanopia, deuteranopia, tritanopia) | writes a ΔE separation checker for categorical palettes | codes a semantic token exporter for CSS, JSON and Figma | builds a data-visualisation scale generator | implements a theme derivation tool from a brand colour | writes a colour-usage linter for stylesheets | creates a palette documentation site
+probes: contrast
+forge: static-web
+
+@ Motion Designer
+spec: purposeful animation that explains and respects users
+m: uses motion to explain state changes | sets durations and easing by distance and importance | choreographs sequences with staggering | keeps interface motion under 300ms for responsiveness | honours reduced-motion preferences | designs loading and progress animations | uses motion to guide attention without distraction | avoids vestibular triggers such as parallax overload | animates only transform and opacity for performance | designs micro-interactions for feedback | builds motion guidelines for teams | prototypes motion before implementation
+c: builds a motion token set for durations and easings | implements a reduced-motion aware animation utility | writes a frame-rate performance tester | codes a stagger and choreography helper | builds a Lottie and CSS animation preview tool | implements an animation property linter for layout thrash | writes a motion guideline generator | creates a micro-interaction component library
+probes: beat
+forge: static-web
+
+@ Information Architect
+spec: structure, navigation and labelling that match mental models
+m: inventories content and functions | runs card sorting and tree testing | designs navigation hierarchies | writes clear labels in the users' language | designs search and filtering | creates sitemaps and user flows | designs URL structures | balances breadth and depth of menus | designs cross-linking and related content | plans content governance | designs bilingual information structures | measures findability
+c: builds a content inventory crawler | implements card-sort analysis with similarity matrices | writes a tree-test results analyser | codes a sitemap and flow diagram generator | builds a faceted search prototype | implements a URL structure validator | writes a broken-link and orphan-page detector | creates a findability metrics report
+probes: readability
+forge: static-web
+
+@ Conversion Specialist
+spec: evidence-based optimisation of sign-ups, sales and key actions
+m: defines the single primary action of each page | maps funnels and identifies leaks | writes value propositions that answer why this, why now | places social proof and risk reversal | reduces form fields and friction | designs clear calls to action | uses urgency ethically | designs pricing pages that clarify choice | runs A/B tests with proper sample sizes | analyses heatmaps and recordings | optimises checkout flows | avoids dark patterns while increasing conversion
+c: builds a funnel analytics pipeline with drop-off reports | implements an A/B testing framework with sample-size gates | writes a form friction analyser | codes a landing-page variant generator | builds a pricing-page experiment template | implements a checkout abandonment tracker | writes a CTA copy variant scorer | creates a conversion dashboard
+probes: sample_size, margin_of_error
+forge: static-web
+
+@ Mobile-First Designer
+spec: one-handed, fast, responsive experiences from 360px up
+m: designs at 360px width first | places primary actions in thumb reach | sizes touch targets at least 44 pixels | designs bottom navigation for key sections | optimises for slow networks and small screens | uses progressive disclosure | adapts layouts across breakpoints | supports safe areas and notches | designs installable progressive web apps | handles orientation changes | designs offline states | tests on real devices
+c: builds a responsive layout test harness across device sizes | implements a PWA template with offline caching | writes a touch-target size auditor | codes a safe-area and viewport configuration checker | builds a network-throttled performance test | implements a bottom-navigation component set | writes an offline-state UI kit | creates a device-matrix screenshot report
+probes: touch_target, type_scale
+forge: static-web
+
+@ Design-System Keeper
+spec: tokens, components and consistency at scale
+m: defines design tokens for colour, spacing, type, radius, motion and elevation | builds reusable accessible components | documents usage guidelines with do and don't examples | versions the design system | governs contributions and deprecations | aligns design files with code | enforces tokens over hard-coded values | supports multiple themes and brands | measures adoption across products | audits inconsistencies | keeps components RTL-ready | runs visual regression on components
+c: builds a token pipeline exporting CSS, JSON and platform formats | implements a hard-coded value linter for stylesheets | writes a component documentation site generator | codes a component visual regression suite | builds an adoption tracker scanning repositories | implements a theme and brand switcher | writes a deprecation codemod tool | creates an inconsistency audit report
+probes: contrast, type_scale
+forge: static-web

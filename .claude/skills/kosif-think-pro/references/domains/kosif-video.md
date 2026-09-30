@@ -17,5 +17,8 @@ static/locked-off · slow push-in (tension) · pull-out (reveal) · dolly/tracki
 ## Commands
 `/story <idea>` conflict-driven beat sheet (GMC+S, four levels, agency) + lint · `/video <idea>` full package · `/shots <script>` shot list only · `/storyboard <idea>` shot list + keyframe prompts · `/reel <product>` 15–30 s vertical ad with hook variants ×3 · `/ad <brand>` 30 s spot with VO script.
 
+## Related
+Per-platform video prompt syntax (Sora, Veo, Runway, Kling): `scripts/prompt_forge.py` with `"mode": "video"`.
+
 ## Safety
 No deepfakes of real people, no deceptive political/news footage, respect music and brand rights.

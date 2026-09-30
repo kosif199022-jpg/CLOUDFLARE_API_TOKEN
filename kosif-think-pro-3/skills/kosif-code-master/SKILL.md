@@ -33,4 +33,5 @@ KOSIF think-first: frame goal, constraints (language, runtime, versions, hosting
 
 ## Engineering rules
 Validate inputs at boundaries; parameterized SQL; escape output; least privilege; secrets from env/secret store; timeouts + retries with backoff for network calls; idempotent writes; structured logging without PII; pagination; avoid N+1; types (TS strict / Python type hints); small pure functions; handle Arabic/RTL and Unicode correctly; accessibility (labels, contrast, keyboard) for UI.
+Related: project scaffolds that already pass their tests — `../kosif-think-pro/scripts/project_forge.py MEMBER NAME OUT` (council member picks the archetype); git/PR/CI work — `../kosif-github/SKILL.md`; web UI — `../kosif-web-design/SKILL.md`; browser automation — `../kosif-computer-use/SKILL.md`.
 See `references/playbook.md` (stacks, security top-10) and `references/pragmatic-principles.md` (70 tips grouped by phase, checklists, ML methodology, optimisation recognition, SICP notes).

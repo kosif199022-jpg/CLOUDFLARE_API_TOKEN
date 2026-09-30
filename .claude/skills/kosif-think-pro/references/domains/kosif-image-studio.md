@@ -26,4 +26,6 @@ Only when asked; short, exact spelling in quotes. Arabic text often renders impe
 ## Safety
 No sexual content, no minors in any suggestive context, no photoreal fakes of real people or public figures in deceptive contexts, no trademark/logo counterfeits, no copyrighted characters for commercial use. Offer an original alternative.
 
+Cross-platform translation of one spec into Midjourney/Flux/SDXL/DALL·E/Ideogram/video syntax: `/forge` in `references/domains/kosif-prompt-master.md` (`scripts/prompt_forge.py`).
+
 References: `references/kosif-image-studio/prompt-library.md` (lenses, lighting, styles, templates, platform syntax, negatives).

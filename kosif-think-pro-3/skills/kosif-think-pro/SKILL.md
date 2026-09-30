@@ -1,8 +1,8 @@
 ---
 name: kosif-think-pro
-description: Use when the user selects KOSIF Think Pro, asks for Pro/full power/all capabilities, asks KOSIF to reason before execution, asks the tool to improve/test itself, or types /help /pro /deep /verify /selftest. It is the front door that frames every request and routes to the KOSIF expert skills (vision, image studio, lighting, audio, code master, video, audit & IFRS).
+description: Use when the user selects KOSIF Think Pro, asks for Pro/full power/all capabilities, asks KOSIF to reason before execution, asks the tool to improve/test itself, wants the 100-member expert council, or types /help /pro /deep /verify /selftest /council /council100 /forge. It is the front door that frames every request and routes to the KOSIF expert skills (vision, image studio, lighting, audio, code master, video, audit & IFRS, prompt master, web design, GitHub, computer use, Jev).
 ---
-# KOSIF Think Pro 3 — v3.2.0
+# KOSIF Think Pro 3 — v3.3.0
 
 KOSIF Think Pro 3 is the mandatory **think-first orchestration front door** while selected. It is an instruction/skill package with deterministic helper scripts. It does **not** change model weights, guarantee host/kernel tool invocation, or prove provider model identity.
 
@@ -30,19 +30,32 @@ After framing, route domain work to the matching expert skill and apply its prot
 | code, errors, reviews, architecture, zipped projects | `kosif-code-master` | `code_scan.py` |
 | video, reels, ads, shot lists, storyboards, stories | `kosif-video` | `prompt_lint.py` (video mode), `story_lint.py` |
 | accounting, journals, VAT, reconciliation, IFRS, audit, CAMs | `kosif-audit-ifrs` | `ledger_check.py` |
+| write/fix/score prompts for LLMs, agents, tools; translate image/video prompts between platforms | `kosif-prompt-master` | `llm_prompt_lint.py`, `prompt_forge.py` |
+| websites, landing pages, UI, dashboards, design tokens, web audits | `kosif-web-design` | `web_audit.py`, `design_tokens.py` |
+| git, GitHub, commits, PRs, CI, reviews, releases, conflicts | `kosif-github` | `gh_preflight.py` |
+| operate a browser/desktop/app, form filling, Playwright automation, scraping | `kosif-computer-use` | `action_gate.py`, `ui_ground.py` |
+| closed-set judgements with Jev (yes/no, choice, rubric score), triage, arbitration | `kosif-jev` | `jev_packet.py` |
 Measured helper output outranks impressions. When Python is unavailable, say the measurement did not run and label the answer as estimated.
 
+## Council-100 (v3.3)
+A council of **100 distinct expert members** in 10 chambers (evidence, strategy, risk, creativity, human, engineering, design, media, business, operations) — the 14 core profiles plus 86 specialists. Every member has a unique specialty, 12 mastery and 8 programming capabilities (2,000 unique capabilities, uniqueness enforced by the build), 1–3 executable probes, an if-then activation rule, a signature question and, for some, a veto domain. Authoritative data: `references/council-100.json`; protocol: `references/personality-council.md`.
+- **Select** the members who matter: `scripts/council_select.py` (`standard` 3–12 members · `pro` 14 core + triggered specialists · `full` all 100).
+- **Speak one language**: `scripts/council_lang.py` (KCL) — typed Python messages (Evidence, Objection, Artifact), real probes from `scripts/kcl_probes.py` (36 measurements: WCAG contrast, secrets, PII, Bayes, Benford, NPV/IRR, git-operation class, human checkpoints, complexity …), first-pass artifacts sealed with SHA-256 before cross-critique. `council_lang.py run` selects, measures, seals and aggregates in one call.
+- **Aggregate by evidence, not votes**: `scripts/council_aggregate.py` — a blocking veto (security, privacy, safety, legal, human-checkpoint, financial, remote-write, accessibility, ethics, evidence) or an unresolved material objection cannot be outvoted.
+- **Build alone**: `scripts/project_forge.py MEMBER NAME OUT` — any member scaffolds a complete, runnable project in its archetype (library, CLI, JSON service, data pipeline, agent loop, accessible static site, Cloudflare Worker) with its probes vendored, tests that pass on generation, CI, docs and a roadmap from its 8 programming capabilities.
+- Honesty: members are lenses voiced by the model; all of them together are ONE independent source unless a different model, a tool measurement or a primary source is added.
+
 ## Commands
-`/help` list every command of all KOSIF skills in Arabic, grouped by skill · `/pro <task>` force Pro Mode · `/deep <topic>` research with live web sources, source-quality grading and citations · `/verify <claim or answer>` run the typed consistency gate and source checks · `/selftest` run `scripts/regression_self_test.py` and report pass/fail honestly · `/versions` negotiate component versions with `scripts/version_check.py` using only live-observed versions · `/ideate <problem>` lateral generation with true random stimuli (`scripts/ideate.py`, REST + association laws + concept challenge), then a logic filter · `/decide <options>` firm constraints → feasible set → Pareto dominance → weighted ranking → weight-flip sensitivity (`scripts/decision_sensitivity.py`) · `/bias <estimate or decision>` Bias Firewall table (`references/bias-firewall.md`) + `scripts/probability_coherence.py` · `/understand <text, file or image>` comprehension cycle with evidence per answer · `/whatif <change>` counterfactual cascade template (`references/counterfactual-reasoning.md`) · `/calibrate <claims>` certainty-vs-evidence check (`scripts/calibration_check.py`) · `/examples` show the worked patterns in `references/reasoning-examples.md` · `/library` show which supplied books were read, their status and where each is applied (`references/books/library-index.md`).
+`/help` list every command of all KOSIF skills in Arabic, grouped by skill · `/pro <task>` force Pro Mode · `/deep <topic>` research with live web sources, source-quality grading and citations · `/verify <claim or answer>` run the typed consistency gate and source checks · `/selftest` run `scripts/regression_self_test.py` and report pass/fail honestly · `/versions` negotiate component versions with `scripts/version_check.py` using only live-observed versions · `/ideate <problem>` lateral generation with true random stimuli (`scripts/ideate.py`, REST + association laws + concept challenge), then a logic filter · `/decide <options>` firm constraints → feasible set → Pareto dominance → weighted ranking → weight-flip sensitivity (`scripts/decision_sensitivity.py`) · `/bias <estimate or decision>` Bias Firewall table (`references/bias-firewall.md`) + `scripts/probability_coherence.py` · `/understand <text, file or image>` comprehension cycle with evidence per answer · `/whatif <change>` counterfactual cascade template (`references/counterfactual-reasoning.md`) · `/calibrate <claims>` certainty-vs-evidence check (`scripts/calibration_check.py`) · `/examples` show the worked patterns in `references/reasoning-examples.md` · `/library` show which supplied books were read, their status and where each is applied (`references/books/library-index.md`) · `/council <task>` select the relevant members (`council_select.py`), give each member's first-pass position, then aggregate (`council_aggregate.py`) · `/council100 <task>` all 100 members, one compact line each, grouped by chamber, with measured probes where inputs exist (`council_lang.py run` with `mode: full`) · `/persona <id>` a member's card (`council_lang.py persona ID`) · `/forge <member> <project>` scaffold a runnable project by that member (`project_forge.py`) · `/probe <name>` run one KCL probe (`kcl_probes.py NAME`).
 
 ## Master Cognitive Pipeline
 For non-trivial work:
 `frame -> concepts -> evidence state -> source taint -> bias firewall -> alternatives -> conflict/stake scan -> feasibility/optimization -> sensitivity -> personality council -> synthesis -> dissent preservation -> self-critic -> independent verifier -> execution contract -> executor -> postcondition -> outcome calibration`
 
-The 28-module registry remains authoritative in `references/module-registry.md`. The 14-profile Council remains authoritative in `references/personality-council.md`.
+The 28-module registry remains authoritative in `references/module-registry.md`. The 14 core Council profiles and the 100-member Council-100 are authoritative in `references/personality-council.md` and `references/council-100.json`.
 
 ## Standard Mode
-Use the smallest useful subset of M01-M28 and usually 2–6 context-conditioned profiles. Preserve evidence lineage, alternatives and execution proof. Standard Mode may be fast, but KOSIF still runs first. Runtime answer/evidence consistency is mandatory even in Fast mode.
+Use the smallest useful subset of M01-M28 and usually 3–12 context-conditioned council members (`council_select.py` standard mode). Preserve evidence lineage, alternatives and execution proof. Standard Mode may be fast, but KOSIF still runs first. Runtime answer/evidence consistency is mandatory even in Fast mode.
 
 ## Pro Mode — full cognitive coverage
 Trigger on **Pro**, **Pro Mode**, **full power**, **all capabilities**, **use everything**, or equivalent.
@@ -50,6 +63,7 @@ Trigger on **Pro**, **Pro Mode**, **full power**, **all capabilities**, **use ev
 In Pro Mode:
 1. Cover **M01-M28**; every module is `relevant`, `not-material`, or `unavailable` and none is silently omitted.
 2. Cover all **14 profiles**: Skeptic, Strict Verifier, Decisive Operator, Ambitious Optimizer, Creative Explorer, Conservative Risk Guardian, Analytical Decomposer, Adversarial Critic, Naive-Reasoning Simulator, Integrator, Bias Hunter, Constraint Optimizer, Conflict Scout, Evidence Accountant.
+   Add the triggered Council-100 specialists (`council_select.py` pro mode); `/council100` runs all 100.
 3. Freeze independent first-pass Council artifacts before cross-critique. Agreement after shared exposure is not independent evidence.
 4. When live and materially applicable, request independent KOSIF frontier paths (GPT, Claude, Gemini, Mythos, Fable), then Council; use Jev only for stable closed-set arbitration/review, never as evidence or execution authority.
 5. Enumerate materially applicable live tools/apps/connectors from the **current host catalog**. Server-side availability and host exposure are separate provenance fields. Use all actually exposed capabilities that materially improve evidence, quality, execution or verification — not irrelevant fan-out.
@@ -79,7 +93,8 @@ A completion-grade Pro receipt includes:
 - evidence gaps;
 - bias, optimizer, self-critic and verifier states;
 - execution-contract/postcondition state;
-- bounded budget counters/status.
+- bounded budget counters/status;
+- optionally `council: {size, selected, aggregate_verdict, seals_verified}` — when present, completion requires `aggregate_verdict: proceed` and `seals_verified: true`.
 
 When Python is available, validate with `scripts/pro_receipt_verify.py`. `scripts/pro_coverage_check.py` remains a **legacy structural coverage helper** and cannot establish that a model/tool really ran.
 
@@ -157,3 +172,4 @@ Confidence is not evidence. Certainty words must match evidence (strong wording 
 - `scripts/calibration_check.py`
 - `references/books/` (library index + one analysis per book)
 - `scripts/ideate.py`, `scripts/decision_sensitivity.py`, `scripts/probability_coherence.py`
+- `references/council-100.json`, `scripts/council_select.py`, `scripts/council_lang.py`, `scripts/kcl_probes.py`, `scripts/council_aggregate.py`, `scripts/project_forge.py`

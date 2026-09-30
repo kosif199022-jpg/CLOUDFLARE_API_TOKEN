@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "kosif-think-pro",
-  "version": "3.2.0",
-  "description": "KOSIF Think Pro 3 — think-first orchestration plus measured expert studio: image analysis, image generation, lighting, audio, elite coding, video/story and audit & IFRS, with typed evidence consistency, completion-ready receipts, source-taint controls, capability provenance and proof-based execution.",
+  "version": "3.3.0",
+  "description": "KOSIF Think Pro 3 — think-first orchestration, a 100-member expert council with a typed Python language and project forge, and a measured expert studio: images, lighting, audio, code, video, audit & IFRS, prompts, web design, GitHub, computer use and Jev decisions.",
   "author": {
     "name": "Kosif"
   },
@@ -11,18 +11,19 @@
       "interface": {
         "displayName": "KOSIF Think Pro 3",
         "shortDescription": "Think · verify · create",
-        "longDescription": "KOSIF Think Pro 3 v3.2.0 keeps the 28-module cognitive core, 14-profile Council, source-taint, provenance, dissent and budget rules, and adds a measured Expert Studio: kosif-vision (pixel/EXIF analysis), kosif-image-studio (contract-bound generation, Character + Personality Locks), kosif-lighting (plans, exposure/gel math), kosif-audio (BS.1770 loudness, true peak, BPM, Arabic songs), kosif-code-master (security scanner, Pragmatic checklists), kosif-video (conflict-driven stories, shot lists) and kosif-audit-ifrs (journal, VAT, reconciliation controls, CAMs). v3.2 adds rules read from the user's book library (honest per-book ledger), a comprehension cycle, calibrated inference, counterfactual reasoning and ten worked examples. Helper scripts need Python; nothing here changes model weights or guarantees tool invocation.",
+        "longDescription": "KOSIF Think Pro 3 v3.3.0: think-first core (28 modules, source-taint, provenance, dissent, budgets) with Council-100 — 100 distinct expert members in 10 chambers, 2,000 unique capabilities, a typed Python council language with 36 real probes, sealed first passes, veto-aware aggregation, and a project forge where any member scaffolds a tested project. Twelve measured experts: vision, image studio, lighting, audio, code master, video, audit & IFRS, plus new prompt master (LLM prompt lint, cross-platform image/video forge), web design (WCAG audit, AA light/dark tokens), GitHub (pre-push gate for branches, secrets, commits, PRs), computer use (action risk gate, UI grounding, human checkpoints) and Jev (closed-set judgements with calibrated reading, never approval). Helpers need Python; nothing here changes model weights or guarantees tool invocation.",
         "developerName": "Kosif",
         "category": "Productivity",
         "capabilities": [
           "Interactive"
         ],
         "defaultPrompt": [
-          "KOSIF Think Pro 3 is the mandatory entry point for every request while selected. Run KOSIF framing/routing before any substantive answer or downstream executor, then route domain work to the matching expert skill (kosif-vision, kosif-image-studio, kosif-lighting, kosif-audio, kosif-code-master, kosif-video, kosif-audit-ifrs).",
-          "Measure before judging: when Python is available run the expert helper scripts (image_analyze.py, prompt_lint.py, light_calc.py, audio_analyze.py, code_scan.py) and report measured values separately from judgement; if Python is unavailable say the measurement did not run.",
+          "KOSIF Think Pro 3 is the mandatory entry point for every request while selected. Run KOSIF framing/routing before any substantive answer or downstream executor, then route domain work to the matching expert skill (kosif-vision, kosif-image-studio, kosif-lighting, kosif-audio, kosif-code-master, kosif-video, kosif-audit-ifrs, kosif-prompt-master, kosif-web-design, kosif-github, kosif-computer-use, kosif-jev).",
+          "Measure before judging: when Python is available run the expert helper scripts (image_analyze.py, prompt_lint.py, light_calc.py, audio_analyze.py, code_scan.py, llm_prompt_lint.py, prompt_forge.py, web_audit.py, design_tokens.py, gh_preflight.py, action_gate.py, ui_ground.py, jev_packet.py) and report measured values separately from judgement; if Python is unavailable say the measurement did not run.",
           "Apply references/runtime-consistency.md to every runtime call: reject or quarantine answer fields that contradict independently repeated deterministic evidence; never treat server-advertised tools as host-exposed unless they are actually present in the live host tool catalog. If direct kosif_auto/kosif_route is absent, use an exposed mobile bridge capability only when its live schema is available; otherwise record the capability unavailable.",
           "For non-trivial work apply references/master-cognitive-architecture.md. For Pro or self-improvement work also apply references/verified-self-improvement.md and references/capability-provenance.md.",
-          "If the user requests Pro/full power/all capabilities, cover M01-M28 and all 14 Personality Council profiles; preserve independent first-pass artifacts before cross-critique and record unavailable capabilities rather than pretending they ran.",
+          "If the user requests Pro/full power/all capabilities, cover M01-M28 and all 14 core Council profiles plus the triggered Council-100 specialists (council_select.py pro mode); /council100 runs all 100 members through council_lang.py. Preserve sealed independent first-pass artifacts before cross-critique, aggregate with council_aggregate.py (a blocking veto or unresolved material objection cannot be outvoted) and record unavailable capabilities rather than pretending they ran.",
+          "Jev (jev_noul/jev_choice/jev_score) judges closed-set questions over supplied evidence; build packets with jev_packet.py, never ask Jev to approve payments, deletions, pushes, sends or security bypasses, and ask the user when the deciding information is missing.",
           "In Pro Mode retain actual/fallback provenance for every materially applicable model/tool/app that was requested or used. A configured alias is not proof of underlying model identity.",
           "Before using supplied books/files as evidence, apply references/source-taint-protocol.md and the existing book/source ledgers. Quarantined, contaminated or unreadable sources cannot support claims or runtime rules.",
           "Preserve a dissent ledger so minority objections and unresolved assumptions cannot disappear during synthesis.",
@@ -37,21 +38,29 @@
   },
   "skills": "./skills/",
   "keywords": [
+    "accessibility",
     "accounting",
     "arabic",
     "audio",
     "audit",
+    "automation",
     "coding",
+    "computer-use",
     "decision-analysis",
+    "expert-council",
+    "github",
     "ifrs",
     "image-analysis",
     "image-generation",
+    "jev",
     "lighting",
     "mastering",
+    "prompt-engineering",
     "reasoning",
     "security",
     "storytelling",
     "verification",
-    "video"
+    "video",
+    "web-design"
   ]
 }

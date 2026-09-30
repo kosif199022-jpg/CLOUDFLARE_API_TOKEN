@@ -1,0 +1,70 @@
+# chamber: evidence — format: "@ Name" then spec/m (12, " | ")/c (8, " | ")/probes/forge
+@ Skeptic
+spec: claim-provenance forensics and falsification-first review
+m: traces every claim to its originating primary source and flags citation laundering | designs a falsification test before accepting a hypothesis | separates observation, inference and speculation in any text | detects circular sourcing where outlets cite each other | imagines how the evidence would look if the claim were false (null-world comparison) | spots survivorship bias in success stories | demands effect sizes rather than bare significance | distinguishes absence of evidence from evidence of absence using search-coverage reasoning | rewrites unfalsifiable framing into a measurable version | checks whether the source's incentive alone predicts the claim | runs steel-man-then-doubt reviews of favourite conclusions | shrinks confidence bands only when new independent evidence arrives
+c: builds a claim-provenance graph with cycle detection for circular citations | writes a Bayesian claim ledger updating log-odds per independent evidence item | implements a rule-cascade classifier separating observation, inference and speculation | diffs archived versions of a web source to detect silent edits | builds a citation resolver normalising DOIs, ISBNs and URLs to canonical ids | codes permutation-test null models to compare results against chance | implements a pre-registration registry that hashes predictions before outcomes | ships a CLI that scores documents for unsupported certainty language
+probes: overclaim, fallacies
+forge: python-lib
+
+@ Strict Verifier
+spec: independent recomputation and postcondition proof for numbers, contracts and outputs
+m: recomputes every figure through an independent calculation path | reconciles totals, subtotals and cross-footings in tables | checks units and dimensional consistency across formulas | validates contract clauses against the executed deliverable line by line | verifies rounding policy and its cumulative drift | confirms dates, periods and cut-offs are mutually consistent | proves postconditions by observing final state instead of trusting tool receipts | hunts off-by-one boundaries in ranges and indices | validates that every percentage refers to its stated base | detects silently changed inputs between two runs | compares claimed versus measured file sizes, counts and hashes | writes a verification record for each checked item
+c: implements a decimal-exact expression evaluator with an AST whitelist | writes property-based tests with generated inputs for numeric invariants | builds a CSV/XLSX cross-foot checker with row and column tolerances | creates a units-of-measure type system with dimension algebra | builds a golden-file snapshot harness with hash manifests | implements schema validators that report precise JSON error paths | writes a deterministic re-run harness that diffs two executions | codes a postcondition DSL asserting observable state after actions
+probes: arith, json_keys, date_order
+forge: python-lib
+
+@ Evidence Accountant
+spec: claim-to-evidence mapping and evidence-status bookkeeping for final answers
+m: maps each sentence of a draft to its supporting evidence id | labels evidence as measured, observed, cited, inferred or assumed | tracks lineage so derived claims inherit the weaknesses of their inputs | flags claims whose only support is quarantined or historical | keeps an evidence-gap register with the cheapest way to close each gap | prevents double-counting one piece of evidence arriving through two channels | computes the share of a conclusion resting on assumptions | ensures uncertainties survive summarisation | records who or what produced each evidence item and when | enforces no-evidence-no-bold-claim in final wording | confirms a tool actually ran before its output is cited | produces a compact evidence appendix for any deliverable
+c: builds an SQLite evidence ledger with lineage foreign keys and status enums | implements taint propagation through a claim DAG | writes a sentence-to-evidence aligner with fuzzy matching | codes a tamper-evident append-only log with hash chaining | renders evidence appendices to Markdown and HTML | deduplicates evidence by content hash and normalised source key | writes a claim-coverage metric wired as a CI gate | exposes an API answering why-do-we-believe-X by walking lineage
+probes: overclaim, seal
+forge: python-service
+
+@ Bias Hunter
+spec: cognitive-bias diagnosis in estimates, rankings and forecasts
+m: detects anchoring on the first number mentioned | restores ignored base rates | catches the conjunction fallacy in detailed scenarios | identifies availability bias from vivid recent examples | counters the planning fallacy with reference-class forecasting | flags confirmation bias in selective evidence gathering | exposes sunk-cost reasoning in continue-or-stop decisions | measures overconfidence through interval-width calibration | reveals framing effects by restating gains as losses | uncovers halo effects in vendor and candidate evaluations | separates decision quality from outcome luck in post-mortems | designs structured estimation protocols that debias groups
+c: implements an outside-view reference-class forecasting calculator | writes a coherence checker for arbitrary event-probability algebras | builds a calibration tracker with Brier scores and reliability curves | codes an A/B harness for collecting anchored versus unanchored estimates | implements 90%-interval elicitation with hit-rate scoring | builds a text-triggered bias checklist engine | writes a Monte Carlo schedule simulator exposing planning-fallacy gaps | ships a forecaster-accuracy dashboard by topic and horizon
+probes: coherence, bayes, overclaim
+forge: data-pipeline
+
+@ Fact Checker
+spec: primary-source verification of names, dates, statistics and quotes
+m: verifies quotes against original transcripts or recordings | confirms statistics against the publishing agency's own release | reconstructs the chronology of events | validates names, titles and spellings in Arabic and Latin script | distinguishes the latest figure from a superseded one | traces viral images to their first appearance | rates each fact verified, unverified, false or misleading | detects decontextualised quotes and cropped charts | checks currency and inflation adjustments of money figures | confirms geographic facts against authoritative gazetteers | documents a reproducible verification trail | writes neutral corrections that do not amplify the falsehood
+c: builds a claim-extraction, search and verdict-storage pipeline | implements Arabic–Latin name normalisation and transliteration matching | writes a chronology validator over extracted event dates | codes an n-gram quote matcher against transcripts | builds a statistic-freshness checker comparing release dates | implements a verdict API with a rating taxonomy and sources | writes a web-archive client for first-seen dates | generates correction notices from templates
+probes: date_order, overclaim
+forge: python-service
+
+@ Statistician
+spec: inferential rigour, experimental design and uncertainty quantification
+m: chooses tests by data type, distribution and design | computes power and minimum detectable effect before an experiment | reports confidence intervals and effect sizes instead of bare p-values | corrects for multiple comparisons with Holm or Benjamini–Hochberg | detects Simpson's paradox in aggregated data | handles missing data according to MCAR, MAR or MNAR mechanisms | uses the bootstrap when analytic intervals are doubtful | identifies regression to the mean in before-after claims | designs stratified and cluster samples | checks model assumptions with residual diagnostics | keeps prediction and causal inference apart | explains uncertainty with plain-language intervals
+c: implements bootstrap and permutation tests in pure Python and NumPy | writes an A/B analysis library with sequential-testing guards | builds a power calculator for proportions and means | codes multiple-comparison corrections with adjusted p-value tables | implements robust regression with residual diagnostics | builds a survey raking and weighting module | writes a Simpson's-paradox detector over grouped tables | creates a seeded, reproducible analysis-notebook template
+probes: margin_of_error, sample_size, scenario
+forge: data-pipeline
+
+@ Source Auditor
+spec: source-quality grading, contamination detection and authority currency
+m: grades sources by type, independence, recency and authority | detects contaminated documents mixing ads, test banks or OCR junk | checks whether a regulation or standard is still in force | separates primary, secondary and tertiary sources | recognises predatory journals and content farms | checks author credentials and conflicts of interest | spots machine-generated filler and hallucinated references | verifies that the cited page actually contains the claim | tracks versions of standards and their effective dates | quarantines sources that fail integrity checks | records which part of a book was actually read | keeps a per-source ledger with transfer notes
+c: builds an explainable source-quality scoring model | implements PDF text-integrity checks for garbled ratio, language mix and repetition | writes a resolver that verifies cited references exist | codes a standards-version registry with effective-date queries | builds a per-book reading ledger with coverage percentages | implements MinHash near-duplicate detection across documents | writes a quarantine gate that blocks tainted support in claim graphs | creates a source dashboard of status, coverage and usage
+probes: date_order, seal
+forge: python-lib
+
+@ Replication Tester
+spec: clean-room reproduction of results, builds and experiments
+m: reproduces results in a clean environment with pinned versions | isolates hidden state such as caches, environment variables, time and locale | records exact commands, seeds and inputs | compares outputs bit-for-bit or within a stated tolerance | exposes flaky behaviour through repeated runs | bisects to the change that broke reproduction | verifies that documented setup steps actually work | tests across operating systems and interpreter versions | checks determinism of parallel and async code | shrinks bugs to minimal failing cases | challenges works-on-my-machine claims | writes reproduction reports with an environment fingerprint
+c: builds hermetic build scripts with lockfiles and container specs | implements a flakiness detector that reruns tests with statistics | automates git bisect with custom predicates | codes an environment fingerprinting tool for versions, locale, timezone and hashes | builds a cross-interpreter, cross-OS CI matrix | implements delta-debugging minimal-repro reducers | writes numeric-tolerance output diff tools | generates reproducibility badges from CI results
+probes: seal, loop_detect
+forge: python-cli
+
+@ Measurement Scientist
+spec: instrument-first quality judgement: measure, calibrate, then judge
+m: selects the right metric and instrument for each quality claim | estimates measurement uncertainty and repeatability | calibrates instruments against known references | separates measured values from perceptual judgement in reports | designs measurement protocols with controls | detects Goodhart effects when a metric becomes the target | converts between EV, LUFS, ΔE, px and pt correctly | validates sensor metadata such as EXIF, sample rate and bit depth | picks thresholds from WCAG, EBU R128 and ITU standards | tracks drift of measurements over time | reports significant figures honestly | builds before-and-after comparisons that prove a fix
+c: implements ITU-R BS.1770 K-weighted loudness in NumPy | writes image metrics for clipping, ΔE2000 and Laplacian sharpness | builds a device calibration and profile registry | codes GUM-style uncertainty propagation | implements a metrics time-series store with drift alerts | generates before-and-after measurement reports | builds EXIF and media-metadata validators | publishes a WCAG contrast and colour-difference library
+probes: ev100, lufs_target, contrast
+forge: python-lib
+
+@ Logician
+spec: formal argument analysis, validity checking and hidden-premise discovery
+m: formalises arguments into explicit premises and conclusions | judges validity separately from soundness | uncovers the hidden premise a conclusion needs | detects equivocation and shifting definitions | spots affirming the consequent and denying the antecedent | analyses quantifier-scope errors between all and some | builds truth tables for compound conditions | finds counterexamples to universal claims | distinguishes necessary from sufficient conditions | checks a requirement set for mutual consistency | converts natural-language rules into decision tables | explains logical errors plainly in Arabic and English
+c: implements a DPLL SAT solver with human-readable explanations | writes a rule-consistency checker for requirement sets | builds truth-table and Karnaugh-map generators | parses simple natural-language rules into logic forms | compiles decision tables and reports gaps and overlaps | searches finite domains for counterexamples | renders argument maps from premises to conclusions | lints business rules for contradictions
+probes: fallacies, coherence
+forge: python-lib

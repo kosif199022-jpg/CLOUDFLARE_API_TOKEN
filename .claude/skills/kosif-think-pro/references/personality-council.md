@@ -42,3 +42,38 @@ The facet vocabulary and the if-then (CAPS) idea come from the handbook; the map
 | Evidence Accountant | high C1 competence, C3 dutifulness | if a conclusion is drafted → map every claim to evidence status |
 
 Standard Mode activates only the profiles whose *if* condition is met; Pro Mode runs all 14 regardless and records `not-material` where the condition is absent.
+
+## Council-100 — 100 distinct expert members (v3.3)
+The 14 profiles above remain the **core** (they are what Pro receipts require). v3.3 adds 86 specialists so the council has **100 members in 10 chambers of 10**:
+
+| Chamber | Members (core in bold) |
+|---|---|
+| evidence — الأدلة والتحقق | **Skeptic**, **Strict Verifier**, **Evidence Accountant**, **Bias Hunter**, Fact Checker, Statistician, Source Auditor, Replication Tester, Measurement Scientist, Logician |
+| strategy — الاستراتيجية والقرار | **Decisive Operator**, **Ambitious Optimizer**, **Constraint Optimizer**, Strategist, Game Theorist, Economist, Portfolio Manager, Scenario Planner, Opportunity-Cost Analyst, Long-Term Steward |
+| risk — المخاطر والأمان | **Conservative Risk Guardian**, **Adversarial Critic**, Security Red-Teamer, Privacy Guardian, Safety Engineer, Compliance Officer, Legal Reviewer, Reliability Engineer, Fraud Examiner, Pre-Mortem Pessimist |
+| creativity — الإبداع والأفكار | **Creative Explorer**, Lateral Thinker, Provocateur, Analogist, Storyteller, Poet-Lyricist, Brand Strategist, Humorist, Futurist, Minimalist Editor |
+| human — الإنسان والمجتمع | **Conflict Scout**, **Naive-Reasoning Simulator**, **Integrator**, User Advocate, Negotiator, Ethicist, Cultural Advisor, Teacher, Mediator, Arabic Language Editor |
+| engineering — الهندسة والبرمجة | **Analytical Decomposer**, Software Architect, Code Reviewer, Test Engineer, Performance Engineer, Release Engineer, Data Engineer, API Designer, Debugger, Maintainability Advocate |
+| design — التصميم والتجربة | UX Researcher, UI Visual Designer, Accessibility Advocate, Typographer, Color Scientist, Motion Designer, Information Architect, Conversion Specialist, Mobile-First Designer, Design-System Keeper |
+| media — الإنتاج البصري والإعلامي | Cinematographer, Lighting Director, Photographer, Art Director, Prompt Engineer, Video Editor, Sound Designer, Music Producer, Continuity Supervisor, Character Designer |
+| business — المال والمراجعة والأعمال | External Auditor, IFRS Specialist, VAT Advisor, Controller, CFO, Forensic Accountant, Marketer, Sales Lead, Operations Manager, Procurement Specialist |
+| operations — الأتمتة والوكلاء والأدوات | GitHub Maintainer, Computer-Use Operator, Automation Engineer, Jev Arbiter, Tool Provenance Auditor, Budget Controller, Incident Commander, Idempotency Guardian, Postcondition Verifier, Human-Checkpoint Guardian |
+
+### Each member carries
+`id · name / name_ar · chamber · facets · triggers (EN + AR) · if_then · question · veto · specialty · mastery[12] · code[8] · probes[1–3] · forge` — see `council-100.json`. The build (`tools/build_council.py`) fails unless all 100 specialties and all 2,000 capabilities are unique (normalised text, no near-duplicates at token Jaccard ≥ 0.8), every probe exists and every forge archetype exists. "No repetition" is therefore a tested property, not a promise.
+
+### The council language (KCL, `scripts/council_lang.py` + `scripts/kcl_probes.py`)
+Typed Python 3.10+ messages: `Evidence(source, content, measured, data)`, `Objection(text, severity, veto)`, `Artifact(persona, stance, confidence, question, claims, evidence, objections, probes_run)`; enums `Stance` and `Severity`. Type rules enforced at construction: confidence ∈ [0, 1]; a member cannot `support` while raising a `blocking` objection. A member whose probes received no input answers `not-material` (never an invented number). First-pass artifacts are sealed (SHA-256 of canonical JSON) in a read-only ledger; a second first pass raises an error; `verify()` detects tampering. The wire format is plain JSON accepted by `council_aggregate.py`.
+
+### Protocol
+1. `council_select.py` → members (standard 3–12 · pro 14 core + up to 16 triggered specialists + every triggered veto holder · full 100). Design work always adds the Accessibility Advocate; optimiser/operator voices are balanced by a risk voice and vice versa.
+2. Collect measurable inputs for the selected members' probes (colours, code, diffs, cash flows, dates, commands, page text …) and run `council_lang.py run` — or, when writing positions by hand, one Artifact per member in the same schema.
+3. Freeze (seal) first-pass artifacts; then cross-critique in prose.
+4. `council_aggregate.py`: evidence-weighted support (confidence × evidence factor), blocking vetoes ⇒ `escalate`, unresolved material objections ⇒ `revise`, otherwise `proceed`.
+5. Report: verdict, blocking vetoes, surviving dissent, measured evidence, and the independence note.
+
+### `/council100` output format
+One line per member, grouped by chamber: `name_ar — stance — strongest point or objection — evidence (measured/observed/none)`. Members with nothing material say `not-material` in one word. Close with the aggregate verdict and surviving dissent. Keep it compact; 100 members do not justify 100 paragraphs.
+
+### Build alone (`scripts/project_forge.py`)
+Any member can scaffold a complete project in its archetype, with its probes vendored and wired in, tests that pass on generation (the forge runs them and reports the real result), CI, architecture doc, ADR, SECURITY.md and a milestone roadmap built from its 8 programming capabilities. The project then grows milestone by milestone, test-first. All 100 members' default projects were generated and tested at release time.

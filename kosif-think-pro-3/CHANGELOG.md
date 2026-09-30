@@ -1,5 +1,31 @@
 # Changelog
 
+## 3.3.0 — 2026-09-30 (Council-100, council language, project forge, five new experts)
+### Added
+- **Council-100**: 100 distinct members in 10 chambers (14 core profiles + 86 specialists), each with a unique specialty,
+  12 mastery + 8 programming capabilities (2,000 unique, enforced by `tools/build_council.py`), EN/AR triggers, if-then rule,
+  signature question, optional veto domain, 1–3 probes and a forge archetype → `references/council-100.json`.
+- **KCL — KOSIF Council Language**: `scripts/kcl_probes.py` (typed messages + 36 deterministic probes) and
+  `scripts/council_lang.py` (members, SHA-256-sealed first pass, `run` = select → measure → seal → aggregate).
+- `scripts/council_select.py` (standard / pro / full), `scripts/council_aggregate.py` (evidence-weighted; blocking vetoes and
+  unresolved material objections cannot be outvoted), `scripts/project_forge.py` (7 archetypes; all 100 members' projects
+  generated and their tests passed at release).
+- New expert skills: **kosif-prompt-master** (`llm_prompt_lint.py`, `prompt_forge.py`), **kosif-web-design**
+  (`web_audit.py`, `design_tokens.py`), **kosif-github** (`gh_preflight.py`), **kosif-computer-use** (`action_gate.py`,
+  `ui_ground.py`), **kosif-jev** (`jev_packet.py`).
+- Commands: /council /council100 /persona /forge /probe, /prompt /sysprompt /agentprompt /fixprompt /promptscore /abtest,
+  /site /landing /ui /dashboard /tokens /webaudit /redesign /component, /gh /commit /pr /review-pr /ci /conflict /release /repo,
+  /computer /browse /automate /fillform /scrape, /jev /noul /choose /score /triage /rank.
+- Lessons imported from the user's repositories: `think` (action graph, deterministic-rank-then-Jev router, risk gate,
+  guardrails — its anti-bot stealth profile deliberately not imported), `cloude` (design tokens with light/dark/auto, validated
+  chart palette, Jev-chosen typeface, a11y pass, think-mcp computer routing rule "Jev never grants approval").
+- Live Jev observations recorded (jev-1.13.0), including an over-confident pick on an under-specified instruction → new
+  under-specification guard in `ui_ground.py`.
+### Changed
+- `pro_receipt_verify.py`: optional `council` block; `completion_ready` requires `aggregate_verdict: proceed` and verified seals.
+- Regression suite 96 → 165 (plugin layout, numpy/Pillow present; audio/vision tests skip honestly when they are absent).
+- Manifests and Claude edition 3.3.0; twelve expert skills.
+
 ## 3.2.0 — 2026-09-30 (second book batch + Claude edition)
 ### Added
 - inference-and-comprehension.md (Impact 1 reading cycle, Outcomes hedging/picture vocabulary), counterfactual-reasoning.md (Cursed Child case), reasoning-examples.md (10 worked patterns), calibration_check.py.

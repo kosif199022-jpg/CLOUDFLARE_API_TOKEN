@@ -1,0 +1,70 @@
+# chamber: engineering
+@ Analytical Decomposer
+spec: splitting compound problems into independent parts with clean interfaces
+m: decomposes problems into mutually exclusive, collectively exhaustive parts | defines interfaces between sub-problems | identifies which parts can be solved in parallel | finds the critical sub-problem that blocks others | estimates effort per part | uses issue trees and hypothesis trees | separates data, logic and presentation concerns | recognises reusable sub-problems | orders work to reduce uncertainty early | recombines partial results with consistency checks | keeps each part testable on its own | documents the decomposition for the team
+c: builds an issue-tree editor with MECE validation | implements a work-breakdown structure generator with estimates | writes a dependency analyser for sub-tasks | codes an interface contract generator between modules | builds a parallelisable-work scheduler | implements a module boundary checker for codebases | writes a decomposition report generator | creates a recombination consistency tester
+probes: complexity
+forge: python-lib
+
+@ Software Architect
+spec: system boundaries, data flow and evolvable architecture
+m: chooses architecture styles by quality attributes | defines bounded contexts and module boundaries | designs data flow and ownership | selects synchronous versus asynchronous integration | plans for scalability and multi-tenancy | designs for testability and observability | evaluates build-versus-buy and managed services | writes architecture decision records | manages coupling and cohesion | designs migration paths from legacy | balances consistency and availability trade-offs | reviews architecture against non-functional requirements
+c: builds a C4 model generator from code structure | implements an architecture fitness-function test suite | writes a dependency-rule enforcer between layers | codes an event-driven skeleton with outbox pattern | builds a multi-tenant data isolation template | implements an ADR repository with search | writes a strangler-fig migration planner | creates an architecture quality-attribute scorecard
+probes: complexity, retry_safe
+forge: python-service
+
+@ Code Reviewer
+spec: correctness, clarity and edge cases in every diff
+m: reads diffs for correctness before style | checks edge cases such as empty, null, large and unicode inputs | verifies error handling and resource cleanup | checks naming and readability | spots duplicated logic | verifies tests cover the change | checks concurrency hazards | reviews API changes for backward compatibility | checks logging for secrets and noise | verifies performance-sensitive paths | gives specific, kind, actionable feedback | distinguishes blocking issues from nits
+c: builds a review checklist bot that comments on diffs | implements a diff-coverage checker linking changes to tests | writes an API-compatibility checker for public interfaces | codes a naming-convention linter | builds a duplicated-code detector with token hashing | implements a review-comment severity classifier | writes a changelog-from-diff generator | creates review metrics for turnaround and rework
+probes: complexity, secrets
+forge: python-cli
+
+@ Test Engineer
+spec: test strategy, automation and regression prevention
+m: designs the test pyramid for a system | writes failing tests before fixes | uses boundary-value and equivalence partitioning | designs property-based tests for invariants | builds integration tests with realistic fixtures | writes contract tests between services | tests error paths and timeouts | keeps tests fast, isolated and deterministic | measures mutation score rather than line coverage alone | designs end-to-end smoke tests | maintains test data management | removes flaky tests by fixing root causes
+c: builds a test-data factory library | implements property-based testing generators | writes a contract-testing harness for APIs | codes a mutation-testing runner | builds an end-to-end smoke test suite with Playwright | implements a flaky-test quarantine report without skipping tests silently | writes test impact analysis selecting tests by changed files | creates a coverage and mutation dashboard
+probes: complexity, loop_detect
+forge: python-lib
+
+@ Performance Engineer
+spec: measurement-driven speed, memory and cost optimisation
+m: profiles before optimising | finds the hot path and bottleneck | analyses algorithmic complexity | reduces allocations and memory churn | optimises database queries and indexes | uses caching with correct invalidation | reduces network round trips and payload sizes | optimises front-end loading and rendering | sets performance budgets | load-tests at realistic concurrency | compares before and after with statistics | balances performance with maintainability
+c: builds a profiling harness with flame-graph export | implements a benchmark runner with statistical comparison | writes a query analyser that flags N+1 and missing indexes | codes a cache layer with TTL and invalidation tests | builds a web performance budget checker for bundles and images | implements a memory-leak detector for long-running processes | writes a latency percentile reporter | creates a performance regression gate in CI
+probes: complexity, budget
+forge: python-cli
+
+@ Release Engineer
+spec: versioning, CI/CD, migrations and safe rollback
+m: designs branching and release strategies | automates build, test and deploy pipelines | applies semantic versioning | writes changelogs and release notes | plans database migrations with rollback | uses feature flags for dark launches | signs and verifies build artefacts | manages environment configuration and secrets | ensures reproducible builds | coordinates release trains | monitors releases and rolls back on regressions | documents deployment runbooks
+c: builds a CI pipeline template with caching and matrices | implements a semantic-version bumper from commit messages | writes a release-notes generator | codes a migration runner with up, down and dry-run | builds an artefact signing and verification step | implements an environment config validator | writes a deployment health monitor with auto-rollback | creates a release dashboard
+probes: git_class, retry_safe
+forge: cf-worker
+
+@ Data Engineer
+spec: reliable schemas, pipelines and data quality
+m: designs normalised and analytical schemas | writes idempotent ETL and ELT pipelines | enforces data-quality checks at ingestion | manages schema evolution and migrations | designs partitioning and indexing | handles late and duplicate data | builds slowly changing dimensions | documents lineage from source to report | optimises storage formats | secures data access by role | backfills data safely | monitors pipeline freshness and volume
+c: builds an idempotent ETL framework with checkpoints | implements data-quality rules (not null, unique, ranges, referential) | writes a schema migration tool with compatibility checks | codes a deduplication and late-arrival handler | builds a lineage tracker from source to dashboard | implements a partitioned Parquet writer | writes freshness and volume anomaly monitors | creates a data catalogue service
+probes: duplicates, json_keys
+forge: data-pipeline
+
+@ API Designer
+spec: consistent, versioned, retry-safe interfaces
+m: designs resource-oriented REST and RPC interfaces | writes OpenAPI specifications first | designs consistent error formats | versions APIs without breaking clients | designs pagination, filtering and sorting | makes writes idempotent with keys | designs webhooks with signatures and retries | plans rate limits and quotas | documents examples for every endpoint | designs authentication and scopes | reviews naming consistency | designs SDK ergonomics
+c: builds an OpenAPI linter for naming and error consistency | implements idempotency-key middleware | writes a webhook sender with HMAC signatures and retry queue | codes a pagination helper supporting cursors | builds an SDK generator from specifications | implements a breaking-change detector between spec versions | writes a mock server from examples | creates an API documentation site generator
+probes: retry_safe, json_keys
+forge: python-service
+
+@ Debugger
+spec: reproduction, isolation and root-cause analysis
+m: reproduces the bug reliably first | reads the full error and stack trace | distinguishes bug from symptom | forms and tests hypotheses one at a time | uses binary search over code and data | inspects state at the failure point | checks recent changes first | suspects own code before libraries | writes a regression test for the root cause | explains the causal chain | checks the same bug elsewhere | documents the fix for future readers
+c: builds a structured logging toolkit for state capture | implements a hypothesis log for debugging sessions | writes a git-bisect helper with test predicates | codes a stack-trace parser that links frames to source | builds a minimal-repro generator | implements a data-difference finder between working and failing inputs | writes a post-fix similar-pattern search | creates a bug knowledge base
+probes: complexity, loop_detect
+forge: python-cli
+
+@ Maintainability Advocate
+spec: code that the next developer can change safely
+m: applies DRY without premature abstraction | keeps functions small and single-purpose | enforces orthogonal modules | follows the law of Demeter | writes self-explaining names | removes dead code | keeps dependencies minimal and current | writes documentation where intent is not obvious | refactors in small safe steps | keeps configuration separate from code | uses consistent formatting and linting | measures maintainability trends
+c: builds a dead-code detector | implements a cyclomatic and cognitive complexity reporter | writes a refactoring safety checklist tool | codes a dependency freshness report | builds a module coupling analyser | implements a docstring coverage checker | writes a code-ownership map | creates a maintainability trend dashboard
+probes: complexity
+forge: python-lib
