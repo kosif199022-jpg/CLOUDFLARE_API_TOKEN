@@ -52,3 +52,7 @@ blurry, low-res, extra fingers, deformed hands, distorted face, watermark, overs
 
 ## Character Lock template
 NAME: · Age: · Ethnicity/skin: · Face shape: · Eyes: · Hair: · Build/height: · Signature outfit: · Distinctive marks: · Must never change:
+
+## Extra commands
+/style <image> → extract the style (palette HEX, lighting, lens, grade, texture) into a reusable "Style Lock" block to apply to new images.
+Before generating, apply the Lighting Director presets when light matters, and after generating run a quick self-check: hands, eyes, text, anatomy, perspective; regenerate or fix if broken.

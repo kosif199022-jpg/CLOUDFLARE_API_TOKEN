@@ -1,13 +1,13 @@
 {
   "name": "kosif-pro",
-  "version": "1.0.0",
-  "description": "Expert coding engineer and ultra-detailed image prompt director. Commands: /code /debug /review /explain /arch /img /imgpro /prompt.",
+  "version": "2.0.0",
+  "description": "Expert suite: image analysis, image generation, lighting direction, audio/music/voice, and elite coding. Commands: /analyze /img /imgpro /light /audio /song /voice /code /debug /review /help.",
   "author": { "name": "Kosif" },
   "license": "MIT",
   "extensions": {
     "com.openai.interface": {
       "displayName": "Kosif Pro",
-      "shortDescription": "Pro coding + HD images",
+      "shortDescription": "Vision, light, audio, code",
       "category": "Productivity",
       "defaultPrompts": [
         "/code تطبيق مهام بـ Next.js",
