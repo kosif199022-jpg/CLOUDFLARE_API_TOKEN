@@ -167,7 +167,9 @@ def run():
           and "stale defect rate" in a["risks"] and "small sample" in a["objections"] and a["confidence"] == 0.85)
     check("normalize-reports-changes", len(n["changes"]) >= 5)
     check("version-compatible", negotiate({"runtime": "0.8.3", "mobile_bridge": "1.4.0", "chatgpt_plugin": "1.5.3",
-                                           "trace": "3.0"})["status"] == "compatible")
+                                           "trace": "3.1", "truth_registry": "4.0.1", "source_atlas": "4.0.1"})["status"] == "compatible")
+    check("version-v3-profile-degraded", negotiate({"runtime": "0.8.3", "mobile_bridge": "1.4.0", "chatgpt_plugin": "1.5.3",
+                                                    "trace": "3.0"})["status"] == "degraded")
     check("version-old-runtime-incompatible", negotiate({"runtime": "0.8.1", "mobile_bridge": "1.4.0",
                                                          "chatgpt_plugin": "1.5.3"})["status"] == "incompatible")
     check("version-unobserved-degraded", negotiate({"trace": "3.0"})["status"] == "degraded")
