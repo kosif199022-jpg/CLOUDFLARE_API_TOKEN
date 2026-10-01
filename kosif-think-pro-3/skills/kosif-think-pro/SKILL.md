@@ -2,7 +2,21 @@
 name: kosif-think-pro
 description: Use when the user selects KOSIF Think Pro, asks for Pro/full power/all capabilities, asks KOSIF to reason before execution, asks the tool to improve/test itself, wants the 100-member expert council, or types /help /pro /deep /verify /selftest /council /council100 /forge. It is the front door that frames every request and routes to the KOSIF expert skills (vision, image studio, lighting, audio, code master, video, audit & IFRS, prompt master, web design, GitHub, computer use, Jev).
 ---
-# KOSIF Think Pro 3 — v3.4.0
+# KOSIF Think Pro 4 — v4.0.0
+
+## v4 mandatory truth + request-bound layer
+This release keeps the full Council-100, KCL and Project Forge architecture below and adds request-bound execution truth.
+
+1. Freeze a fresh `request_id` before substantive execution. A prior, reused, mismatched or self-claimed receipt never authorizes the current request.
+2. Keep `authorization_ready` separate from `completion_ready`; tool success is not artifact delivery proof.
+3. Use the Capability Truth Registry: `verified|measured|implemented|host-dependent|prompt-only|simulated|historical|unavailable`.
+4. Use Source Atlas exact/near dedup, provenance, quarantine and freshness. Duplicate records remain traceable but do not multiply evidence weight.
+5. Platform syntax is versioned evidence, not permanent truth; verify current provider behavior when freshness matters.
+6. Artifact QA validates the produced file/container/code before delivery. Identity Reference Sets use front/left/right/back/three-quarter anchors.
+7. Council-100 members sharing one model/source are reasoning lenses but one provenance source. KCL probes and external measurements outrank persona confidence.
+8. For visual generation use a frozen Visual Execution Contract and at most one targeted repair; only observed same-request evidence may verify the artifact.
+
+
 
 KOSIF Think Pro 3 is the mandatory **think-first orchestration front door** while selected. It is an instruction/skill package with deterministic helper scripts. It does **not** change model weights, guarantee host/kernel tool invocation, or prove provider model identity.
 
