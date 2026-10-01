@@ -1,0 +1,45 @@
+name: KOSIF Think Pro 4 CI
+on:
+  pull_request:
+  push:
+    branches:
+      - feat/kosif-think-pro-v4-truth-engine
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: kosif-think-pro-3
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Reject committed Python caches
+        working-directory: .
+        run: |
+          if git ls-files | grep -E '(__pycache__/|\.pyc$)'; then
+            echo "tracked Python cache files are forbidden"
+            exit 1
+          fi
+      - name: Install optional test dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      - name: Full legacy plus Council regression
+        run: python skills/kosif-think-pro/scripts/regression_self_test.py
+      - name: Request and action risk gates
+        run: python skills/kosif-think-pro/scripts/risk_gate_self_test.py
+      - name: Runtime receipt adapter
+        run: python skills/kosif-think-pro/scripts/pro_receipt_adapter_self_test.py
+      - name: Visual reliability
+        run: python skills/kosif-think-pro/scripts/visual_reliability_self_test.py
+      - name: V4 truth/source/artifact layer
+        run: python skills/kosif-think-pro/scripts/v4_truth_self_test.py
+      - name: Compile Python
+        run: python -m compileall -q skills tools
+      - name: Build plugin
+        run: python tools/build_zip.py
+      - name: Build Claude edition
+        run: python tools/build_claude_skill.py
