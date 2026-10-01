@@ -33,7 +33,7 @@ def run():
  drift=ident.verify_identity(ref,{'character_id':'C','traits':{'eyes':'blue'},'views_seen':['front'],'observation_source':'host-vision'})
  c('identity-real-drift-blocks',drift['verdict']=='BLOCK')
 
- pf=load(Path('skills/kosif-prompt-master/scripts/prompt_forge.py'),'pf')
+ pf=load(Path('skills/kosif-prompt-master/scripts/prompt_forge_v4_truth.py'),'pf')
  o=pf.forge({'mode':'image','subject':'portrait','platforms':['chatgpt','flux','sdxl','ideogram','midjourney'],'as_of':'2026-10-01'})
  c('forge-correct-adapter-chatgpt',o['prompts']['chatgpt']['adapter']['platform']=='chatgpt')
  c('forge-correct-adapter-flux',o['prompts']['flux']['adapter']['platform']=='flux')
