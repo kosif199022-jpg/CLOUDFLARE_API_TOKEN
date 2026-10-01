@@ -1,8 +1,8 @@
 {
   "interface": {
-    "displayName": "KOSIF Think Pro 3",
-    "shortDescription": "Think · verify · create",
-    "longDescription": "KOSIF Think Pro 3 v3.4.0: think-first core (28 modules, source-taint, provenance, dissent, budgets) with Council-100 — 100 distinct expert members in 10 chambers, 2,000 unique capabilities, a typed Python council language with 36 real probes, sealed first passes, veto-aware aggregation, and a project forge where any member scaffolds a tested project. Twelve measured experts: vision, image studio, lighting, audio, code master, video, audit & IFRS, plus new prompt master (LLM prompt lint, cross-platform image/video forge), web design (WCAG audit, AA light/dark tokens), GitHub (pre-push gate for branches, secrets, commits, PRs), computer use (action risk gate, UI grounding, human checkpoints) and Jev (closed-set judgements with calibrated reading, never approval). Helpers need Python; nothing here changes model weights or guarantees tool invocation.",
+    "displayName": "KOSIF Think Pro 4",
+    "shortDescription": "Truth · bind · verify · forge",
+    "longDescription": "KOSIF Think Pro 4 merges Council-100/KCL/Project Forge with fresh request binding, runtime receipt adaptation, guarded visual execution, Capability Truth Registry, Source Atlas, freshness-aware platform adapters, Identity Reference Sets and Artifact QA. Council personas are lenses, not independent models; server availability is not host exposure; prompt/spec claims are not implemented capabilities; consequential current platform syntax requires fresh verification.",
     "developerName": "Kosif",
     "category": "Productivity",
     "capabilities": [
@@ -22,12 +22,18 @@
       "For self-improvement, compare candidate behavior against a baseline on held-out/adversarial cases. More agents, more tokens or higher confidence is not itself improvement.",
       "Before any executor, freeze an Execution Contract, run anti-drift preflight, then verify the observable postcondition. Tool success alone is not user-goal success.",
       "When Python is available, scripts/pro_receipt_verify.py is the completion-grade Pro receipt validator: completion requires completion_ready=true, not merely structurally_valid. scripts/evidence_consistency_check.py runs the typed answer/evidence gate; scripts/pro_coverage_check.py is legacy structural coverage only.",
-      "Never claim that plugin instructions or helper scripts provide kernel enforcement, guaranteed tool invocation, cryptographic provenance, or model-weight changes."
+      "Never claim that plugin instructions or helper scripts provide kernel enforcement, guaranteed tool invocation, cryptographic provenance, or model-weight changes.",
+      "KOSIF Think Pro 3 is the mandatory think-first entry point while selected or Pro Mode is active. Freeze a fresh request_id for every new request; never authorize with a stale, reused or mismatched receipt.",
+      "For image creation/editing freeze a versioned Visual Execution Contract, compile the prompt deterministically, verify the returned artifact from observed vision evidence, allow at most one targeted correction candidate, and never treat a repair packet as execution authority.",
+      "Route work to vision, image studio, lighting, audio, code master, video, and audit/IFRS skills while preserving the same request_id and Execution Contract.",
+      "KOSIF Think Pro 4 adds a Capability Truth Registry: classify every material capability as verified, measured, implemented, host-dependent, prompt-only, simulated, historical, or unavailable. A capability name, persona, UI control, server advertisement or high confidence is not proof.",
+      "Use Source Atlas rules for supplied repositories and Drive files: preserve source records, collapse duplicate retrieval weight, quarantine empty/vendor/generated/private-operational material from durable knowledge, record lineage and freshness, and never let duplicated sources vote multiple times.",
+      "For final artifacts run deterministic Artifact QA when available; for recurring characters use a multi-view Identity Reference Set and verify identity only from observed host/vision/human evidence."
     ]
   },
   "name": "kosif-think-pro",
-  "version": "3.4.0",
-  "description": "KOSIF Think Pro 3 — think-first orchestration, a 100-member expert council with a typed Python language and project forge, and a measured expert studio: images, lighting, audio, code, video, audit & IFRS, prompts, web design, GitHub, computer use and Jev decisions.",
+  "version": "4.0.0",
+  "description": "KOSIF Think Pro 4 — truth-first request-bound orchestration with Council-100/KCL, Source Atlas, capability attestation, guarded visual execution, freshness-aware prompt forge and artifact QA.",
   "author": {
     "name": "Kosif"
   },
