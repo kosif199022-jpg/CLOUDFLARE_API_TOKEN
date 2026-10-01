@@ -1,4 +1,11 @@
-# KOSIF Think Pro 3 — v3.4.0
+# KOSIF Think Pro 4 — v4.0.0
+
+## v4.0 truth-first reconciliation
+- Merges the 3.4 Council-100/KCL/Project Forge lineage with fresh request binding, authorization/completion separation and guarded visual execution.
+- Adds Capability Truth Registry, sanitized Source Atlas, freshness-aware platform adapters, Identity Reference Sets and deterministic Artifact QA.
+- Adds GitHub CI and rejects committed Python caches.
+- Current platform syntax is re-verified when freshness matters; old guides remain historical evidence, not permanent current truth.
+
 
 إضافة ChatGPT (وCodex) تجمع **عقل KOSIF Think Pro** (التفكير أولاً والتحقق والإيصالات) مع **استوديو خبراء بالقياس الحقيقي**: تحليل الصور، والرسم والتوليد، والإضاءة، والصوت، والبرمجة، والفيديو.
 
