@@ -167,7 +167,8 @@ def run():
           and "stale defect rate" in a["risks"] and "small sample" in a["objections"] and a["confidence"] == 0.85)
     check("normalize-reports-changes", len(n["changes"]) >= 5)
     check("version-compatible", negotiate({"runtime": "0.8.3", "mobile_bridge": "1.4.0", "chatgpt_plugin": "1.5.3",
-                                           "trace": "3.1", "truth_registry": "4.0.1", "source_atlas": "4.0.1"})["status"] == "compatible")
+                                           "trace": "3.1", "truth_registry": "4.1.0", "source_atlas": "4.1.0",
+                                           "risk_gate": "4.1.0", "receipt_builder": "4.1.0"})["status"] == "compatible")
     check("version-v3-profile-degraded", negotiate({"runtime": "0.8.3", "mobile_bridge": "1.4.0", "chatgpt_plugin": "1.5.3",
                                                     "trace": "3.0"})["status"] == "degraded")
     check("version-old-runtime-incompatible", negotiate({"runtime": "0.8.1", "mobile_bridge": "1.4.0",
@@ -537,7 +538,7 @@ def run():
     # ---- package binding ---------------------------------------------------
     skill = (SKILL_ROOT / "SKILL.md").read_text(encoding="utf-8")
     runtime = find("runtime-consistency.md").read_text(encoding="utf-8")
-    check("skill-version-v4-overlay", "KOSIF Think Pro 4" in skill[:3000] and "v4.0.1" in skill[:3000])
+    check("skill-version-v4-overlay", "KOSIF Think Pro 4" in skill[:3000] and "v4.1.0" in skill[:3000])
     check("skill-binds-layers", all(x in skill for x in ("verified-self-improvement.md", "pro_receipt_verify.py",
           "source-taint-protocol.md", "runtime-consistency.md", "evidence_consistency_check.py")))
     check("skill-routes-all-experts", all(e in skill for e in EXPERTS))
@@ -547,7 +548,7 @@ def run():
     if LAYOUT == "plugin":
         manifest = json.loads((PLUGIN_ROOT / "plugin.json").read_text(encoding="utf-8"))
         codex = json.loads((PLUGIN_ROOT / ".codex-plugin" / "plugin.json").read_text(encoding="utf-8"))
-        check("manifest-v4.0.1", manifest.get("version") == "4.0.1" and codex.get("version") == "4.0.1")
+        check("manifest-v4.1.0", manifest.get("version") == "4.1.0" and codex.get("version") == "4.1.0")
         check("manifest-description-lengths", len(manifest["extensions"]["com.openai"]["interface"]["longDescription"]) <= 1024
               and len(manifest["extensions"]["com.openai"]["interface"]["shortDescription"]) <= 30)
         for e in EXPERTS:
@@ -565,7 +566,7 @@ def run():
 
     failed = [n for n, ok in tests if not ok]
     out = {"ok": not failed, "passed": sum(1 for _, ok in tests if ok), "total": len(tests), "failed": failed,
-           "skipped": skipped, "version": "4.0.1-3.4-behavior", "layout": LAYOUT}
+           "skipped": skipped, "version": "4.1.0-3.4-behavior", "layout": LAYOUT}
     print(json.dumps(out, ensure_ascii=False, sort_keys=True))
     return 0 if not failed else 1
 
