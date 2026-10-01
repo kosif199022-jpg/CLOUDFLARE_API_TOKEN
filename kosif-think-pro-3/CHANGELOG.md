@@ -1,5 +1,14 @@
 # Changelog
 
+## 4.0.0 — 2026-10-01 (truth-first reconciliation)
+### Added
+- Capability Truth Registry, Source Atlas, freshness-aware platform adapters, Artifact QA and multi-view Identity Reference Sets.
+- Request-bound authorization/completion and guarded visual execution merged into the Council-100/KCL/Project Forge lineage.
+- GitHub CI plus repository hygiene gates; generated Python bytecode removed from the v4 branch.
+### Preserved
+- Council-100: 100 personas / 10 chambers / 2,000 unique capability descriptors, KCL 36 deterministic probes, Project Forge and Prompt Master 3.4 rules.
+
+
 ## 3.4.0 — 2026-09-30 (Drive books «كتب هامة»)
 ### Added
 - `kosif-prompt-master/references/books-drive-ledger.md`: a note for each file read, a list of the files not yet read, what was adopted and what was rejected.
