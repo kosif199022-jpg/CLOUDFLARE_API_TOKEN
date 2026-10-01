@@ -1,11 +1,14 @@
 {
-  "matrix_version": "3.4.0",
-  "pro_package": "3.4.0",
+  "matrix_version": "4.0.1",
+  "pro_package": "4.0.1",
   "components": {
-    "runtime":        {"min": "0.8.3", "recommended": "0.8.3", "reason": "answer/evidence quarantine gate and host-exposure truthfulness"},
-    "mobile_bridge":  {"min": "1.4.0", "recommended": "1.4.0", "reason": "kosif_mobile_call bridge to kosif_auto/kosif_route"},
-    "chatgpt_plugin": {"min": "1.5.3", "recommended": "1.5.3", "reason": "refreshed live MCP discovery"},
-    "trace":          {"min": "2.7",   "recommended": "3.0",   "reason": "3.0 adds consistency + completion_ready fields"}
+    "runtime": {"min":"0.8.3","recommended":"0.8.3","reason":"answer/evidence quarantine and host-exposure truthfulness"},
+    "mobile_bridge": {"min":"1.4.0","recommended":"1.4.0","reason":"advanced runtime bridge when host-exposed"},
+    "chatgpt_plugin": {"min":"1.5.3","recommended":"1.5.3","reason":"MCP discovery baseline; host exposure must still be observed"},
+    "trace": {"min":"2.8.1","recommended":"3.1","reason":"request binding, authorization/completion separation and delivery proof"},
+    "visual_contract": {"min":"1.0","recommended":"1.0","reason":"bounded deterministic visual execution/repair"},
+    "truth_registry": {"min":"4.0.0","recommended":"4.0.1","reason":"capability attestation plus v4.0.1 adapter/dedup reconciliation"},
+    "source_atlas": {"min":"4.0.1","recommended":"4.0.1","reason":"canonical duplicate retrieval weighting and freshness metadata"}
   },
-  "degraded_if_missing": ["runtime", "mobile_bridge", "chatgpt_plugin"]
+  "degraded_if_missing": ["runtime","trace","truth_registry","source_atlas"]
 }

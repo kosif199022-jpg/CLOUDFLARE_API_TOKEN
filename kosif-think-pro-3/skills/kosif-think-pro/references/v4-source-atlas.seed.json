@@ -1,0 +1,43 @@
+{
+  "schema_version": "4.0.0",
+  "snapshot_date": "2026-10-01",
+  "principle": "Preserve provenance records; deduplicate evidentiary weight; quarantine private/secret data; distinguish read depth from indexing.",
+  "corpus_observations": {
+    "legacy_manifest_records": 85,
+    "legacy_empty_records": 5,
+    "legacy_exact_duplicate_groups": 9,
+    "new_root_direct_children": 91,
+    "new_root_pdf_count": 17
+  },
+  "source_families": [
+    {"id":"ai-studio-registry","title":"AI Studio source manifest + source profiles","read_mode":"deep-read","status":"indexed-provenance","privacy":"normal","adopted":["source registry","SHA-256 provenance","duplicate-aware retrieval","empty-source preservation"]},
+    {"id":"promptcraft","title":"PromptCraft Elite v3","read_mode":"deep-read","status":"reference","privacy":"normal","adopted":["structured prompt composition","camera/lighting specificity"],"duplicate_copies_verified":3},
+    {"id":"veo-guide","title":"Mastering Google Veo advanced prompt guide","read_mode":"deep-read","status":"version-scoped","privacy":"normal","adopted":["subject-action-setting","camera/movement","iteration","scene continuity"],"duplicate_copies_verified":2},
+    {"id":"midjourney-guides","title":"Midjourney cinematic/master guides","read_mode":"sampled","status":"historical-version-scoped","privacy":"normal","adopted":["aspect/reference/style concepts","photographic vocabulary"],"rejected_as_current":["unverified historical parameter syntax"]},
+    {"id":"nanobanana-guides","title":"Nano Banana prompt samples/hot tips","read_mode":"sampled","status":"version-scoped","privacy":"normal","adopted":["reference-led editing","cross-view consistency","style transfer patterns"]},
+    {"id":"ultimate150","title":"Ultimate 150 AI Image Prompts","read_mode":"sampled","status":"reference","privacy":"normal","adopted":["camera/lens/lighting detail patterns","reference preservation patterns"],"rejected":["generic quality-token inflation as evidence"]},
+    {"id":"character360","title":"360-Degree Character Sheet","read_mode":"deep-read","status":"reference","privacy":"normal","adopted":["front/left/right/back/three-quarter reference set","identity consistency anchors"]},
+    {"id":"aetherius","title":"Aetherius","read_mode":"sampled","status":"code-pattern-source","privacy":"normal","adopted":["retry/backoff","chunked processing","bounded concurrency"]},
+    {"id":"black-camel","title":"Black Camel app/constants/system instruction","read_mode":"deep-read","status":"code-pattern-source","privacy":"normal","adopted":["agent/workflow decomposition","prompt architecture"]},
+    {"id":"omni-blue-dragon","title":"OMNI Sovereign + Blue Dragon/Dragon V20","read_mode":"sampled","status":"code-and-prompt-pattern-source","privacy":"normal","adopted":["platform routing","reference codes","camera/lighting layers","start/end continuity"]},
+    {"id":"masrytube-audio","title":"MasryTube Studio audio code","read_mode":"sampled","status":"mixed-real-and-simulated","privacy":"normal","adopted":["typed audio blocks","timeline/effects architecture","voice/SFX taxonomy"],"truth_note":"Simulation code must remain classified simulated unless an executor is measured."},
+    {"id":"pokemon-blueprint","title":"Pokemon AI Blueprint","read_mode":"deep-read","status":"design-reference","privacy":"normal","adopted":["specialist routing","fusion as compositional specialization","seven-layer visual prompt structure"],"truth_note":"Agent names/stats are interface concepts, not capability proof."},
+    {"id":"shining-star","title":"Shining Star technical specification","read_mode":"deep-read","status":"design-reference","privacy":"normal","adopted":["tool taxonomy","orchestra/evolution workflow","consistency anchors"],"truth_note":"Tool count is not execution proof."},
+    {"id":"artifact-manuals","title":"DOCX/XLSX/PPTX/PDF artifact manuals","read_mode":"deep-read","status":"engineering-reference","privacy":"normal","adopted":["post-generation structural validation","visual QA","fix-and-reverify","OpenXML/formula/reference checks"]},
+    {"id":"github-3.4","title":"GitHub branch claude/magical-goldberg-qjmjx1 through v3.4.0","read_mode":"deep-read","status":"source-code-reference","privacy":"normal","adopted":["Council-100 chamber idea","KCL typed probes","Project Forge","Prompt Forge variations","source ledger"],"rejected":["persona count as independence","committed pycache artifacts","stale test-count documentation"]},
+    {"id":"game-guides","title":"Large strategy/fiction guides","read_mode":"sampled","status":"domain-limited-reference","privacy":"normal","adopted":["workflow/strategy sequencing","story/world progression patterns"],"rejected_as_authority":["unrelated technical/current platform claims"]},
+    {"id":"operational-company-docs","title":"Company accounting/legal/product PDFs","read_mode":"task-data-only","status":"quarantined","privacy":"operational-private","retrieval_weight":0,"adopted":["anonymized regression-shape ideas only"],"prohibited":["raw private business data in permanent plugin knowledge"]},
+    {"id":"empty-records","title":"Known empty source records","read_mode":"metadata-only","status":"empty","privacy":"normal","retrieval_weight":0}
+  ],
+  "verified_exact_duplicate_groups": [
+    ["PromptCraft Elite copy A","PromptCraft Elite copy B","PromptCraft Elite copy C"],
+    ["Veo guide copy A","Veo guide copy B"],
+    ["Blue Dragon prompt copy A","Blue Dragon prompt copy B"],
+    ["App (1).tsx","App (2).tsx"],
+    ["comparison-before-after copy A","copy B","copy C"],
+    ["Cinema AI V5 analysis copy A","copy B","copy C","copy D","copy E"],
+    ["constants.js copy A","copy B","copy C"],
+    ["App.jsx copy A","copy B","copy C"],
+    ["الكود.txt","Text Document جديد (3).txt"]
+  ]
+}

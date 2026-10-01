@@ -1,0 +1,20 @@
+{
+  "schema_version": "4.0.1",
+  "snapshot_date": "2026-10-01",
+  "note": "Conservative package-level defaults. Host exposure and side-effect readiness are re-evaluated per request/session.",
+  "capabilities": [
+    {"id":"kosif-think-pro","status":"measured","evidence":[{"type":"deterministic-test","id":"v4_regression_self_test"},{"type":"deterministic-test","id":"reconcile_401_self_test"},{"type":"deterministic-test","id":"v4_package_self_test"}]},
+    {"id":"kosif-vision","status":"implemented","evidence":[{"type":"source-readback","id":"published-skill-inventory"}]},
+    {"id":"kosif-image-studio","status":"host-dependent","host_tool":"image-generator","evidence":[{"type":"source-readback","id":"published-skill-inventory"}]},
+    {"id":"kosif-lighting","status":"implemented","evidence":[{"type":"source-readback","id":"published-skill-inventory"}]},
+    {"id":"kosif-audio","status":"implemented","evidence":[{"type":"source-readback","id":"published-skill-inventory"}]},
+    {"id":"kosif-code-master","status":"implemented","evidence":[{"type":"source-readback","id":"published-skill-inventory"}]},
+    {"id":"kosif-video","status":"implemented","evidence":[{"type":"source-readback","id":"published-skill-inventory"}]},
+    {"id":"kosif-audit-ifrs","status":"implemented","evidence":[{"type":"source-readback","id":"published-skill-inventory"}]},
+    {"id":"kosif-prompt-master","status":"measured","evidence":[{"type":"deterministic-test","id":"expert_v4_self_test"},{"type":"deterministic-test","id":"reconcile_401_self_test"}]},
+    {"id":"kosif-web-design","status":"implemented","evidence":[{"type":"deterministic-test","id":"expert_v4_self_test"}]},
+    {"id":"kosif-github","status":"host-dependent","host_tool":"github-connector","evidence":[{"type":"deterministic-test","id":"gh_preflight"}]},
+    {"id":"kosif-computer-use","status":"host-dependent","host_tool":"computer-executor","evidence":[{"type":"deterministic-test","id":"action_gate"}]},
+    {"id":"kosif-jev","status":"host-dependent","host_tool":"jev","evidence":[{"type":"deterministic-test","id":"jev_packet"}]}
+  ]
+}

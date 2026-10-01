@@ -1,0 +1,7 @@
+{
+  "source_release_id": "pluginrel_6abdd0d3e2d48191aa4d7f859331331f",
+  "source_version": "4.0.0",
+  "target_version": "4.0.1",
+  "overlay_semantics": "Only reconciled files are replaced; all other current-release files remain preserved by Plugin Creator overlay semantics.",
+  "preserved_v4_skills": ["kosif-vision","kosif-image-studio","kosif-lighting","kosif-audio","kosif-code-master","kosif-video","kosif-audit-ifrs","kosif-prompt-master","kosif-web-design","kosif-github","kosif-computer-use","kosif-jev"]
+}
