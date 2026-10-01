@@ -37,16 +37,16 @@ jobs:
       - name: Package build check
         run: python tools/build_zip.py --check-only
 
-      - name: Build 4.1.0 release artifact
+      - name: Prepare clean plugin artifact
+        working-directory: .
         run: |
-          cd ..
-          rm -f kosif-think-pro-4.1.0.zip
-          cd kosif-think-pro-3
-          zip -qr ../kosif-think-pro-4.1.0.zip . \
-            -x 'dist/*' 'dist-claude/*' '**/__pycache__/*' '*.pyc'
-      - name: Upload 4.1.0 release artifact
+          find kosif-think-pro-3 -type d -name __pycache__ -prune -exec rm -rf {} +
+          find kosif-think-pro-3 -type f \( -name '*.pyc' -o -name '*.pyo' \) -delete
+          rm -rf kosif-think-pro-3/dist kosif-think-pro-3/dist-claude
+      - name: Upload 4.1.0 plugin artifact
         uses: actions/upload-artifact@v4
         with:
-          name: kosif-think-pro-4.1.0-package
-          path: kosif-think-pro-4.1.0.zip
+          name: kosif-think-pro-4.1.0-plugin
+          path: kosif-think-pro-3/
+          include-hidden-files: true
           if-no-files-found: error
