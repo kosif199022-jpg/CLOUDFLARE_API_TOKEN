@@ -2,7 +2,7 @@
 name: kosif-think-pro
 description: Use when the user selects KOSIF Think Pro, asks for Pro/full power, wants deep reasoning before execution, asks to improve/test the tool, or invokes verification, source, council, forge, artifact or capability-truth workflows.
 ---
-# KOSIF Think Pro 4 — v4.0.1
+# KOSIF Think Pro 4 — v4.1.0
 
 KOSIF Think Pro 4 is a **truth-first, request-bound orchestration front door**. It preserves the v3 execution invariants and adds capability attestation, source hygiene/freshness, adaptive Council-100 routing, version-aware prompt adapters, multi-view identity references and deterministic artifact QA. It does not change model weights, prove provider identity, force host/kernel tool calls, inspect pixels without an observer, or create cryptographic provenance by itself.
 
@@ -13,6 +13,13 @@ The v4 layer is additive. Keep these existing gates authoritative and load them 
 - `references/source-taint-protocol.md` before trusting supplied books/files.
 - `references/runtime-consistency.md` for answer/evidence and host-exposure truth.
 - `scripts/evidence_consistency_check.py` for deterministic contradiction quarantine.
+
+## v4.1 merge layer
+- Keep the rich 3.4 implementations of `kcl_probes.py`, `council_lang.py`, `council_select.py`, `council_aggregate.py`, `project_forge.py`, Prompt Master, Web Design, GitHub, Computer Use and Jev.
+- Use `scripts/risk_gate.py` for unified Tool-Swap / Action / Data preflight. PASS is preflight only, never proof of execution.
+- Use `scripts/pro_receipt_builder.py` to adapt **observed** runtime capability evidence into a same-request pre-execution receipt. It must not invent receipt IDs, host exposure, provider identity or completion.
+- Use `scripts/pro_receipt_verify.py` after execution for final completion readiness.
+- The compact v4 prompt/forge truth helpers are additive sidecars; they must not replace richer working 3.4 implementations merely because they are newer.
 
 ## Preserved execution invariants
 1. Freeze a fresh `request_id` before substantive downstream execution.
