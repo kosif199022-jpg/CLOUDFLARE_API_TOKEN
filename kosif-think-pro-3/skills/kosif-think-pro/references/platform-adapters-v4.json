@@ -1,0 +1,10 @@
+{
+  "schema": "platform-adapters/4.0",
+  "rule": "Source-derived platform syntax is not current provider truth until freshly provider-verified when currency matters.",
+  "adapters": {
+    "midjourney": {"source_version": "V7 notes in Drive audit/ledger", "verified_at": "2026-09-30", "provider_verified_current": false, "durable_principles": ["aspect ratio", "reference image/style controls", "seed for series experiments"]},
+    "veo": {"source_version": "3.x family in Drive sources", "verified_at": "2026-09-30", "provider_verified_current": false, "durable_principles": ["subject/action/setting/style", "camera/movement", "audio layer", "iterate and refine", "shot continuity"]},
+    "runway": {"source_version": "Gen-4.x family in Drive audit", "verified_at": "2026-09-30", "provider_verified_current": false, "durable_principles": ["clear action", "sequential motion", "reference keyframe"]},
+    "kling": {"source_version": "2.x/3.x family across Drive specs", "verified_at": "2026-09-30", "provider_verified_current": false, "durable_principles": ["start/end state", "motion emphasis", "identity continuity"]}
+  }
+}
