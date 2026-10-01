@@ -1,19 +1,39 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "kosif-think-pro",
-  "version": "4.0.1",
-  "description": "KOSIF Think Pro 4 — truth-first request-bound orchestration with Source Atlas, Capability Truth Registry, Council-100 routing, freshness-aware prompt forge, identity references and artifact QA.",
-  "author": {"name": "Kosif"},
-  "keywords": ["reasoning","verification","truth-registry","source-atlas","council","prompt-engineering","identity-consistency","artifact-qa","vision","audio","coding","video","audit","ifrs","security"],
+  "version": "4.1.0",
+  "description": "KOSIF Think Pro 4.1 — truth-first orchestration with rich KCL/Council-100/Project Forge, Source Atlas, capability truth, risk gates, receipt binding, identity and artifact QA.",
+  "author": {
+    "name": "Kosif"
+  },
+  "keywords": [
+    "reasoning",
+    "verification",
+    "truth-registry",
+    "source-atlas",
+    "council",
+    "prompt-engineering",
+    "identity-consistency",
+    "artifact-qa",
+    "vision",
+    "audio",
+    "coding",
+    "video",
+    "audit",
+    "ifrs",
+    "security"
+  ],
   "extensions": {
     "com.openai": {
       "interface": {
         "displayName": "KOSIF Think Pro 4",
         "shortDescription": "Truth · bind · verify · forge",
-        "longDescription": "KOSIF Think Pro 4 preserves request-bound authorization/completion, runtime receipt adaptation and bounded visual repair, then adds a truth-first capability layer: Capability Truth Registry, deduplicated/freshness-aware Source Atlas, adaptive Council-100 routing, version-aware platform prompt adapters, multi-view Identity Reference Sets, deterministic Artifact QA and 12 routed expert skills. v4.0.1 fixes dedup weighting, adapter truth, single-view identity verification and source-syntax gating without weakening v4.0 protections.",
+        "longDescription": "KOSIF Think Pro 4.1 combines the rich 3.4 KCL/Council-100/Project Forge and expert gates with the v4 truth-first layer: Capability Truth Registry, deduplicated/freshness-aware Source Atlas, platform freshness, Identity Reference Sets, Artifact QA, unified Tool-Swap/Action/Data Risk Gate and provenance-preserving Receipt Builder. Host exposure and observable executor/postcondition evidence remain mandatory.",
         "developerName": "Kosif",
         "category": "Productivity",
-        "capabilities": ["Interactive"],
+        "capabilities": [
+          "Interactive"
+        ],
         "defaultPrompt": [
           "KOSIF Think Pro 4 is the mandatory think-first entry point while selected or Pro Mode is active. Freeze a fresh request_id for every new request; never authorize with a stale, reused or mismatched receipt.",
           "Run the comprehension cycle on material requests/attachments and calibrate certainty to evidence; use /understand, /whatif and /calibrate patterns when relevant.",
@@ -29,7 +49,7 @@
           "For platform-specific prompts use the freshness-aware Prompt Forge. Version-sensitive exact syntax is source-derived until current provider documentation is freshly verified; preserve historical/source syntax separately from the current compiled prompt when not verified.",
           "For final artifacts run deterministic Artifact QA when available; for recurring characters use a multi-view Identity Reference Set. Reference-set completeness is separate from what a single generated frame can visibly verify.",
           "Route prompt/web/GitHub/computer/Jev work to kosif-prompt-master, kosif-web-design, kosif-github, kosif-computer-use and kosif-jev while preserving request binding, side-effect gates and observable executor receipts.",
-          "Apply references/reconciliation-4.0.1.md and run reconcile_401_self_test.py in addition to the v4.0 regression/expert/package tests before claiming this patch complete."
+          "KOSIF Think Pro 4.1 preserves the rich 3.4 KCL/Council/Forge/expert implementations while layering v4 truth controls. Run risk_gate.py before material side effects/tool substitutions/data egress and pro_receipt_builder.py before executors; final completion still requires pro_receipt_verify.py after observable postcondition/delivery evidence."
         ]
       }
     }
