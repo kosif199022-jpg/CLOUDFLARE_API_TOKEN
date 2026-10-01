@@ -535,7 +535,7 @@ def run():
     # ---- package binding ---------------------------------------------------
     skill = (SKILL_ROOT / "SKILL.md").read_text(encoding="utf-8")
     runtime = find("runtime-consistency.md").read_text(encoding="utf-8")
-    check("skill-version-3.4.0", "v3.4.0" in skill[:3000])
+    check("skill-version-v4-overlay", "KOSIF Think Pro 4" in skill[:3000] and "v4.0.1" in skill[:3000])
     check("skill-binds-layers", all(x in skill for x in ("verified-self-improvement.md", "pro_receipt_verify.py",
           "source-taint-protocol.md", "runtime-consistency.md", "evidence_consistency_check.py")))
     check("skill-routes-all-experts", all(e in skill for e in EXPERTS))
@@ -545,7 +545,7 @@ def run():
     if LAYOUT == "plugin":
         manifest = json.loads((PLUGIN_ROOT / "plugin.json").read_text(encoding="utf-8"))
         codex = json.loads((PLUGIN_ROOT / ".codex-plugin" / "plugin.json").read_text(encoding="utf-8"))
-        check("manifest-3.4.0", manifest.get("version") == "3.4.0" and codex.get("version") == "3.4.0")
+        check("manifest-v4.0.1", manifest.get("version") == "4.0.1" and codex.get("version") == "4.0.1")
         check("manifest-description-lengths", len(manifest["extensions"]["com.openai"]["interface"]["longDescription"]) <= 1024
               and len(manifest["extensions"]["com.openai"]["interface"]["shortDescription"]) <= 30)
         for e in EXPERTS:
@@ -563,7 +563,7 @@ def run():
 
     failed = [n for n, ok in tests if not ok]
     out = {"ok": not failed, "passed": sum(1 for _, ok in tests if ok), "total": len(tests), "failed": failed,
-           "skipped": skipped, "version": "3.4.0", "layout": LAYOUT}
+           "skipped": skipped, "version": "4.0.1-3.4-behavior", "layout": LAYOUT}
     print(json.dumps(out, ensure_ascii=False, sort_keys=True))
     return 0 if not failed else 1
 
