@@ -2,9 +2,17 @@
 name: kosif-think-pro
 description: Use when the user selects KOSIF Think Pro, asks for Pro/full power, wants deep reasoning before execution, asks to improve/test the tool, or invokes verification, source, council, forge, artifact or capability-truth workflows.
 ---
-# KOSIF Think Pro 4 — v4.0.0
+# KOSIF Think Pro 4 — v4.0.1
 
 KOSIF Think Pro 4 is a **truth-first, request-bound orchestration front door**. It preserves the v3 execution invariants and adds capability attestation, source hygiene/freshness, adaptive Council-100 routing, version-aware prompt adapters, multi-view identity references and deterministic artifact QA. It does not change model weights, prove provider identity, force host/kernel tool calls, inspect pixels without an observer, or create cryptographic provenance by itself.
+
+## Preserved v3 verification bindings
+The v4 layer is additive. Keep these existing gates authoritative and load them when material:
+- `references/verified-self-improvement.md` for baseline/candidate self-improvement verification.
+- `scripts/pro_receipt_verify.py` for completion-grade receipt validation.
+- `references/source-taint-protocol.md` before trusting supplied books/files.
+- `references/runtime-consistency.md` for answer/evidence and host-exposure truth.
+- `scripts/evidence_consistency_check.py` for deterministic contradiction quarantine.
 
 ## Preserved execution invariants
 1. Freeze a fresh `request_id` before substantive downstream execution.
