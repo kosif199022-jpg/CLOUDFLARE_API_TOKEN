@@ -1,31 +1,21 @@
-# Drive / GitHub source ledger for v4
+# V4 Source Review Ledger — Public Sanitized Edition
 
-This ledger records **coverage and transfer**, not blind trust.
+This public repository intentionally does **not** publish private Drive identifiers, private operational filenames, raw company records, credentials, or proprietary source text.
 
-## Fully/targetedly reviewed for transferable rules
-- AI_STUDIO_MASTER_APP_PROMPT_AR; AI_STUDIO_SELF_CONTAINED_APP_PROMPT_EN; AISTUDIO_MASTER_PROMPT; AISTUDIO_ULTRA_PROMPT; AISTUDIO_APP_PROMPT; Blue Dragon V20 prompt/build families.
-- Council/Black Rose files; OMNI_SOVEREIGN/OMNI_AGENT; BLACK_CAMEL; Aetherius; story/director sources; Cinema AI Director V5 analysis/comparison; `هام اوي.md` targeted architecture pass.
-- PromptCraft Elite v3; Google Veo 3 guide; Midjourney Cinematic guide; Midjourney Comprehensive V4/V5/V5.1 guide; NanoBanana 15 prompts; NanoBanana HotTips sample; Ultimate 150 image prompts; 360-Degree Character Sheet.
-- Pokemon AI Blueprint; Shining Star technical specification; MasryTube/audio source; MiniMax DOCX/XLSX/PPTX/PDF manuals; source manifest/profiles.
+## What was reviewed
+- Prompt-engineering references for image/video systems.
+- Cinematography, lighting, audio, story and character-reference material.
+- AI application source/specification families and orchestration patterns.
+- Document/spreadsheet/presentation artifact-building and QA guidance.
+- Prior KOSIF Council/KCL/Project Forge code and regression material.
 
-## Adopted durable ideas
-- content-addressed source registry, provenance and duplicate-aware retrieval;
-- request-type routing, council QA/archivist closure and bounded specialist activation;
-- retry only transient failures, concurrency limits and schema-constrained outputs;
-- 360/multi-view identity references and last-frame continuity;
-- concrete camera/light/material language; avoid vague quality boosters as a substitute for optics/physics;
-- artifact-specific structural validation and fix/reverify loops;
-- prompt variants + explicit quality rubric;
-- capability truth distinction between real, host-dependent, prompt-only and simulated paths.
+## Adoption rules
+1. Exact duplicates remain provenance records but receive one retrieval/evidence weight.
+2. Near duplicates are clustered and reviewed before being treated as independent support.
+3. Historical provider syntax is tagged historical/version-sensitive until fresh provider verification.
+4. Prompt/spec/UI claims never become implemented capabilities without code/measurement/executor evidence.
+5. Private operational material may inspire anonymized regression shapes but raw facts are never embedded in public durable knowledge.
+6. Generated caches, vendor trees and build artifacts are excluded from knowledge weighting.
+7. Sources that are unreadable, partial or sampled are labeled as such rather than treated as fully read.
 
-## Version-sensitive / provisional
-Veo, Midjourney, Runway, Kling, model names and generator parameter syntax are source-derived observations. They remain provisional until current provider docs are checked when freshness matters. The older Midjourney V4/V5/V5.1 guide is retained as historical technique context, not current V7 syntax authority.
-
-## Recorded but not promoted to durable knowledge
-- Final Fantasy strategy guides and unrelated fiction: source lineage only unless a specific storytelling/game-design transfer is requested.
-- private operational trial-balance/legal/product-box PDFs: ingestion/anonymized test patterns only; raw facts excluded.
-- old code dumps/compiled bundles/lockfiles/node_modules/.git: profile/symbol/dependency context, not independent knowledge votes.
-- empty files: provenance only.
-
-## Safety rejection
-Any source technique intended to evade model/platform safety filtering is rejected. Do not euphemize prohibited material to bypass a generator. Do not copy embedded API keys/secrets from source code; secret-scan source before reuse.
+The private plugin may keep a more detailed source ledger. This public file contains only the transferable, non-sensitive provenance policy.
