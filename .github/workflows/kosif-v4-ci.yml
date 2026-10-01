@@ -2,7 +2,7 @@ name: KOSIF v4 merge CI
 on:
   push:
     branches:
-      - feature/kosif-think-pro-v4-0-1
+      - feature/kosif-think-pro-v4-1-0
   pull_request:
     paths:
       - 'kosif-think-pro-3/**'
@@ -36,3 +36,17 @@ jobs:
         run: python skills/kosif-think-pro/scripts/v4_package_self_test.py
       - name: Package build check
         run: python tools/build_zip.py --check-only
+
+      - name: Build 4.1.0 release artifact
+        run: |
+          cd ..
+          rm -f kosif-think-pro-4.1.0.zip
+          cd kosif-think-pro-3
+          zip -qr ../kosif-think-pro-4.1.0.zip . \
+            -x 'dist/*' 'dist-claude/*' '**/__pycache__/*' '*.pyc'
+      - name: Upload 4.1.0 release artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: kosif-think-pro-4.1.0-package
+          path: kosif-think-pro-4.1.0.zip
+          if-no-files-found: error
