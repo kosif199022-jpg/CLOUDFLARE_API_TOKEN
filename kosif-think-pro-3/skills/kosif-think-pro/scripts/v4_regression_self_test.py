@@ -10,7 +10,7 @@ from platform_adapter import resolve_adapter
 from artifact_qa import verify_artifact
 from identity_reference import build_reference_set, verify_identity
 from council100 import build_council, select_members
-from project_forge import forge_plan
+from project_forge_v4_truth import forge_plan
 
 
 def run():
