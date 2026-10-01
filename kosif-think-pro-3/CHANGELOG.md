@@ -1,5 +1,16 @@
 # Changelog
 
+## 4.1.0 — 2026-10-01
+### Merged
+- Restored the rich 3.4 KCL/Council-100/Project Forge implementations and full Prompt/Web/GitHub/Computer/Jev expert helpers alongside the v4 truth-first layer.
+- Kept v4.0.1 Source Atlas dedup weighting, adapter truth, identity verification and secret-sanitization fixes.
+
+### Added
+- Unified Tool-Swap / Action / Data `risk_gate.py`.
+- Provenance-preserving `pro_receipt_builder.py` with same-request authorization checks and no fabricated completion.
+- Dedicated risk/receipt self-tests and CI coverage across both the 3.4 behavioral baseline and v4 truth controls.
+- Green GitHub Actions package artifact as the release source of truth.
+
 ## 4.0.1 — 2026-10-01
 ### Fixed
 - Exact duplicate records now collapse **retrieval weight**, not just appear in a duplicate report.
