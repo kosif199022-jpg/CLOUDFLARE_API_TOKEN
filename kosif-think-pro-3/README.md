@@ -1,93 +1,28 @@
-# KOSIF Think Pro 3 — v3.4.0
+# KOSIF Think Pro 4 — v4.1.0
 
-إضافة ChatGPT (وCodex) تجمع **عقل KOSIF Think Pro** (التفكير أولاً والتحقق والإيصالات) مع **استوديو خبراء بالقياس الحقيقي**: تحليل الصور، والرسم والتوليد، والإضاءة، والصوت، والبرمجة، والفيديو.
+v4.1.0 is the merge release that combines the **rich 3.4 execution layer** (KCL, Council-100, Project Forge and the full Prompt/Web/GitHub/Computer/Jev expert helpers) with the **v4 truth-first layer** (Capability Truth Registry, Source Atlas, platform freshness, Identity Reference Set and Artifact QA).
 
-## التثبيت
-1. ChatGPT ← **المكونات الإضافية** ← **إضافة** ← «انقر لتحميله».
-2. ارفع `dist/kosif-think-pro-3.4.0.zip`.
-3. ثبّت الإضافة، ثم فعّل في المحادثة: Code Interpreter (لتشغيل أدوات القياس) وتوليد الصور والبحث.
+### Added in 4.1.0
+- Unified `risk_gate.py` for Tool-Swap / Action / Data risk preflight.
+- `pro_receipt_builder.py` that adapts observed runtime evidence without fabricating receipt IDs or completion.
+- Dedicated self-tests for risk gating and receipt authorization/completion separation.
+- CI that runs original 3.4 regression, v4 regression, expert merge tests, reconciliation tests, package checks and build checks in one pipeline.
+- GitHub release artifact built from the same green commit used for Plugin publication.
 
-## المهارات والأوامر
-| المهارة | ماذا تفعل | الأوامر | أداة القياس |
-|---|---|---|---|
-| 🧠 kosif-think-pro | تفكير أولاً، 28 وحدة، **مجلس 100 خبير** بلغة Python مشتركة ومصنع مشاريع، بوابة تناقض الأدلة، جدار التحيزات، أفكار جانبية، قرار بحساسية | `/help` `/pro` `/deep` `/verify` `/selftest` `/versions` `/ideate` `/decide` `/bias` `/library` `/council` `/council100` `/persona` `/forge` `/probe` | `evidence_consistency_check.py` `pro_receipt_verify.py` `artifact_normalize.py` `version_check.py` |
-| 🔍 kosif-vision | تحليل الصور بالأرقام: التعريض، الاحتراق، الحرارة اللونية، اللوحة HEX، الحدة، الضجيج، اتجاه الضوء، التكوين، EXIF | `/analyze` `/compare` `/ocr` `/critique` `/reverse` `/score` | `image_analyze.py` |
-| 🎨 kosif-image-studio | توليد وتعديل الصور بعقد تنفيذ + فحص البرومبت + قفل الشخصية والأسلوب | `/img` `/imgpro` `/edit` `/prompt` `/style` `/lock` `/batch` | `prompt_lint.py` |
-| 💡 kosif-lighting | خطط إضاءة بمخطط وجداول، وحسابات التعريض والمسافة والجل | `/lightplan` `/light` `/relight` `/exposure` `/gel` | `light_calc.py` |
-| 🎧 kosif-audio | قياس LUFS (BS.1770) والقمة الحقيقية وBPM والطيف، ماسترينغ، أغاني Suno بالمقامات، تعليق صوتي | `/audio` `/master` `/mix` `/song` `/voice` `/sfx` `/podcast` | `audio_analyze.py` |
-| 💻 kosif-code-master | كود كامل يُختبر فعلاً، ماسح أمني، تدقيق مشاريع zip كاملة، معمارية، نشر | `/code` `/debug` `/review` `/audit` `/explain` `/arch` `/optimize` `/test` `/convert` `/sql` `/deploy` | `code_scan.py` |
-| 🎬 kosif-video | قصص مبنية على الصراع (GMC+S)، قوائم لقطات، ستوري بورد، برومبتات Sora/Veo/Runway/Kling | `/story` `/video` `/shots` `/storyboard` `/reel` `/ad` | `story_lint.py` `prompt_lint.py` |
-| 📒 kosif-audit-ifrs | قيود يومية، ضريبة القيمة المضافة، مطابقة بنكية، معايير IFRS، أمور مراجعة رئيسية، مصطلحات عربية | `/journal` `/reconcile` `/vat` `/ifrs` `/cam` `/audit-plan` `/evidence` `/terms` `/practice` | `ledger_check.py` |
-| ✍️ kosif-prompt-master | برومبتات النماذج والوكلاء والأدوات، إصلاحها وتقييمها، وتحويل برومبت الصورة/الفيديو لكل منصة | `/prompt` `/sysprompt` `/agentprompt` `/fixprompt` `/promptscore` `/forge` `/abtest` | `llm_prompt_lint.py` `prompt_forge.py` |
-| 🌐 kosif-web-design | مواقع وصفحات هبوط ولوحات تحكم، رموز تصميم فاتح/داكن بتباين AA، تدقيق إتاحة وأداء، عربي RTL | `/site` `/landing` `/ui` `/dashboard` `/tokens` `/webaudit` `/redesign` `/component` | `web_audit.py` `design_tokens.py` |
-| 🐙 kosif-github | فروع وكومِت ورفع وطلبات دمج وCI ومراجعات وتعارضات وإصدارات، ببوابة أمان قبل الرفع | `/gh` `/commit` `/pr` `/review-pr` `/ci` `/conflict` `/release` `/repo` | `gh_preflight.py` |
-| 🖱️ kosif-computer-use | تشغيل المتصفح والتطبيقات: ملاحظة ← تحديد العنصر ← بوابة المخاطر ← تنفيذ ← تحقق، مع تسليم الإنسان عند كلمات المرور والدفع والكابتشا | `/computer` `/browse` `/automate` `/fillform` `/scrape` | `action_gate.py` `ui_ground.py` |
-| ⚖️ kosif-jev | أحكام Jev المغلقة (نعم/لا، اختيار، تقييم على سلّم) بقراءة معايرة وفحص ثبات، ولا يعتمد أي إجراء خطِر أبداً | `/jev` `/noul` `/choose` `/score` `/triage` `/rank` | `jev_packet.py` |
 
-## النسخة الخاصة بـ Claude
-- **claude.ai:** الإعدادات ← Capabilities ← Skills ← Upload skill ← ارفع `dist-claude/kosif-think-pro.zip` (أو افتح ملف `kosif-think-pro.skill` واضغط Save skill).
-- **Claude Code:** انسخ المجلد `kosif-think-pro/` إلى `~/.claude/skills/` أو `.claude/skills/` داخل المشروع (مُثبّت مسبقاً في هذا المستودع).
-- مهارة واحدة تجمع كل الخبرات: `references/domains/*.md` لكل مجال، و`scripts/` لكل أدوات القياس. البناء: `python3 tools/build_claude_skill.py`.
+v4.0.1 is a reconciliation patch over the already-published v4.0.0 truth-first architecture. It keeps the current request-bound execution, Capability Truth Registry, Council-100, Project Forge, Artifact QA and expert routing, while fixing four concrete truth/consistency bugs found during comparison with the Drive/GitHub corpus.
 
-## ما الجديد في 3.4.0 (مجلس الـ100 وخمس مهارات جديدة)
-- **مجلس من 100 خبير مختلف** في 10 غرف: الأدلة، الاستراتيجية، المخاطر، الإبداع، الإنسان، الهندسة، التصميم، الإنتاج الإعلامي، المال والمراجعة، الأتمتة والوكلاء. تبقى الشخصيات الـ14 الأصلية نواةً للمجلس.
-- **لكل عضو** تخصص فريد، و12 قدرة خبرة و8 قدرات برمجية. المجموع **2000 قدرة، ولا تتكرر أي قدرة بين عضوين**: البناء يفشل إذا تكررت. ولكل عضو أيضاً محفزات بالعربية والإنجليزية، وسؤال مميز، وحق اعتراض في مجاله.
-- **لغة تفاهم بـ Python** (KCL):
-  - رسائل مُنمّطة: دليل واعتراض وموقف.
-  - **36 أداة قياس حقيقية** يشغّلها الأعضاء: تباين WCAG، والأسرار، والبيانات الشخصية، وبايز، وبنفورد، وNPV وIRR، وتصنيف عمليات git، ونقاط التحقق البشري، وتعقيد الكود، وغيرها.
-  - **ختم SHA-256** لرأي كل عضو في الجولة الأولى قبل النقد المتبادل.
-  - تجميع مبني على الأدلة: الأغلبية لا تتغلب على اعتراض مانع.
-- **مصنع المشاريع**: أي عضو يُنشئ وحده مشروعاً كاملاً قابلاً للتشغيل، باختباراته وCI وتوثيقه وخارطة طريق من قدراته البرمجية. الأنماط السبعة: مكتبة، أداة سطر أوامر، خدمة API، خط بيانات، وكيل، موقع ثابت، Cloudflare Worker. **جُرّبت مشاريع الأعضاء المئة كلهم ونجحت اختباراتها.**
-- **5 مهارات جديدة:**
-  - البرومبتات: فاحص لبرومبتات النماذج، ومحوّل لبرومبتات الصور والفيديو لتسع منصات.
-  - تصميم المواقع: مدقق إتاحة وتباين في الوضعين الفاتح والداكن، ومولّد رموز تصميم بتباين AA.
-  - GitHub: بوابة تفحص الفرع والأسرار ورسائل الكومِت وطلبات الدمج قبل الرفع.
-  - التحكم بالكمبيوتر: بوابة مخاطر للخطوات، وتحديد العناصر بالعربية والإنجليزية، وتسليم التحكم للإنسان عند كلمات المرور والدفع والكابتشا.
-  - Jev: بناء الطلبات، وحجب البيانات الحساسة، وقراءة الاحتمالات، وفحص ثبات الإجابة، مع منع استخدام Jev لاعتماد أي إجراء خطِر.
-- **استفدنا من مستودعاتك:**
-  - من `think`: خريطة عناصر الصفحة، وترتيب المرشحين حتمياً ثم Jev عند التعادل، وبوابة المخاطر. **لم نأخذ منه ملف التخفي من كشف البوتات عمداً.**
-  - من `cloude`: نظام الرموز فاتح/داكن/تلقائي، ولوحة الألوان المُتحقق منها، واختيار الخط بـ Jev، وقاعدة «Jev لا يعتمد أي إجراء خطِر».
-- **ملاحظة من تجربة حية على Jev:** طلبنا منه «اضغط Download» مع زرّين (PDF وCSV)، فاختار PDF بثقة 0.91 مع أن الطلب لم يحدد الصيغة. لذلك أضفنا حارساً يسأل المستخدم في هذه الحالة بدلاً من ترك Jev يخمّن.
-- **الاختبارات: 165 من 165 ناجحة**، ولم يُتخطَّ أي اختبار.
+## Fixed in 4.0.1
+- Source Atlas now computes a content SHA-256 when a source hash is absent and gives exact duplicates **one canonical retrieval vote** (`retrieval_weight=1`, copies `0`) while preserving every provenance record.
+- Platform adapters now map ChatGPT, Flux, SDXL, Ideogram, Sora and Nano Banana to their own records instead of borrowing Midjourney metadata.
+- Version-sensitive exact syntax is separated into `source_syntax_prompt` when provider-current syntax has not been freshly verified; e.g. Midjourney source `--v 7` is no longer presented as current by default.
+- Identity verification no longer requires a single output frame to show all five reference views. The reference set must be complete, while each artifact is judged only on traits/views actually observable in that artifact.
+- Added a reusable secret-sanitization gate and machine-readable Source Atlas / Capability Truth seed registries.
+- Corrected the first default prompt from “KOSIF Think Pro 3” to “KOSIF Think Pro 4”.
 
-## ما الجديد في 3.2.0 (الدفعة الثانية من الكتب)
-- **دورة الفهم** (قبل/أثناء/بعد + «كيف أعرف؟») من كتاب Impact، و**لغة استنتاج معايرة** من Outcomes، و`calibration_check.py` لكشف المبالغة أو التهوين في درجة اليقين.
-- **الاستدلال المضاد للواقع** (`/whatif`) بحالة دراسية من «هاري بوتر والطفل الملعون»: سلاسل النتائج، القيود، التحقق من هوية من يعرض المساعدة.
-- **10 أمثلة عملية** (`/examples`) تعلّم ChatGPT وClaude طريقة استخدام الأداة.
-- **حبكات بوكر السبع** في محرك القصص، ومفردات وصف الصور في التحليل البصري.
-- الاختبارات: 95 (إضافة ChatGPT) و96 (مهارة Claude) في ذلك الإصدار.
-
-## ما الجديد في 3.1.0 (من قراءة مكتبة «كتب»)
-- قراءة وتحليل كل ملفات المجلد مع سجل صادق لكل كتاب: ما قُرئ، ونسبة التغطية، والحالة، وأين طُبّق (`skills/kosif-think-pro/references/books/`).
-- **مهارة جديدة kosif-audit-ifrs** + `ledger_check.py` (توازن القيد بالهللة، الضريبة، الفترة، منع التكرار، مطابقة الفاتورة بالبنك، «حركة البنك ليست إيراداً»).
-- **محرك صراع للقصص** (`story_lint.py`) من The Conflict Thesaurus.
-- **Personality Lock** للشخصيات (30 سمة فرعية + سلوك «إذا… إذن…») من Cambridge Handbook، ومجلس الشخصيات صار مبنياً على السمات.
-- **70 مبدأ + قوائم فحص** من The Pragmatic Programmer داخل مهارة البرمجة، و`/design-review` و`/ml`.
-- **`/ideate`** بعشوائية حقيقية (REST) من Lateral Thinking Course، و**`/decide`** بحساسية الأوزان من Convex Optimization، و**`/bias`** مع فاحص الاحتمالات (مغالطة الاقتران وإهمال المعدل الأساسي) من Smart Thinking.
-- تصحيح تصنيف كتب ملوّثة: Judgment in Managerial Decision Making (فهرس فقط)، Designing Bots، Convex Optimization (الفصل الأول فقط سليم).
-- الاختبارات: 84 حالة (كانت 65).
-
-## ما الجديد في 3.0.0 مقارنة بـ 2.7.3
-- **بوابة أدلة مُنمّطة**: حساب آمن للتعابير (`15%` = 0.15) + تحقق من المجموع والنسبة المئوية والنسبة والنطاق وترتيب التواريخ والوحدات. تُعزل الإجابات المخالفة لنتيجة متكررة من مصدرين مستقلين (حالة 92 محفوظة)، ويُصعَّد التعارض بين قيمتين متقاربتين.
-- **إيصال "صالح بنيوياً" منفصل عن "جاهز للإكمال"**: حالة `revise` لم تعد تُعدّ إكمالاً.
-- **توحيد مخرجات الوكلاء** (الأدلة/المخاطر/الاعتراضات/الافتراضات) مع تقرير بكل تغيير.
-- **تفاوض الإصدارات** بين runtime والجسر وإضافة ChatGPT وحزمة Pro.
-- **6 مهارات خبراء جديدة** مع 5 أدوات قياس حقيقية.
-- **مجموعة اختبارات 65 حالة** (كانت 17) تشمل حالة 92 وبطة الرونين وقياسات الصوت والصورة.
-
-## الحدود (بصدق)
-- هذه تعليمات وأدوات مساعدة: لا تغيّر أوزان النموذج، ولا تضمن أن المنصة ستستدعي الأدوات.
-- أدوات القياس تحتاج Python (Code Interpreter). بدونها يُذكر أن القياس لم يُنفَّذ.
-- مقياس الصوت يتبع BS.1770 بدقة لكنه غير معتمد رسمياً، وBPM تقديري. تسميات الإضاءة والتكوين في تحليل الصور تقديرية مبنية على الأرقام.
-- ماسح الكود استدلالي: كل نتيجة تحتاج تأكيداً، وغياب النتائج ليس دليل أمان.
-- مجلس الـ100 عدسات تفكير يؤديها النموذج نفسه، وليس 100 عقل مستقل. آراء أعضائه مجتمعةً تُحسب **مصدراً مستقلاً واحداً**، ولا تستقل إلا بإضافة نموذج آخر أو قياس بأداة أو مصدر أولي.
-- «2000 قدرة» تعني قوائم كفاءة يطبّقها النموذج، إضافة إلى 36 أداة قياس تعمل فعلاً. مصنع المشاريع يبني أساساً مُختبَراً وخارطة طريق، ويُكتب المشروع الكبير بعده مرحلةً مرحلة. أي ميزة لم تُكتب لها اختبارات لا تُعدّ منجزة.
-- Jev يحكم على أسئلة مغلقة من الأدلة التي نعطيه إياها، وليس دليلاً بذاته ولا يعتمد أي إجراء. أدوات التحكم بالكمبيوتر وGitHub تعمل فقط إذا وفّرتها المنصة في المحادثة.
-
-## للمطوّر
+## Verification
+Run the existing v4.0 tests plus:
 ```bash
-python3 tools/build_council.py                                   # يبني council-100.json ويتحقق من عدم التكرار
-python3 skills/kosif-think-pro/scripts/regression_self_test.py   # 165 اختباراً
-python3 tools/build_claude_skill.py                             # يبني مهارة Claude ويختبرها
-python3 tools/build_zip.py                                       # يتحقق ثم يبني dist/*.zip
+python3 skills/kosif-think-pro/scripts/reconcile_401_self_test.py
 ```
+Source saved/published does not by itself prove a ChatGPT host session has reloaded the new plugin release.

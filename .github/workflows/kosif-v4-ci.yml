@@ -1,0 +1,52 @@
+name: KOSIF v4 merge CI
+on:
+  push:
+    branches:
+      - feature/kosif-think-pro-v4-1-0
+  pull_request:
+    paths:
+      - 'kosif-think-pro-3/**'
+      - '.github/workflows/kosif-v4-ci.yml'
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: kosif-think-pro-3
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compile Python
+        run: python -m compileall -q skills tools
+      - name: Original 3.4 regression
+        run: python skills/kosif-think-pro/scripts/regression_self_test.py
+      - name: Risk gate regression
+        run: python skills/kosif-think-pro/scripts/risk_gate_self_test.py
+      - name: Receipt adapter regression
+        run: python skills/kosif-think-pro/scripts/pro_receipt_adapter_self_test.py
+      - name: v4 core regression
+        run: python skills/kosif-think-pro/scripts/v4_regression_self_test.py
+      - name: Rich experts + v4 truth
+        run: python skills/kosif-think-pro/scripts/expert_v4_self_test.py
+      - name: 4.0.1 reconciliation
+        run: python skills/kosif-think-pro/scripts/reconcile_401_self_test.py
+      - name: v4 package checks
+        run: python skills/kosif-think-pro/scripts/v4_package_self_test.py
+      - name: Package build check
+        run: python tools/build_zip.py --check-only
+
+      - name: Prepare clean plugin artifact
+        working-directory: .
+        run: |
+          find kosif-think-pro-3 -type d -name __pycache__ -prune -exec rm -rf {} +
+          find kosif-think-pro-3 -type f \( -name '*.pyc' -o -name '*.pyo' \) -delete
+          rm -rf kosif-think-pro-3/dist kosif-think-pro-3/dist-claude
+      - name: Upload 4.1.0 plugin artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: kosif-think-pro-4.1.0-plugin
+          path: kosif-think-pro-3/
+          include-hidden-files: true
+          if-no-files-found: error
