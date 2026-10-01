@@ -19,18 +19,19 @@ SRC = ROOT / "skills"
 OUT = ROOT / "dist-claude"
 SKILL = OUT / "kosif-think-pro"
 EXPERTS = ["kosif-vision", "kosif-image-studio", "kosif-lighting", "kosif-audio", "kosif-code-master",
-           "kosif-video", "kosif-audit-ifrs"]
+           "kosif-video", "kosif-audit-ifrs", "kosif-prompt-master", "kosif-web-design", "kosif-github",
+           "kosif-computer-use", "kosif-jev"]
 
 DESCRIPTION = (
-    "KOSIF Think Pro for Claude: a think-first reasoning and expert studio. Use it whenever the user asks for "
-    "careful reasoning, verification, decisions, research, or any of these domains: analysing or critiquing images "
-    "and photos, writing image or video prompts, lighting plans and exposure math, audio loudness/mastering and "
-    "Arabic songs for Suno, programming, code review and security scans, story and ad scripts, accounting, VAT, "
-    "bank reconciliation, IFRS and audit. Also use it for the slash-style commands /pro /verify /decide /bias "
-    "/ideate /whatif /understand /calibrate /analyze /img /lightplan /audio /code /review /story /journal "
-    "/reconcile, and when the user writes in Arabic about تحليل صورة، إضاءة، صوت، برمجة، قصة، قيد محاسبي، مراجعة. "
-    "It measures with bundled Python helpers, checks evidence and calibration, and never claims tools ran "
-    "when they did not."
+    "KOSIF Think Pro for Claude: think-first reasoning, a 100-member expert council and a measured expert studio. "
+    "Use it for careful reasoning, verification, decisions and research, and for: image analysis and image/video "
+    "prompts, prompt engineering for LLMs and agents, website and UI design with accessibility audits, GitHub work "
+    "(commits, pull requests, CI), operating a browser or computer safely, Jev yes/no, choice and score judgements, "
+    "lighting, audio and Arabic songs for Suno, programming and code review, stories and ads, accounting, VAT, IFRS "
+    "and audit. Also for the commands /pro /verify /decide /bias /ideate /council /council100 /forge /prompt "
+    "/site /webaudit /gh /pr /computer /jev /img /code /review /story /journal, and Arabic requests such as "
+    "تحليل صورة، برومبت، تصميم موقع، جيت هاب، تحكم في الكمبيوتر، مجلس الخبراء، برمجة، قيد محاسبي. It measures "
+    "with bundled Python helpers and never claims a tool ran when it did not."
 )
 
 HOST = """## Running inside Claude
@@ -38,6 +39,7 @@ HOST = """## Running inside Claude
 - Claude does not generate images, video or audio by itself. Deliver the final, linted prompt (and Character/Style Locks) for the user's generator unless an image/design tool is actually connected in this conversation; then follow the Execution Contract and postcondition check.
 - Wherever a domain file says "Code Interpreter", read it as Claude's code execution.
 - The KOSIF live runtime/MCP bridge (kosif_mobile_*, kosif_auto) is optional; treat it as unavailable unless its tools are present in this conversation.
+- Jev tools may appear under any MCP prefix (e.g. `…jev_noul`, `…jev_choice`, `…jev_score`); computer/browser tools may be computer-use, Claude in Chrome, the built-in browser, or Playwright in the sandbox; GitHub may be MCP tools, `gh`, or git. Use what is actually exposed and load the host's own skill for that tool first when one is listed.
 - Domain protocols live in `references/domains/<name>.md`; read the one(s) the request needs before answering.
 """
 
@@ -46,6 +48,7 @@ def rewrite(text, domain=None):
     core = "\x00CORE\x00"
     text = re.sub(r"\.\./kosif-think-pro/references/", core, text)
     text = re.sub(r"\.\./kosif-think-pro/scripts/", "scripts/", text)
+    text = re.sub(r"\.\./(kosif-[a-z-]+)/SKILL\.md", r"references/domains/\1.md", text)
     text = re.sub(r"\.\./kosif-[a-z-]+/scripts/", "scripts/", text)
     for e in EXPERTS:
         text = text.replace(f"../{e}/references/", f"references/{e}/")

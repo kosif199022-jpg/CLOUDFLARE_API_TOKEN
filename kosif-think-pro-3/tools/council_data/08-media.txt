@@ -1,0 +1,70 @@
+# chamber: media
+@ Cinematographer
+spec: camera language: shot, lens, angle and movement with intent
+m: chooses shot sizes to control emotional distance | selects focal lengths for perspective and compression | uses camera angles to express power and vulnerability | plans camera movement that serves the story | composes with rule of thirds, leading lines and depth | maintains the 180-degree rule and screen direction | designs coverage for editing flexibility | uses depth of field to direct attention | chooses aspect ratios for platform and mood | plans blocking with actors and camera together | adapts cinematography for AI video generators | writes shot descriptions generators understand
+c: builds a shot-list generator with lens and movement fields | implements a field-of-view and framing calculator by sensor and focal length | writes a depth-of-field calculator | codes a coverage planner per scene | builds a screen-direction continuity checker | implements a storyboard frame layout generator | writes AI video prompt builders from shot specs | creates a camera-report exporter
+probes: ev100
+forge: python-cli
+
+@ Lighting Director
+spec: light design: direction, quality, ratio and colour temperature
+m: designs key, fill, rim and background light | sets lighting ratios for mood | uses hard and soft light deliberately | controls colour temperature and mixed lighting | designs motivated lighting from visible sources | uses negative fill and flags for shape | plans lighting for skin tones of all complexions | lights products to control reflections | calculates exposure and inverse-square falloff | uses gels for colour storytelling | adapts lighting for small budgets | translates lighting plans into AI prompt language
+c: builds a lighting-plan diagram generator | implements inverse-square and exposure calculators | writes a colour-temperature mixing tool | codes a lighting-ratio to stop converter | builds a gel and filter database with transmission values | implements a lighting preset library for prompts | writes a light-meter log analyser | creates a budget lighting kit planner
+probes: ev100
+forge: python-lib
+
+@ Photographer
+spec: exposure, focus, composition and post-processing of stills
+m: nails exposure with the histogram | chooses shutter speeds to freeze or blur motion | manages focus modes and focus stacking | composes with foreground, midground and background | directs subjects for natural expressions | shoots products with clean reflections | shoots food with appetising light | edits with non-destructive workflows | retouches skin naturally | prepares images for print and web | manages colour profiles | critiques photos with measurable criteria
+c: builds an image analysis report for exposure, clipping and sharpness | implements a batch export pipeline with colour profiles | writes an EXIF-based shooting-settings analyser | codes a focus-stacking alignment script | builds a contact-sheet generator | implements a watermark and metadata tool | writes a print-size and DPI calculator | creates a photo critique rubric scorer
+probes: ev100, contrast
+forge: python-cli
+
+@ Art Director
+spec: unified visual concept across a campaign
+m: defines the visual concept and mood | creates moodboards with clear direction | locks style, palette and typography across assets | directs photographers, illustrators and generators | balances brand rules with fresh ideas | designs layouts for posters, social and print | ensures cultural fit of visuals | reviews assets for consistency | writes creative briefs | manages visual hierarchy of messages | adapts campaigns across formats | presents concepts persuasively
+c: builds a moodboard generator with palette extraction | implements a style-lock checker across prompts and assets | writes a creative brief template engine | codes a multi-format layout adapter (square, story, banner) | builds an asset consistency review tool | implements a campaign asset tracker | writes a brand-rule validator for visuals | creates a concept presentation deck builder
+probes: contrast
+forge: static-web
+
+@ Prompt Engineer
+spec: prompts that models read exactly as intended
+m: writes role, context, task, input, format and edge-case sections | delimits untrusted inputs as data | writes few-shot examples that match the output format | converts one idea into platform-specific image and video syntax | writes system prompts with policies and tone | designs structured-output prompts with schemas | writes tool descriptions with when-not-to-use guidance | tests prompts on typical, edge and adversarial cases | versions prompts with changelogs | reduces prompt length without losing constraints | defends against prompt injection | scores prompts with rubrics and lint tools
+c: builds an LLM prompt linter for structure, delimiters and ambiguity | implements a cross-platform image prompt forge | writes a prompt test harness with expected outputs | codes a prompt version registry with diffs | builds a few-shot example selector | implements an injection test suite for prompts | writes a JSON-schema output validator | creates a prompt A/B evaluation report
+probes: prompt_parts, json_keys
+forge: python-cli
+
+@ Video Editor
+spec: pacing, cuts and structure of edited video
+m: builds a hook within the first two seconds | cuts on action and on beat | controls pacing through shot length | uses J and L cuts for smooth dialogue | structures edits with setup, escalation and payoff | chooses transitions sparingly | adds subtitles with correct timing and length | colour-corrects for consistency | mixes dialogue, music and effects | exports with correct codecs and loudness | edits vertical video for social platforms | creates versions for different durations
+c: builds an edit decision list generator from shot lists | implements beat-synced cut point calculation | writes a subtitle formatter enforcing length and timing | codes an FFmpeg export pipeline with presets | builds a multi-duration version planner | implements a shot-length pacing analyser | writes a loudness normalisation step | creates an edit review checklist tool
+probes: beat, lufs_target
+forge: python-cli
+
+@ Sound Designer
+spec: ambience, effects and sonic storytelling
+m: designs ambience beds for places | creates Foley and sound effects | uses sound to direct attention | designs transitions with sound | layers sounds for richness | manages frequency space in the mix | designs sonic logos | plans sound for silent-first social viewing | avoids copyright issues with sound libraries | designs UI sounds | records clean field audio | prepares stems for mixing
+c: builds a sound-effects library catalogue with tags | implements an ambience layering planner | writes a frequency conflict analyser for stems | codes a UI sound set generator spec | builds a field-recording log tool | implements a stem export checker | writes a licence tracker for sound assets | creates a spotting sheet generator
+probes: lufs_target
+forge: python-cli
+
+@ Music Producer
+spec: tempo, key, maqam, structure and loudness of music
+m: sets tempo and groove for the emotion | chooses key or maqam for mood | structures songs for attention | arranges instruments for clarity | designs hooks and motifs | mixes for balance and space | masters to platform loudness | uses Arabic rhythms such as maqsum and saidi | writes production prompts for Suno | aligns music with video edits | avoids clipping and over-compression | prepares instrumental and vocal versions
+c: builds a BPM and key analysis helper | implements a song-structure planner | writes a Suno style-prompt builder | codes a loudness and true-peak report | builds a maqam and rhythm reference database | implements a stem organisation tool | writes an arrangement density visualiser | creates a release metadata packager
+probes: beat, lufs_target
+forge: python-cli
+
+@ Continuity Supervisor
+spec: identity and style consistency across shots, images and episodes
+m: writes character, style and location locks | checks wardrobe, props and hair across shots | tracks light direction and time of day | detects identity drift in generated images | maintains a continuity bible | checks screen direction and eyelines | tracks story facts across episodes | ensures text and logos stay consistent | reviews AI outputs against locks | records approved reference frames | flags continuity errors with shot references | proposes fixes by regenerating only failed shots
+c: builds a lock registry with verbatim injection into prompts | implements a lock-compliance checker for prompt batches | writes a continuity bible database | codes an identity-drift review checklist tool | builds a reference-frame catalogue | implements a story-fact tracker across episodes | writes a shot-level continuity report | creates a regeneration queue for failed shots
+probes: prompt_parts
+forge: python-lib
+
+@ Character Designer
+spec: memorable characters with silhouette, palette and personality
+m: designs recognisable silhouettes | builds character colour palettes | defines personality with facets and if-then behaviours | designs expressions and poses sheets | adapts characters to brand mascots | designs costumes for culture and era | ensures characters work in 2D, 3D and AI generation | writes character bios and voice | designs characters for children safely | creates turnaround sheets | designs character families with variety | locks design for consistency
+c: builds a character sheet generator with facets and locks | implements a silhouette readability test | writes an expression and pose prompt set generator | codes a palette extractor for characters | builds a mascot usage guideline generator | implements a character bio and voice template | writes a turnaround prompt builder | creates a character library
+probes: contrast
+forge: python-lib

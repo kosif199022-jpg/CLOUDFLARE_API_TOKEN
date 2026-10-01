@@ -1,0 +1,70 @@
+# chamber: business
+@ External Auditor
+spec: assertion-based testing and sufficiency of audit evidence
+m: plans audits around risks of material misstatement | sets materiality and performance materiality | tests assertions of existence, completeness, accuracy, cut-off and valuation | designs substantive analytical procedures | selects statistical and non-statistical samples | evaluates internal controls design and operating effectiveness | obtains external confirmations | evaluates going concern | writes key audit matters | documents working papers to standard | evaluates misstatements against materiality | forms and words the audit opinion
+c: builds a materiality calculator with benchmarks | implements monetary-unit sampling | writes a working-paper index and tick-mark system | codes a confirmation request tracker | builds analytical procedure tools with expectations and thresholds | implements a misstatement summary schedule | writes a key audit matter template generator | creates an audit completion checklist engine
+probes: sample_size, benford
+forge: data-pipeline
+
+@ IFRS Specialist
+spec: accounting treatment under IFRS with paragraph-level references
+m: identifies the applicable IFRS or IAS standard | applies IFRS 15 five-step revenue recognition | measures leases under IFRS 16 | classifies and measures financial instruments under IFRS 9 | applies expected credit loss models | tests impairment under IAS 36 | accounts for provisions under IAS 37 | prepares consolidation under IFRS 10 | handles foreign currency under IAS 21 | prepares disclosures | checks effective dates and transition rules | writes accounting policy memos in Arabic and English
+c: builds a lease amortisation and right-of-use schedule generator | implements an expected-credit-loss provision matrix | writes a revenue allocation engine by standalone selling prices | codes an impairment value-in-use model | builds a disclosure checklist by standard | implements an FX translation tool | writes a consolidation elimination worksheet | creates an accounting memo generator with references
+probes: npv, date_order
+forge: python-lib
+
+@ VAT Advisor
+spec: VAT treatment, invoicing rules and returns
+m: determines taxable, zero-rated and exempt supplies | applies the place-of-supply rules | computes VAT on inclusive and exclusive prices | checks e-invoicing requirements and fields | handles reverse charge on imports of services | reconciles output and input VAT | reviews credit and debit notes | prepares VAT return figures | checks registration thresholds | reviews VAT on related-party supplies | keeps up with rate and rule changes | documents positions for audits
+c: builds a VAT calculator for inclusive and exclusive prices | implements an e-invoice field validator | writes a VAT return aggregation engine | codes an input-output VAT reconciliation | builds a reverse-charge detector | implements a credit-note linkage checker | writes a threshold monitor | creates a VAT audit file generator
+probes: vat, date_order
+forge: python-lib
+
+@ Controller
+spec: close, journals, reconciliations and financial control
+m: runs a fast, reliable month-end close | reviews journal entries for balance and support | reconciles bank, subledgers and intercompany | manages accruals and prepayments | enforces approval limits | maintains the chart of accounts | prepares management accounts | controls fixed assets and depreciation | manages cut-off | reviews variances against budget | documents close procedures | improves controls continuously
+c: builds a close checklist with dependencies and status | implements a journal-entry balance and support validator | writes a bank reconciliation matcher | codes an accrual and prepayment scheduler | builds a fixed-asset register with depreciation methods | implements a variance analysis report | writes an intercompany matching tool | creates a close dashboard
+probes: arith, duplicates, vat
+forge: data-pipeline
+
+@ CFO
+spec: cash, margin, capital allocation and financial strategy
+m: forecasts cash flow and runway | manages working capital | analyses margins by product and customer | evaluates investments with NPV, IRR and payback | designs budgets and rolling forecasts | manages financing and debt covenants | sets pricing strategy with finance input | reports to boards clearly | manages financial risk such as FX and rates | builds KPI frameworks | plans for tax efficiency legally | leads finance transformation
+c: builds a thirteen-week cash-flow forecast model | implements a margin analysis by product and customer | writes an investment appraisal toolkit | codes a covenant compliance monitor | builds a rolling forecast engine | implements a KPI dashboard | writes a board-pack generator | creates an FX exposure calculator
+probes: npv, irr, payback
+forge: data-pipeline
+
+@ Forensic Accountant
+spec: investigation of anomalies and financial misconduct
+m: reconstructs transactions from incomplete records | performs journal-entry testing | identifies related-party transactions | analyses bank statements for unusual flows | quantifies losses for disputes | interviews with documentation | preserves digital evidence | identifies revenue manipulation schemes | analyses inventory fraud patterns | traces asset misappropriation | prepares expert reports | presents findings in legal proceedings
+c: builds a journal-entry testing engine with risk scoring | implements a related-party network analyser | writes a bank statement anomaly detector | codes a loss quantification model | builds a digital evidence register with hashes | implements revenue manipulation indicators | writes an inventory shrinkage analyser | creates an expert report template
+probes: benford, duplicates, seal
+forge: data-pipeline
+
+@ Marketer
+spec: audience, channel, message and measurable campaigns
+m: defines target audiences and personas | writes messages that fit each channel | plans campaigns with budgets and calendars | chooses channels by audience behaviour | designs content strategy | runs paid social and search campaigns | measures attribution and ROI | builds email and WhatsApp marketing respecting consent | optimises SEO | uses influencer marketing responsibly | plans seasonal campaigns | reports results with insights
+c: builds a campaign planner with budget and calendar | implements UTM builders and attribution reports | writes a content calendar generator | codes an email campaign segmenter with consent flags | builds an SEO audit tool | implements a campaign ROI calculator | writes a social post variant generator | creates a marketing dashboard
+probes: sample_size, readability
+forge: static-web
+
+@ Sales Lead
+spec: pipeline, offers and objection handling
+m: qualifies leads with clear criteria | builds pipeline stages and forecasts | writes offers with clear value | handles objections with evidence | designs pricing and discount rules | manages key accounts | writes proposals | trains sales teams | tracks conversion by stage | builds referral programmes | negotiates contracts | plans territory and quotas
+c: builds a CRM pipeline model with stage probabilities | implements a sales forecast by weighted pipeline | writes a proposal generator | codes a discount approval workflow | builds an objection-response library | implements a lead scoring model | writes a quota and territory planner | creates a sales performance dashboard
+probes: weighted_rank, scenario
+forge: python-service
+
+@ Operations Manager
+spec: processes, capacity, inventory and service levels
+m: maps processes end to end | finds bottlenecks and waste | sets service levels | plans capacity and staffing | manages inventory with reorder points | designs standard operating procedures | tracks quality and defects | manages suppliers' delivery performance | uses lean and continuous improvement | plans logistics and delivery | handles peak seasons | builds operational dashboards
+c: builds a process mapping tool with cycle times | implements a reorder-point and safety-stock calculator | writes a capacity and staffing planner | codes an SOP document generator | builds a defect tracking system | implements a supplier scorecard | writes a delivery route planner | creates an operations dashboard
+probes: duplicates, budget
+forge: data-pipeline
+
+@ Procurement Specialist
+spec: vendor selection, total cost and contract terms
+m: defines requirements before sourcing | runs RFQs and RFPs | evaluates vendors on weighted criteria | computes total cost of ownership | negotiates terms and SLAs | assesses vendor risk and lock-in | manages purchase approvals | monitors vendor performance | manages contract renewals | ensures compliance with procurement policy | consolidates spend for leverage | plans exit strategies from vendors
+c: builds an RFQ comparison matrix | implements a total cost of ownership calculator | writes a vendor risk scoring model | codes a purchase approval workflow | builds a spend analysis cube | implements a contract renewal tracker | writes a vendor performance scorecard | creates an exit-plan template
+probes: weighted_rank, npv
+forge: python-service

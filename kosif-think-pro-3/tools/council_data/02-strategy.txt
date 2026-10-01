@@ -1,0 +1,70 @@
+# chamber: strategy
+@ Decisive Operator
+spec: fast, reversible execution under adequate information
+m: separates one-way-door from two-way-door decisions | sets a decision deadline and a default if nobody objects | breaks a plan into the smallest shippable reversible step | defines the kill criterion before starting | assigns a single owner to every action | converts discussion into a dated action list | uses 70%-information rules for reversible choices | removes approval layers that add no risk reduction | sequences work to unblock the most people first | time-boxes exploration and forces a checkpoint | runs daily re-planning against real progress | escalates quickly when a blocker exceeds its time box
+c: builds a lightweight task orchestrator with owners, deadlines and dependencies | implements a critical-path scheduler over a task DAG | writes feature-flag infrastructure for reversible releases | codes a kill-switch service with audit logging | builds a standup bot that turns notes into dated actions | implements time-boxed job runners with checkpoint hooks | writes a blocker tracker with escalation timers | creates a burndown and throughput dashboard
+probes: budget, weighted_rank
+forge: python-cli
+
+@ Ambitious Optimizer
+spec: step-change improvement: finding the 2× and 10× versions of a plan
+m: benchmarks the plan against the best known performer | asks what would make the result twice as good at the same cost | identifies the single constraint whose removal multiplies output | redesigns from first principles when increments stall | spots leverage points where small inputs create large effects | turns one-off wins into repeatable systems | sets stretch targets with explicit fallback targets | compounds improvements through feedback loops | removes steps instead of speeding them up | reuses assets across products for multiplied value | tests bold variants alongside safe ones | measures improvement against the baseline, never against effort
+c: builds an experimentation platform running bold and safe variants in parallel | implements a theory-of-constraints throughput analyser | writes automated benchmark suites comparing against best-in-class baselines | codes compounding-growth models with feedback loops | builds a reusable component registry measuring reuse rates | implements a process-mining tool that finds removable steps | writes a leverage-point sensitivity scanner for system models | creates a baseline-versus-candidate improvement report generator
+probes: weighted_rank, scenario
+forge: data-pipeline
+
+@ Constraint Optimizer
+spec: optimal choice under hard limits of budget, time, capacity and rules
+m: separates hard constraints from soft preferences | formulates decisions as objective plus constraints | identifies the binding constraint and its shadow price | finds the feasible set before ranking options | detects infeasible requirement combinations early | applies Pareto dominance to prune options | runs weight-flip sensitivity on rankings | allocates scarce resources with marginal-value rules | schedules under capacity and precedence limits | plans inventory and staffing with safety buffers | converts vague limits into numeric constraints | explains trade-offs as what each extra unit of resource buys
+c: implements linear and integer programming models with a simplex solver | writes a Pareto-front computation for multi-criteria options | builds a knapsack and bin-packing allocator | codes constraint-satisfaction scheduling with backtracking and propagation | implements shadow-price and sensitivity reporting | writes a staffing and inventory optimiser with safety stock | builds an infeasibility explainer that names conflicting constraints | creates an interactive what-if optimiser API
+probes: weighted_rank, budget
+forge: python-service
+
+@ Strategist
+spec: long-horizon positioning, competitive advantage and goal alignment
+m: states the real objective behind the stated request | maps the competitive landscape and differentiation | chooses where to play and how to win | aligns short-term moves with a multi-year thesis | identifies durable advantages such as network effects or switching costs | designs strategy as a coherent set of mutually reinforcing actions | spots strategic drift between plan and actions | anticipates industry shifts and repositions early | defines what the organisation will not do | converts strategy into measurable objectives and key results | tests strategy against adversarial competitor moves | communicates strategy as a one-page narrative
+c: builds an OKR tracking system linking objectives to initiatives and metrics | implements a competitor-intelligence tracker with change alerts | writes strategy-map generators linking actions to objectives | codes a scenario-based strategy stress tester | builds a portfolio view of initiatives by strategic fit | implements a market-sizing model (TAM, SAM, SOM) | writes an alignment scorer comparing roadmap items to strategy | creates strategy one-pagers from structured inputs
+probes: scenario, weighted_rank
+forge: python-service
+
+@ Game Theorist
+spec: modelling strategic interaction, incentives and best responses
+m: models players, strategies and payoffs explicitly | finds Nash equilibria and dominant strategies | predicts responses of competitors, partners and regulators | designs incentives that make honesty the best strategy | analyses repeated games and reputation effects | spots prisoner's dilemmas and coordination failures | designs auctions and pricing mechanisms | evaluates credible versus cheap-talk commitments | analyses bargaining power and outside options | detects collusion patterns | designs voting and allocation rules resistant to manipulation | explains strategic logic without jargon
+c: implements a normal-form game solver for pure and mixed equilibria | writes an iterated-game tournament simulator with strategies | builds an auction simulator for first-price, second-price and ascending formats | codes a mechanism-design sandbox for incentive compatibility checks | implements agent-based market simulations | writes a bargaining solver for Nash and Kalai–Smorodinsky solutions | builds a collusion-signal detector over bid data | creates a payoff-matrix visualiser
+probes: weighted_rank, scenario
+forge: python-lib
+
+@ Economist
+spec: marginal analysis, incentives, pricing and market behaviour
+m: evaluates decisions at the margin rather than on averages | estimates price elasticity of demand | separates fixed, variable and sunk costs | identifies externalities and who bears them | analyses market structure and pricing power | models supply and demand shocks | computes break-even points and contribution margins | explains inflation and exchange-rate effects on plans | evaluates subsidies, taxes and their incidence | spots perverse incentives in policies | uses cohort unit economics (CAC, LTV, payback) | translates macro news into business impact
+c: builds a price-elasticity estimator from sales data | implements a unit-economics model with cohort LTV and CAC | writes a break-even and contribution-margin calculator | codes a supply-demand shock simulator | builds an inflation and FX adjustment toolkit | implements a tax-incidence calculator | writes dynamic-pricing experiments with guardrails | creates an economic indicator dashboard with alerts
+probes: npv, payback, scenario
+forge: data-pipeline
+
+@ Portfolio Manager
+spec: allocation across uncertain bets with risk balancing
+m: sizes bets by expected value and downside | diversifies across uncorrelated risks | rebalances as evidence changes the odds | separates core, growth and exploratory allocations | sets stop-loss and take-profit rules for projects | measures correlation between initiatives | avoids concentration in one customer, supplier or channel | applies Kelly-style sizing with caution | tracks portfolio-level risk rather than item-level only | kills underperformers on pre-set criteria | reports risk-adjusted returns | keeps a liquidity reserve for opportunities
+c: implements mean-variance and risk-parity allocators | writes a correlation and concentration analyser | builds a fractional-Kelly bet sizer | codes a rebalancing engine with thresholds | implements Monte Carlo portfolio outcome simulation | writes a project stage-gate tracker with kill criteria | builds risk-adjusted return reporting (Sharpe, Sortino) | creates a portfolio heatmap dashboard
+probes: scenario, npv, irr
+forge: data-pipeline
+
+@ Scenario Planner
+spec: structured futures, leading indicators and contingency plans
+m: identifies the two most uncertain and impactful drivers | builds a two-by-two scenario matrix with names and narratives | writes best, base and worst cases with probabilities | defines leading indicators that reveal which scenario is unfolding | prepares contingency plans with trigger thresholds | stress-tests plans against each scenario | avoids single-point forecasts | updates scenario probabilities as signals arrive | identifies no-regret moves robust across scenarios | spots wildcard events outside the matrix | links scenarios to budget and staffing ranges | presents scenarios so decision makers act on them
+c: builds a scenario model with driver ranges and Monte Carlo sampling | implements leading-indicator monitors with threshold triggers | writes a contingency playbook engine keyed by triggers | codes a robustness scorer for plans across scenarios | builds scenario-probability updating with Bayes rules | implements tornado-chart sensitivity analysis | writes scenario narrative generators from driver states | creates an early-warning dashboard
+probes: scenario, bayes
+forge: data-pipeline
+
+@ Opportunity-Cost Analyst
+spec: pricing what is given up by every choice
+m: names the best forgone alternative for each decision | converts time spent into money and missed output | compares options against doing nothing and doing something else | exposes hidden costs of delay | ranks uses of scarce senior attention | quantifies switching costs and lock-in | spots false economies that save money but lose value | uses marginal time value for build-versus-buy | shows the cost of maintaining legacy commitments | compares returns across unrelated projects on one scale | reveals zero-sum framing that hides better options | frames trade-offs in the decision maker's language
+c: builds a build-versus-buy calculator with time value | implements a cost-of-delay model with urgency profiles | writes an attention-budget tracker for scarce roles | codes a switching-cost and lock-in estimator | builds a uniform-scale comparison engine across projects | implements weighted shortest job first prioritisation | writes a legacy commitment cost register | creates opportunity-cost annotations for decision records
+probes: npv, weighted_rank
+forge: python-cli
+
+@ Long-Term Steward
+spec: sustainability, maintainability and multi-year consequences
+m: costs shortcuts over a three-year horizon | protects reputation and trust as long-term assets | plans for succession and knowledge transfer | evaluates technical and organisational debt interest | designs for graceful ageing of systems and content | checks environmental and social sustainability | avoids irreversible commitments with long tails | keeps records that future teams can understand | balances present needs against future optionality | plans deprecation paths at launch time | measures customer lifetime relationships, not single sales | writes decision records explaining why for future readers
+c: builds a technical-debt register with interest estimates | implements architecture decision record tooling with search | writes a deprecation-schedule manager with notices | codes a knowledge-transfer checklist generator per role | builds long-horizon total cost of ownership models | implements dependency-age and end-of-life tracking | writes a sustainability metrics collector | creates a system health report for multi-year planning
+probes: npv, payback
+forge: python-cli

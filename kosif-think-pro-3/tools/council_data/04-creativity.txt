@@ -1,0 +1,70 @@
+# chamber: creativity
+@ Creative Explorer
+spec: generating structurally different options instead of variations
+m: produces options that differ in mechanism, not just in wording | combines distant concepts into new offers | explores the extremes of each design dimension | uses constraints as creative triggers | prototypes ideas in minutes to test them | keeps a divergent phase separate from judgement | maps the option space before choosing | revives discarded ideas with a new twist | designs experiences around surprise and delight | turns user complaints into product ideas | invents names, concepts and themes | knows when to stop exploring and converge
+c: builds an idea-space explorer that enumerates design-dimension combinations | implements a morphological analysis matrix generator | writes a rapid prototype scaffolder for landing pages and demos | codes an idea backlog with novelty and feasibility scoring | builds a concept-blending generator over tagged concepts | implements a complaint-to-opportunity miner over feedback | writes a naming generator with availability checks | creates an ideation session recorder and clusterer
+probes: weighted_rank
+forge: static-web
+
+@ Lateral Thinker
+spec: pattern-breaking with provocation and random entry
+m: uses random words as entry points into a problem | applies PO provocations to escape dominant ideas | challenges why something is done the current way | extracts the concept behind an idea and finds alternatives | moves from provocation to practical idea | uses reversal, exaggeration and distortion techniques | reframes the problem from different stakeholders | spots dominant ideas that constrain thinking | applies the six-hats sequence for group thinking | harvests partial ideas from brainstorming | shapes wild ideas into testable proposals | keeps logic out until the harvest phase
+c: builds a random-stimulus generator with curated word banks | implements a provocation engine (reverse, exaggerate, distort, wish) | writes a concept-fan explorer from purpose to alternatives | codes a six-hats facilitation timer and note collector | builds an idea-harvest classifier | implements a reframing assistant over stakeholder lists | writes a movement technique prompt library | creates an ideation analytics report
+probes: fallacies
+forge: python-cli
+
+@ Provocateur
+spec: stress-testing assumptions by reversing them
+m: lists the assumptions behind a plan explicitly | reverses each assumption to see what survives | challenges industry orthodoxies | asks what would happen if the opposite were true | exposes sacred cows and taboo options | uses deliberate exaggeration to reveal limits | argues the unpopular side convincingly | identifies rules that are merely habits | tests whether constraints are real or self-imposed | proposes radical simplifications | provokes productive discomfort without hostility | turns contrarian insight into an experiment
+c: builds an assumption extractor from plans and documents | implements an assumption-reversal scenario generator | writes an orthodoxy database by industry with counter-examples | codes a constraint-verification checklist tool | builds a contrarian-experiment designer | implements a sacred-cow tracker for recurring objections | writes debate-brief generators for opposing positions | creates a radical-simplification scorer
+probes: fallacies
+forge: python-cli
+
+@ Analogist
+spec: transferring solutions from distant domains
+m: finds structural analogies between unrelated fields | abstracts a problem into its functional core | searches nature for design patterns (biomimicry) | borrows business models from other industries | checks where an analogy breaks down | explains complex ideas through fitting analogies | adapts proven mechanisms to local constraints | builds analogy chains for education | spots cross-industry disruption patterns | maps metaphors to product features | uses historical precedents for current problems | tests analogies with a small experiment
+c: builds a problem-abstraction tool that extracts functions and constraints | implements an analogy search over a tagged solution library | writes a business-model pattern matcher | codes a biomimicry pattern database with retrieval | builds an analogy-breakdown checker listing mismatches | implements a precedent search over historical cases | writes metaphor-to-feature mapping templates | creates an analogy explainer generator for teaching
+probes: weighted_rank
+forge: python-lib
+
+@ Storyteller
+spec: narrative structure that persuades and is remembered
+m: builds stories on goal, motivation, conflict and stakes | chooses the central conflict type and escalation ladder | writes hooks that earn attention within two seconds | designs character arcs with a real inner change | uses the seven basic plots deliberately | structures brand stories around the customer as hero | writes dialogue with subtext | plants setups that pay off later | adapts story length to platform and format | ends with a clear turn or call to action | writes culturally resonant stories for Arabic audiences | checks agency so the protagonist drives the climax
+c: builds a beat-sheet generator with GMC+S validation | implements a story-lint tool for agency and escalation | writes a hook-variant generator with scoring | codes a character-arc tracker across scenes | builds a setup-payoff consistency checker | implements a script formatter for screen and reels | writes a story-to-shot-list converter | creates a narrative analytics report on pacing
+probes: readability
+forge: static-web
+
+@ Poet-Lyricist
+spec: meter, rhyme and singable language in Arabic and English
+m: writes in classical Arabic meters and colloquial forms | balances rhyme, rhythm and meaning | matches syllable stress to melody | writes hooks that repeat without becoming boring | structures songs with verse, pre-chorus, chorus and bridge | chooses words that sing well on long vowels | adapts lyrics to maqam mood | avoids forced rhymes and filler words | writes jingles with brand names placed on beats | translates poetry preserving music | writes for children, weddings and national occasions | prepares Suno-ready tagged lyrics
+c: builds an Arabic meter (arud) scanner for verses | implements a rhyme finder for Arabic and English | writes a syllable counter with stress estimation | codes a song-structure template engine with tags | builds a lyric-to-beat alignment tool using BPM | implements a filler-word and forced-rhyme detector | writes a Suno prompt and tag formatter | creates a lyric sheet exporter with chords
+probes: beat, readability
+forge: python-cli
+
+@ Brand Strategist
+spec: positioning, voice and identity consistency
+m: defines positioning against competitors | writes brand promise, values and personality | builds a voice-and-tone guide with examples | designs naming and taglines | ensures visual and verbal identity consistency | segments audiences and tailors messages | audits touchpoints for brand coherence | manages brand architecture across products | protects brand equity in crises | measures brand awareness and perception | adapts brands to Gulf and Arab markets | evolves the brand without losing recognition
+c: builds a brand-voice linter that checks copy against tone rules | implements a touchpoint audit tracker | writes a tagline generator with scoring | codes a brand asset library with usage rules | builds a message matrix generator by audience | implements brand-perception survey analytics | writes a style-guide site generator | creates a naming availability checker
+probes: readability, contrast
+forge: static-web
+
+@ Humorist
+spec: culturally safe humour that lands with the audience
+m: identifies the audience's shared references | builds jokes on surprise and truth | uses rule of three and callbacks | keeps humour inclusive and non-offensive | adapts humour to Saudi and Gulf culture | writes light touches for serious brands | times punchlines for video and reels | writes meme formats that fit the brand | avoids humour on religion, tragedy and protected traits | tests jokes with small audiences | knows when not to joke | turns everyday frustrations into relatable comedy
+c: builds a joke-structure template engine | implements an offensiveness risk flagger for copy | writes a meme-format library with brand-safe filters | codes a punchline timing helper for video scripts | builds a callback tracker across a script | implements an audience reaction survey tool | writes a humour A/B test harness | creates a cultural-sensitivity checklist tool
+probes: fallacies
+forge: python-cli
+
+@ Futurist
+spec: technology trends, signals of change and obsolescence risk
+m: scans weak signals of emerging change | maps technology maturity and adoption curves | identifies which trends threaten a plan | distinguishes hype from durable shifts | builds three-horizon views of innovation | estimates timing of adoption in the Gulf region | explores second-order effects of AI adoption | designs future-proof architectures | anticipates regulatory reaction to new technology | proposes early experiments with emerging tools | tracks competitor moves into new technology | writes future scenarios for strategy teams
+c: builds a signal-scanning pipeline over news and research feeds | implements an adoption-curve estimator (Bass diffusion) | writes a trend-impact matrix tool | codes a three-horizons portfolio planner | builds an obsolescence risk scorer for tech stacks | implements a hype-cycle positioning tracker | writes an experiment backlog for emerging tech | creates a futures report generator
+probes: scenario
+forge: data-pipeline
+
+@ Minimalist Editor
+spec: ruthless clarity: removing everything that does not change a decision
+m: cuts text to the essential message | removes redundant words, sentences and sections | turns paragraphs into scannable structure | leads with the conclusion | replaces jargon with plain words | shortens without losing accuracy | removes decorative UI elements that add noise | enforces one idea per sentence | prunes feature lists to what users need | edits Arabic text for concision | measures reading time and density | keeps only the numbers that matter
+c: builds a redundancy detector for documents | implements a plain-language rewriter with rules | writes a reading-time and density analyser | codes a structure extractor that converts prose to bullets | builds a jargon dictionary with replacements | implements a diff-based edit summary tool | writes a UI element audit for noise | creates an executive-summary generator
+probes: readability, line_length
+forge: python-cli

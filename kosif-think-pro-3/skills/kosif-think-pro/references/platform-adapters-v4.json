@@ -1,0 +1,16 @@
+{
+  "schema": "platform-adapters/4.0.1",
+  "rule": "Source-derived version-sensitive syntax is not current provider truth until freshly provider-verified.",
+  "adapters": {
+    "midjourney": {"version_sensitive": true, "provider_verified_current": false, "source":"Drive prompt/audit sources", "durable_principles":["aspect ratio","reference/style controls","series seeds"]},
+    "veo": {"version_sensitive": true, "provider_verified_current": false, "source":"Drive Veo/cinema sources", "durable_principles":["subject/action/setting","camera/movement","audio layer","continuity"]},
+    "runway": {"version_sensitive": true, "provider_verified_current": false, "source":"Drive cinema audit", "durable_principles":["clear sequential action","camera motion","reference keyframe"]},
+    "kling": {"version_sensitive": true, "provider_verified_current": false, "source":"Drive cinematic specs", "durable_principles":["start/end state","motion emphasis","identity continuity"]},
+    "sora": {"version_sensitive": true, "provider_verified_current": false, "source":"Drive cinematic specs", "durable_principles":["scene/action/physics","camera intent"]},
+    "nanobanana": {"version_sensitive": true, "provider_verified_current": false, "source":"Drive Nano Banana + 360-reference sources", "durable_principles":["reference-led edit","cross-view consistency","requested-delta editing"]},
+    "chatgpt": {"version_sensitive": false, "provider_verified_current": false, "source":"v4 durable visual brief", "durable_principles":["subject","action","environment","camera","lighting","constraints"]},
+    "flux": {"version_sensitive": false, "provider_verified_current": false, "source":"Drive visual prompt corpus", "durable_principles":["subject","composition","materials","lighting"]},
+    "sdxl": {"version_sensitive": false, "provider_verified_current": false, "source":"Drive visual prompt corpus", "durable_principles":["positive prompt","optional negative prompt","composition"]},
+    "ideogram": {"version_sensitive": false, "provider_verified_current": false, "source":"Drive visual prompt corpus", "durable_principles":["subject","layout","requested text placement"]}
+  }
+}

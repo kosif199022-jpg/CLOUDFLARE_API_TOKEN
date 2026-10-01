@@ -1,37 +1,28 @@
 # Changelog
 
-## 3.2.0 — 2026-09-30 (second book batch + Claude edition)
-### Added
-- inference-and-comprehension.md (Impact 1 reading cycle, Outcomes hedging/picture vocabulary), counterfactual-reasoning.md (Cursed Child case), reasoning-examples.md (10 worked patterns), calibration_check.py.
-- Booker's seven plots + Overcoming-the-Monster stages in story_lint; calibrated interpretation in kosif-vision.
-- Commands /understand /whatif /calibrate /examples.
-- Claude edition: tools/build_claude_skill.py → dist-claude/kosif-think-pro(.skill|.zip), single SKILL.md with references/domains/*, validated with the skill-creator validator; installed at repo .claude/skills/kosif-think-pro.
-- Library ledger: second batch (Cursed Child, Impact 1, Outcomes Unit 1, ACM 10 unreadable, Cambridge duplicate).
-### Changed
-- regression_self_test.py is layout-agnostic (plugin or Claude skill); 84 → 95 (plugin) / 96 (Claude).
+## 4.1.0 — 2026-10-01
+### Merged
+- Restored the rich 3.4 KCL/Council-100/Project Forge implementations and full Prompt/Web/GitHub/Computer/Jev expert helpers alongside the v4 truth-first layer.
+- Kept v4.0.1 Source Atlas dedup weighting, adapter truth, identity verification and secret-sanitization fixes.
 
-## 3.1.0 — 2026-09-30 (library reading pass)
 ### Added
-- references/books/: library index + per-book analysis for all 18 Drive files (coverage, contamination test, status, transfer).
-- kosif-audit-ifrs skill: ledger_check.py, standards-controls, CAM template, filing-source registry, Arabic IFRS terms, DipIFR practice map.
-- kosif-video: story-conflict.md + story_lint.py (GMC+S, six central conflicts, four levels, agency, escalation, 80/20).
-- kosif-image-studio: character-psychology.md (FFM 30 facets, visible cues, CAPS if-then signatures, SDT) → Personality Lock.
-- kosif-code-master: pragmatic-principles.md (70 tips grouped, checklists, /ml methodology, optimisation ladder, SICP notes); /design-review, /ml.
-- kosif-think-pro: bias-firewall.md, ideate.py, decision_sensitivity.py, probability_coherence.py; /ideate /decide /bias /library; facet-grounded Personality Council.
-### Changed
-- book-source-ledger.md corrected: Judgment → TOC-only advertisement; Convex → ch.1 only; Designing Bots → contaminated confirmed; coverage notes for Code Complete, Deep Learning.
-- Regression suite 65 → 84; manifests 3.1.0.
+- Unified Tool-Swap / Action / Data `risk_gate.py`.
+- Provenance-preserving `pro_receipt_builder.py` with same-request authorization checks and no fabricated completion.
+- Dedicated risk/receipt self-tests and CI coverage across both the 3.4 behavioral baseline and v4 truth controls.
+- Green GitHub Actions package artifact as the release source of truth.
 
-## 3.0.0 — 2026-09-30
+## 4.0.1 — 2026-10-01
+### Fixed
+- Exact duplicate records now collapse **retrieval weight**, not just appear in a duplicate report.
+- Missing SHA-256 values are deterministically computed from source text for atlas use.
+- Platform adapter misrouting for ChatGPT/Flux/SDXL/Ideogram/Sora/Nano Banana.
+- Unverified Midjourney version flags are retained only as source syntax, not asserted as current compiled syntax.
+- Per-artifact identity checks no longer require all five 360° reference views to be visible in one frame.
+- Stale “KOSIF Think Pro 3” wording in the v4 manifest default prompt.
 ### Added
-- Expert Studio skills: kosif-vision, kosif-image-studio, kosif-lighting, kosif-audio, kosif-code-master, kosif-video.
-- Helpers: image_analyze.py, prompt_lint.py, light_calc.py, audio_analyze.py, code_scan.py.
-- Core helpers: evidence_consistency_check.py (typed validators), artifact_normalize.py, version_check.py + references/version-compat.json.
-- references/expert-studio.md; /help /pro /deep /verify /selftest /versions commands.
-- tools/build_zip.py reproducible, validated package build.
-### Changed
-- pro_receipt_verify.py: trace 3.0, separate `structurally_valid` and `completion_ready`; exit 0 only when completion-ready.
-- regression_self_test.py: 17 → 65 cases; optional-library tests are reported as skipped, never passed.
-- Manifests: v3.0.0, short description ≤ 30 chars.
-### Preserved
-- 28-module registry, 14-profile Council, source-taint, capability provenance, dissent ledger, bounded budgets, execution contract, known-answer 92 regression, Ronin-duck regression.
+- `secret_sanitize.py` reusable import/publish gate.
+- Machine-readable `v4-source-atlas.seed.json` and `v4-capability-registry.seed.json`.
+- `reconciliation-4.0.1.md` and deterministic `reconcile_401_self_test.py`.
+
+## 4.0.0 — 2026-10-01
+- Capability Truth Registry, Source Atlas, adaptive Council-100, Project Forge 4, freshness-aware Prompt Forge, Identity Reference Set, Artifact QA and five host-aware expert skills.

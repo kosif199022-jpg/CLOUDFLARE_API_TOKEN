@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""KOSIF Pro receipt validator v3.0.
+"""KOSIF Pro receipt validator v3.0 (+ optional Council-100 block, v3.3).
 Validates internal structural/provenance consistency only. It does not prove truth,
 provider identity, host/kernel enforcement, or cryptographic authenticity.
 
@@ -98,6 +98,13 @@ def validate(obj):
             issues.append("trace 3.0 requires consistency.checked=true (evidence_consistency_check.py)")
         elif not isinstance(cons.get("quarantined",[]),list):
             issues.append("consistency.quarantined must be a list of values")
+    council=obj.get("council")
+    if council is not None:
+        if not isinstance(council,dict): issues.append("council must be an object")
+        else:
+            if council.get("aggregate_verdict") not in {"proceed","revise","escalate"}: issues.append("council.aggregate_verdict must be proceed/revise/escalate")
+            if not isinstance(council.get("size"),int) or not 1<=council["size"]<=100: issues.append("council.size must be an int in 1..100")
+            if not isinstance(council.get("seals_verified"),bool): issues.append("council.seals_verified must be boolean")
     return {"ok":not issues,"structurally_valid":not issues,"issues":issues,**completion(obj,not issues)}
 
 def completion(obj,structural):
@@ -115,6 +122,10 @@ def completion(obj,structural):
     if final is not None and str(final) in {str(q) for q in cons.get("quarantined",[]) or []}:
         blockers.append(f"final_answer {final!r} was quarantined by the consistency gate")
     if cons.get("evidence_conflict"): blockers.append("independent evidence conflict unresolved")
+    council=obj.get("council")
+    if isinstance(council,dict):
+        if council.get("aggregate_verdict")!="proceed": blockers.append(f"council verdict is {council.get('aggregate_verdict')!r}, not proceed")
+        if council.get("seals_verified") is not True: blockers.append("council first-pass seals not verified")
     return {"completion_ready":not blockers,"completion_blockers":blockers}
 
 def main():
