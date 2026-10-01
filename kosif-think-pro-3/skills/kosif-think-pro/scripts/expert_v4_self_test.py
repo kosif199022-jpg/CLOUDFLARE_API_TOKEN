@@ -50,6 +50,6 @@ def run():
     check('rich-jev-redacts-pii','a@b.co' not in blob)
 
     failed=[n for n,c in tests if not c]
-    print(json.dumps({'ok':not failed,'passed':sum(c for _,c in tests),'total':len(tests),'failed':failed,'version':'4.0.1-merge'},sort_keys=True))
+    print(json.dumps({'ok':not failed,'passed':sum(c for _,c in tests),'total':len(tests),'failed':failed,'version':'4.1.0-merge'},sort_keys=True))
     return 0 if not failed else 1
 if __name__=='__main__': raise SystemExit(run())
